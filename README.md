@@ -1,1 +1,1 @@
-# dotfiles
+# Rick's dotfiles
