@@ -1,8 +1,8 @@
-if vim.g.vscode then
-else
 	require("rick.plugins-setup")
 	require("rick.core.options")
 	require("rick.core.keymaps")
+if vim.g.vscode then
+else
 	require("rick.core.colorscheme")
 	require("rick.plugins.comment")
 	require("rick.plugins.nvim-tree")
