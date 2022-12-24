@@ -1,10 +1,10 @@
 	require("rick.plugins-setup")
 	require("rick.core.options")
 	require("rick.core.keymaps")
+	require("rick.plugins.comment")
 if vim.g.vscode then
 else
 	require("rick.core.colorscheme")
-	require("rick.plugins.comment")
 	require("rick.plugins.nvim-tree")
 	require("rick.plugins.lualine")
 	require("rick.plugins.telescope")
