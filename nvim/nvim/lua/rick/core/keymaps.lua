@@ -7,8 +7,8 @@ local keymap = vim.keymap -- for conciseness
 -- General Keymaps
 ---------------------
 -- save and exit with leader key
-keymap.set('n','<leader>w',':w<CR>')
-keymap.set('n','<leader>q',':q<CR>')
+keymap.set("n", "<leader>w", ":w<CR>")
+keymap.set("n", "<leader>q", ":q<CR>")
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
@@ -18,7 +18,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
-keymap.set("n", "s", '"_s')
+-- keymap.set("n", "s", '"_s')
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>") -- increment

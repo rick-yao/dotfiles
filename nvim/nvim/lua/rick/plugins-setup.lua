@@ -62,6 +62,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- leap.nvim
+	use("ggandor/leap.nvim")
+
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
 
