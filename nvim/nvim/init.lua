@@ -2,7 +2,6 @@ require("rick.plugins-setup")
 require("rick.core.options")
 require("rick.core.keymaps")
 require("rick.plugins.comment")
-require("leap").add_default_mappings()
 
 if vim.g.vscode then
 else
@@ -18,6 +17,7 @@ else
 	require("rick.plugins.autopairs")
 	require("rick.plugins.treesitter")
 	require("rick.plugins.gitsigns")
+	require("leap").add_default_mappings()
 end
 -- gcc to comment Commnet
 -- ys w to surround a word
