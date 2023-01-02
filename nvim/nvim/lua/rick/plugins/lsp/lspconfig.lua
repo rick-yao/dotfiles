@@ -63,13 +63,21 @@ lspconfig["html"].setup({
 })
 
 -- configure typescript server with plugin
-typescript.setup({
-  server = {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  },
+-- typescript.setup({
+--   server = {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--   },
+-- })
+lspconfig.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      importModuleSpecifierPreference = "non-relative"
+    }
+  }
 })
-
 -- configure css server
 lspconfig["cssls"].setup({
   capabilities = capabilities,
