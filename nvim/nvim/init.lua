@@ -17,3 +17,7 @@ else
 	require("rick.plugins.treesitter")
 	require("rick.plugins.gitsigns")
 end
+-- gcc to comment Commnet
+-- ys w to surround a word
+-- gr to replace with clipboard  replacewithregister
+-- lerder ca to import
