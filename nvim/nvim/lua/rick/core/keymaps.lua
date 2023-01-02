@@ -9,7 +9,7 @@ local keymap = vim.keymap -- for conciseness
 -- save and exit with leader key
 keymap.set("n", "<leader>w", ":w<CR>")
 keymap.set("n", "<leader>q", ":q<CR>")
-
+keymap.set("n", "<leader>wq", ":wq!<CR>")
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
 
