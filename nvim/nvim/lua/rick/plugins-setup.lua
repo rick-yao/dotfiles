@@ -3,7 +3,14 @@ local ensure_packer = function()
 	local fn = vim.fn
 	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		fn.system({
+			"git",
+			"clone",
+			"--depth",
+			"1",
+			"https://github.com/wbthomason/packer.nvim",
+			install_path,
+		})
 		vim.cmd([[packadd packer.nvim]])
 		return true
 	end
@@ -29,15 +36,7 @@ end
 -- add list of plugins to install
 return packer.startup(function(use)
 	-- personal plugins
-	-- change lang when in insert mode
-	use({
-		"ybian/smartim",
-		event = { "InsertEnter" },
-		config = function()
-			-- default IME mode
-			vim.g.smartim_default = "com.apple.keylayout.ABC"
-		end,
-	})
+
 	-- packer can manage itself
 	use("wbthomason/packer.nvim")
 
@@ -52,6 +51,16 @@ return packer.startup(function(use)
 	-- essential plugins
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
 	use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
+
+	-- change lang when in insert mode
+	use({
+		"ybian/smartim",
+		event = { "InsertEnter" },
+		config = function()
+			-- default IME mode
+			vim.g.smartim_default = "com.apple.keylayout.ABC"
+		end,
+	})
 
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
@@ -98,7 +107,9 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			local ts_update = require("nvim-treesitter.install").update({
+				with_sync = true,
+			})
 			ts_update()
 		end,
 	})
@@ -109,6 +120,19 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+
+	-- todo highlight
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup({
+				-- your configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			})
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
