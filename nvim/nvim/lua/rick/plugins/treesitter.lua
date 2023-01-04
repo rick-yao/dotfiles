@@ -38,6 +38,19 @@ treesitter.setup({
 		"dockerfile",
 		"gitignore",
 	},
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+		config = {
+			javascript = {
+				__default = "// %s",
+				jsx_element = "{/* %s */}",
+				jsx_fragment = "{/* %s */}",
+				jsx_attribute = "// %s",
+				comment = "// %s",
+			},
+		},
+	},
 	-- auto install above language parsers
 	auto_install = true,
 })
