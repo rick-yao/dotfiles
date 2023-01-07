@@ -112,6 +112,7 @@ alias gck='git checkout'
 alias vim="nvim"
 alias vm="nvim"
 alias tma="tmux a -t"
+alias tml="tmux ls"
 # theme
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit
