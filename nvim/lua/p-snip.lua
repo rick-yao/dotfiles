@@ -13,14 +13,14 @@ local d = ls.dynamic_node
 local sn = ls.snippet_node
 
 ls.add_snippets('typescriptreact', {
-  s('log', {
+  s('clog', {
     t('console.log('),
     i(1, ''),
     t(','),
     i(2, ''),
     t(')'),
   }),
-  s('rc', {
+  s('rfc', {
     t('export type '),
     i(1),
     t('Props = {}'),
