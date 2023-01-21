@@ -20,5 +20,5 @@ else
   require('gcomment')
   require('leap').add_default_mappings()
   -- require('style')
-  -- require('other')
+  require('other')
 end

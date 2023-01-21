@@ -108,6 +108,9 @@ return packer.startup(function(use)
   -- leap.nvim
   use("ggandor/leap.nvim")
 
+  -- git integration
+  use("lewis6991/gitsigns.nvim")
+
   -- tabout
   use {
     'abecodes/tabout.nvim',
