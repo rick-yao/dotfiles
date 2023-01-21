@@ -100,6 +100,11 @@ return packer.startup(function(use)
     }
   })
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+
+  -- commenting with gc
+  use("numToStr/Comment.nvim")
+  use("JoosepAlviste/nvim-ts-context-commentstring") -- work with comment to support tsx jsx and the like
+
   if packer_bootstrap then
     require("packer").sync()
   end
