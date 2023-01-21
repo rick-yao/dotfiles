@@ -79,6 +79,27 @@ return packer.startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
 
   use 'jose-elias-alvarez/typescript.nvim'
+  use 'jose-elias-alvarez/null-ls.nvim'
+
+  use 'nvim-treesitter/nvim-treesitter'
+
+  use 'windwp/nvim-ts-autotag'
+  use 'axelvc/template-string.nvim'
+
+  use 'j-hui/fidget.nvim'
+  use 'folke/todo-comments.nvim'
+  use({
+    "folke/noice.nvim",
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  })
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   if packer_bootstrap then
     require("packer").sync()
   end
