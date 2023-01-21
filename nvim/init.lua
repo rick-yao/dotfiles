@@ -18,6 +18,7 @@ else
   require('p-treesitter')
   require('p-ufo')
   require('gcomment')
+  require('leap').add_default_mappings()
   -- require('style')
   -- require('other')
 end

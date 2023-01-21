@@ -105,6 +105,9 @@ return packer.startup(function(use)
   use("numToStr/Comment.nvim")
   use("JoosepAlviste/nvim-ts-context-commentstring") -- work with comment to support tsx jsx and the like
 
+  -- leap.nvim
+  use("ggandor/leap.nvim")
+
   if packer_bootstrap then
     require("packer").sync()
   end
