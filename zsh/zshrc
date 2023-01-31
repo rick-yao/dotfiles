@@ -136,3 +136,14 @@ alias hideFiles="defaults write com.apple.finder AppleShowAllFiles -boolean fals
 
 #delete huge amount of files
 alias batchDelete="rsync --delete-before -d"
+
+#android studio
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+#ruby
+eval "$(rbenv init - zsh)"
+
+#brew
+alias brewcl="brew cleanup -s --prune=all"
