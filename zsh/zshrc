@@ -122,9 +122,6 @@ prompt pure
 #yarn
 export PATH=$PATH:/Users/rick/.yarn/bin
 
-#custom path
-export PATH=$PATH:/Users/rick/customBin
-
 #nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -147,3 +144,8 @@ eval "$(rbenv init - zsh)"
 
 #brew
 alias brewcl="brew cleanup -s --prune=all"
+alias brewup="brew upgrade; brewcl"
+
+#clean 
+alias clcache="yarn cache clean; npm cache clean -force;pnpm store prune; brewcl;"
+export PATH="/opt/homebrew/opt/protobuf@3/bin:$PATH"
