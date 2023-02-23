@@ -1,24 +1,22 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+vim.g.mapleader = ' '
+
 if vim.g.vscode then
 else
-  require('base')
-  require('maps')
-  require('plugins')
-  require('p-mason')
-  require('p-lsp')
-  require('p-tree')
-  require('color')
-  require('text')
-  require('p-lualine')
-  require('p-telescope')
-  require('p-bookmark')
-  require('p-lspkind')
-  require('p-cmp')
-  require('p-null')
-  require('p-snip')
-  require('p-treesitter')
-  require('p-ufo')
-  require('gcomment')
-  require('leap').add_default_mappings()
-  -- require('style')
-  require('other')
+  require('lazy').setup('plugins')
+  require('base/base')
+  require('base/maps')
+  require('base/color')
 end
