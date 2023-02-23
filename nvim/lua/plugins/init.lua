@@ -1,5 +1,4 @@
 return {
-  "williamboman/mason.nvim",
   'sainnhe/everforest',
   'rmagatti/alternate-toggler',
   'windwp/nvim-autopairs',
@@ -36,6 +35,7 @@ return {
 
   -- git integration
   "lewis6991/gitsigns.nvim",
+  -- "williamboman/mason.nvim",
 
   "christoomey/vim-tmux-navigator", -- tmux & split window navigation)
 }
