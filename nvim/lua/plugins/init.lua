@@ -4,7 +4,6 @@ return {
   'windwp/nvim-autopairs',
   'mg979/vim-visual-multi',
   'gcmt/wildfire.vim',
-  'tpope/vim-surround',
 
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
