@@ -17,8 +17,7 @@ if vim.g.vscode then
   require('lazy').setup('plugins.leap')
   require('lazy').setup('base.base')
   require('lazy').setup('base.maps')
-  -- require('lazy').setup('plugins.treesitter')
-  -- require('lazy').setup('plugins.comment')
+  vim.cmd([[source $HOME/.config/nvim/lua/vscode/settings.vim]])
 else
   require('lazy').setup('plugins')
   require('base.base')
