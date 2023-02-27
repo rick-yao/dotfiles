@@ -28,8 +28,8 @@ return {
   { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async' },
 
   -- commenting with gc
-  "numToStr/Comment.nvim",
-  "JoosepAlviste/nvim-ts-context-commentstring", -- work with comment to support tsx jsx and the like
+  -- "numToStr/Comment.nvim",
+  -- "JoosepAlviste/nvim-ts-context-commentstring", -- work with comment to support tsx jsx and the like
 
   -- "ggandor/leap.nvim",
 

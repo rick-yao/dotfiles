@@ -14,6 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = ' '
 
 if vim.g.vscode then
+  require('lazy').setup('plugins.leap')
+  require('lazy').setup('plugins.treesitter')
+  require('lazy').setup('plugins.comment')
 else
   require('lazy').setup('plugins')
   require('base/base')

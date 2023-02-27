@@ -1,14 +1,8 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
 	config = function()
-		-- import nvim-treesitter plugin safely
-		local status, treesitter = pcall(require, "nvim-treesitter.configs")
-		if not status then
-			return
-		end
-
 		-- configure treesitter
-		treesitter.setup({
+		require("nvim-treesitter.configs").setup({
 			-- enable syntax highlighting
 			highlight = {
 				enable = true,
