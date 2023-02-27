@@ -15,6 +15,7 @@ vim.g.mapleader = ' '
 
 if vim.g.vscode then
   require('lazy').setup('plugins.leap')
+  require('lazy').setup('plugins.surround')
   require('lazy').setup('base.base')
   require('lazy').setup('base.maps')
   vim.cmd([[source $HOME/.config/nvim/lua/vscode/settings.vim]])
