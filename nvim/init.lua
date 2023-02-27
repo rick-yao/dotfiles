@@ -15,11 +15,13 @@ vim.g.mapleader = ' '
 
 if vim.g.vscode then
   require('lazy').setup('plugins.leap')
+  require('lazy').setup('base.base')
+  require('lazy').setup('base.maps')
   -- require('lazy').setup('plugins.treesitter')
   -- require('lazy').setup('plugins.comment')
 else
   require('lazy').setup('plugins')
-  require('base/base')
-  require('base/maps')
-  require('base/color')
+  require('base.base')
+  require('base.maps')
+  require('base.color')
 end
