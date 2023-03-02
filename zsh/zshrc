@@ -109,6 +109,8 @@ source $ZSH/oh-my-zsh.sh
 alias ea="exa -la --git"
 alias achrome='open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData'
 alias gck='git checkout'
+alias gft='git difftool --no-symlinks --dir-diff'
+alias icat="kitty +kitten icat"
 alias vim="nvim"
 alias vm="nvim"
 alias tma="tmux a -t"
