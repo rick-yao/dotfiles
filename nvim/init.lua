@@ -20,8 +20,8 @@ if vim.g.vscode then
   require('lazy').setup('base.maps')
   vim.cmd([[source $HOME/.config/nvim/lua/vscode/settings.vim]])
 else
-  require('lazy').setup('plugins')
   require('base.base')
+  require('lazy').setup('plugins')
   require('base.maps')
   require('base.color')
 end
