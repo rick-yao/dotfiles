@@ -16,3 +16,6 @@
 [submodule "tmux/.tmux/plugins/tmux-continuum"]
 	path = tmux/.tmux/plugins/tmux-continuum
 	url = git@github.com:tmux-plugins/tmux-continuum.git
+[submodule "rime/rime"]
+	path = rime/rime
+	url = git@github.com:rick-yao/rime.git
