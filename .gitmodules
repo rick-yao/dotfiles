@@ -16,6 +16,3 @@
 [submodule "tmux/.tmux/plugins/tmux-continuum"]
 	path = tmux/.tmux/plugins/tmux-continuum
 	url = git@github.com:tmux-plugins/tmux-continuum.git
-[submodule "nvim/AstroNvim"]
-	path = nvim/AstroNvim
-	url = git@github.com:AstroNvim/AstroNvim.git
