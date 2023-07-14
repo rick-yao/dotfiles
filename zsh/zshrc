@@ -111,7 +111,7 @@ alias achrome='open -n /Applications/Google\ Chrome.app/ --args --disable-web-se
 alias gck='git checkout'
 alias gft='git difftool --no-symlinks --dir-diff'
 alias icat="kitty +kitten icat"
-alias vim="nvim"
+alias vim="NVIM_APPNAME=AstroNvim nvim"
 alias vm="nvim"
 alias tma="tmux a -t"
 alias tml="tmux ls"
@@ -148,6 +148,6 @@ eval "$(rbenv init - zsh)"
 alias brewcl="brew cleanup -s --prune=all"
 alias brewup="brew upgrade; brewcl"
 
-#clean 
+#clean
 alias clcache="yarn cache clean; npm cache clean -force;pnpm store prune;pod cache clean --all;brewcl;rm -rf ~/.gradle/cache"
 export PATH="/opt/homebrew/opt/protobuf@3/bin:$PATH"
