@@ -151,3 +151,7 @@ alias brewup="brew upgrade; brewcl"
 #clean
 alias clcache="yarn cache clean; npm cache clean -force;pnpm store prune;pod cache clean --all;brewcl;rm -rf ~/.gradle/cache"
 export PATH="/opt/homebrew/opt/protobuf@3/bin:$PATH"
+
+# fq
+alias fly="env https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
+alias fle="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
