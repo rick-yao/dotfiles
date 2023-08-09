@@ -149,7 +149,7 @@ alias brewcl="brew cleanup -s --prune=all"
 alias brewup="brew upgrade; brewcl"
 
 #clean
-alias clcache="yarn cache clean; npm cache clean -force;pnpm store prune;pod cache clean --all;brewcl;rm -rf ~/.gradle/cache"
+alias cache-clear="yarn cache clean; npm cache clean -force;pnpm store prune;pod cache clean --all;brewcl;rm -rf ~/.gradle/cache"
 export PATH="/opt/homebrew/opt/protobuf@3/bin:$PATH"
 
 # fq
