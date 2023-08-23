@@ -164,4 +164,5 @@ export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 
 # cnpm
 alias cnpm="npm --registry=https://registry.npmmirror.com  --cache=$HOME/.npm/.cache/cnpm  --disturl=https://npmmirror.com/mirrors/node  --userconfig=$HOME/.cnpmrc"
-
+alias cyarn="yarn --registry=https://registry.npmmirror.com"
+# alias cpnpm="pnpm --registry=https://registry.npmmirror.com"
