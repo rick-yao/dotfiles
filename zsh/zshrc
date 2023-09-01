@@ -71,6 +71,7 @@ ZSH_THEME="ys"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
+	zoxide
 	extract
 	zsh-autosuggestions
 	git-open
@@ -173,9 +174,5 @@ alias cnpm="npm --registry=https://registry.npmmirror.com  --cache=$HOME/.npm/.c
 alias cyarn="yarn --registry=https://registry.npmmirror.com"
 # alias cpnpm="pnpm --registry=https://registry.npmmirror.com"
 
-export NODE_OPTIONS=--openssl-legacy-provider
-
-# init zoxide
-eval "$(zoxide init zsh)"
-
+# for zoxide , have to install fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
