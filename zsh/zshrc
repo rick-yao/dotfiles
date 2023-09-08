@@ -110,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 alias ea="exa -la --git"
 alias achrome='open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData'
 alias gck='git checkout'
+alias gsu='git submodule update --remote'
 alias gft='git difftool --no-symlinks --dir-diff'
 alias icat="kitty +kitten icat"
 alias vim="NVIM_APPNAME=AstroNvim nvim"
@@ -173,10 +174,18 @@ export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 # cnpm
 alias cnpm="npm --registry=https://registry.npmmirror.com  --cache=$HOME/.npm/.cache/cnpm  --disturl=https://npmmirror.com/mirrors/node  --userconfig=$HOME/.cnpmrc"
 alias cyarn="yarn --registry=https://registry.npmmirror.com"
-# alias cpnpm="pnpm --registry=https://registry.npmmirror.com"
+# alias cpnpm="pnpm --registry https://registry.npmmirror.com"
 
 # for zoxide , have to install fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # make zoxide default
 alias cd="z"
+
+# pnpm
+export PNPM_HOME="/Users/rick/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
