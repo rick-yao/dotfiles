@@ -158,7 +158,8 @@ pnpm store prune;
 pod cache clean --all;
 brewcl;rm -rf ~/.gradle/cache;
 rm -rf ~/Library/Developer/Xcode/DerivedData;
-rm -rf ~/Library/Developer/Xcode/Archives;"
+rm -rf ~/Library/Developer/Xcode/Archives;
+rm -rf ~/.bun/install/cache/;"
 
 export PATH="/opt/homebrew/opt/protobuf@3/bin:$PATH"
 
