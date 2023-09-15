@@ -107,7 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ea="exa -la --git"
+alias ea="eza -la --git"
 alias achrome='open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData'
 alias gck='git checkout'
 alias gsu='git submodule update --remote'
