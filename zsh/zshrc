@@ -118,6 +118,8 @@ alias vim="NVIM_APPNAME=AstroNvim nvim"
 alias vm="nvim"
 alias tma="tmux a -t"
 alias tml="tmux ls"
+#lazygit
+alias lg="lazygit"
 # theme
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit
