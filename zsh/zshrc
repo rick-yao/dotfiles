@@ -120,6 +120,8 @@ alias tma="tmux a -t"
 alias tml="tmux ls"
 #lazygit
 alias lg="lazygit"
+#pnpm
+alias pm="pnpm"
 # theme
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit
