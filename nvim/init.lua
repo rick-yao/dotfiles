@@ -11,17 +11,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 if vim.g.vscode then
-  require('lazy').setup('plugins.leap')
+  require("lazy").setup("plugins.flash")
   -- require('lazy').setup('plugins.surround')
-  require('lazy').setup('base.base')
-  require('lazy').setup('base.maps')
+  require("lazy").setup("base.base")
+  require("lazy").setup("base.maps")
   vim.cmd([[source $HOME/.config/nvim/lua/vscode/settings.vim]])
 else
-  require('base.base')
-  require('lazy').setup('plugins')
-  require('base.maps')
-  require('base.color')
+  require("base.base")
+  require("lazy").setup("plugins")
+  require("base.maps")
+  require("base.color")
 end
