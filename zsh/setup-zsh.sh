@@ -1,5 +1,5 @@
 # install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # link pure theme
 if [ -d "$HOME/.zsh/" ]; then
 	echo ".zsh文件夹存在"
