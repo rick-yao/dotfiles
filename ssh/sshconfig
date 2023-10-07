@@ -24,8 +24,10 @@ Host aliyun
 	User root
 
 Host github.com
-	Hostname ssh.github.com
-	Port 443
+	# Hostname ssh.github.com
+	# Port 443
+	AddKeysToAgent yes
+  UseKeychain yes
 	IdentityFile ~/.ssh/github_ed25519
 	
 Host infimac
@@ -34,3 +36,6 @@ Host infimac
 
 Host *
     ServerAliveInterval 60
+
+Host *
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
