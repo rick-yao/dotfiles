@@ -28,7 +28,7 @@ Host github.com
 	# Port 443
 	AddKeysToAgent yes
   UseKeychain yes
-	IdentityFile ~/.ssh/github_ed25519
+	IdentityFile ~/.ssh/github_ed
 	
 Host infimac
 	Hostname 192.168.100.45
@@ -36,6 +36,3 @@ Host infimac
 
 Host *
     ServerAliveInterval 60
-
-Host *
-	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
