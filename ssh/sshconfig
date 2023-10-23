@@ -15,6 +15,10 @@ Host gcp-new
 	User root
   port 9774 
 
+Host hysteria
+	HostName  34.125.230.97
+	User abneryaoo
+
 Host openwrt-xian
 	HostName 10.10.10.252
 	User root
@@ -33,6 +37,10 @@ Host github.com
 Host infimac
 	Hostname 192.168.100.45
 	User test
+
+Host infiDebian
+	Hostname 192.168.100.191
+	User yaojian
 
 Host *
     ServerAliveInterval 60
