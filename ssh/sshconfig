@@ -7,8 +7,8 @@ Host *
 	IdentityFile ~/.ssh/ed25519
 
 Host ubuntu-home
-	HostName 10.10.10.230
-  User root
+	HostName 10.10.10.240
+  User rick
 
 Host gcp-new
 	HostName 35.194.130.12
