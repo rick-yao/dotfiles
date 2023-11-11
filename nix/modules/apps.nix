@@ -49,11 +49,11 @@
     # You need to install all these Apps manually first so that your apple account have records for them.
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas 
-    masApps = {
+    # masApps = {
       # NOTE: Feel free to add your favorite apps here. https://github.com/mas-cli/mas to check the app id.
-      Wechat = 836500024;
-      QQ = 451108668;
-    };
+      # Wechat = 836500024;
+      # QQ = 451108668;
+    # };
 
     taps = [
       "homebrew/cask"
