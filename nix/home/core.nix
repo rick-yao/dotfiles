@@ -48,9 +48,6 @@
     # useful in bash/zsh prompt, not in nushell.
     eza = {
       enable = true;
-      enableAliases = true;
-      git = true;
-      icons = true;
     };
 
     # skim provides a single executable: sk.
