@@ -2,6 +2,16 @@
   programs.zsh= {
     enable = true;
     enableCompletion = true;
-	package = pkgs.zsh;
+
+	oh-my-zsh = {
+	  enable = true;
+	  plugins = [ "git" 
+	  "zoxide"
+	  "extract"
+	  "zsh-autosuggestions"
+	  "git-open"
+	  "zsh-syntax-highlighting"
+	  ];
+	};
   };
 }
