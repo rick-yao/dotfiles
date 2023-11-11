@@ -14,7 +14,10 @@
 # darwin-set-proxy:
 # 	sudo python3 scripts/darwin_set_proxy.py
 
-deploy: 
+set-up-config:
+	sh scripts/set_up_config.sh
+
+deploy: set_up_config
 	# NOTE: update hostname here!
 	nix build .#darwinConfigurations.ricks-Virtual-Machine.system \
 		--extra-experimental-features 'nix-command flakes'
