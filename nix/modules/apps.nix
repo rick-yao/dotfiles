@@ -71,10 +71,10 @@
     # `brew install --cask`
     # NOTE: Feel free to add your favorite apps here.
     casks = [
-      # "firefox"
+      "firefox"
       # "google-chrome"
       # "visual-studio-code"
-      # "iina" 
+      "iina" 
       "kitty"
     ];
   };
