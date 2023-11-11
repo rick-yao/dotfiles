@@ -5,7 +5,7 @@ let
   username = "rick";
 in {
   # import sub modules
-  imports = [ ./bash.nix ./core.nix ./git.nix ./starship.nix ];
+  imports = [ ./zsh.nix ./core.nix ./git.nix ./starship.nix ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
