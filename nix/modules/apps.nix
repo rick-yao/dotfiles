@@ -6,8 +6,6 @@
   #
   #  NOTE: Your can find all available options in:
   #    https://daiderd.com/nix-darwin/manual/index.html
-  # 
-  # NOTE: Fell free to modify this file to fit your needs.
   #
   ##########################################################################
 
@@ -44,7 +42,7 @@
     onActivation = {
       autoUpdate = false;
       # 'zap': uninstalls all formulae(and related files) not listed here.
-      cleanup = "zap";
+      # cleanup = "zap";
     };
 
     # Applications to install from Mac App Store using mas.
@@ -52,15 +50,9 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas 
     masApps = {
-      # NOTE: Feel free to add your favorite apps here.
-
-      # Xcode = 497799835;
-      # Wechat = 836500024;
-      # NeteaseCloudMusic = 944848654;
-      # QQ = 451108668;
-      # WeCom = 1189898970;  # Wechat for Work
-      # TecentMetting = 1484048379;
-      # QQMusic = 595615424;
+      # NOTE: Feel free to add your favorite apps here. https://github.com/mas-cli/mas to check the app id.
+      Wechat = 836500024;
+      QQ = 451108668;
     };
 
     taps = [
@@ -74,34 +66,15 @@
     # NOTE: Feel free to add your favorite apps here.
     brews = [
       "wget" # download tool
-      "curl" # no not install curl via nixpkgs, it's not working well on macOS!
-      "aria2" # download tool
-      "httpie" # http client
     ];
 
     # `brew install --cask`
     # NOTE: Feel free to add your favorite apps here.
     casks = [
-      # "firefox"
+      "firefox"
       "google-chrome"
       "visual-studio-code"
-
-      # IM & audio & remote desktop & meeting
-      # "telegram"
-      # "discord"
-
-      # "anki"
-      # "clashx" # proxy tool
-      # "iina" # video player
-      # "openinterminal-lite" # open current folder in terminal
-      # "syncthing" # file sync
-      # "raycast" # (HotKey: alt/option + space)search, caculate and run scripts(with many plugins)
-      # "iglance" # beautiful system monitor
-      # "eudic" # 欧路词典
-
-      # Development
-      # "insomnia" # REST client
-      # "wireshark" # network analyzer
+      "iina" 
     ];
   };
 }
