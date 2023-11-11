@@ -10,11 +10,11 @@
 #
 ############################################################################
 
-#  NOTE: Feel free to remove this target if you don't need a proxy to speed up the build process
-darwin-set-proxy:
-	sudo python3 scripts/darwin_set_proxy.py
+#  NOTE: don't need this , but I keep it just in case
+# darwin-set-proxy:
+# 	sudo python3 scripts/darwin_set_proxy.py
 
-darwin: darwin-set-proxy
+deploy: 
 	# NOTE: update hostname here!
 	nix build .#darwinConfigurations.ricks-Virtual-Machine.system \
 		--extra-experimental-features 'nix-command flakes'
