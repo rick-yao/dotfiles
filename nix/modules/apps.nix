@@ -75,6 +75,7 @@
       "google-chrome"
       "visual-studio-code"
       "iina" 
+      "kitty"
     ];
   };
 }
