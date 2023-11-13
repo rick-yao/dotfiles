@@ -85,6 +85,7 @@
       "amethyst"
       "syntax-highlight"
       "zulu11"
+      "alacritty"
     ];
   };
 }

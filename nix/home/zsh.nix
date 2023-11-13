@@ -10,7 +10,6 @@
 	  "zsh-autosuggestions"
 	  "git-open"
 	  "zsh-syntax-highlighting"
-	  "alacritty"
 	  ];
 	};
   };
