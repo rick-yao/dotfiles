@@ -60,22 +60,31 @@
       "homebrew/cask-fonts"
       "homebrew/services"
       "homebrew/cask-versions"
+      "1password/tap"
+      "oven-sh/bun"
     ];
 
     # `brew install`
     # NOTE: Feel free to add your favorite apps here.
     brews = [
-      "wget" # download tool
+      "pnpm"
+      "telnet"
+      "oven-sh/bun/bun"
+      "nexttrace"
     ];
 
     # `brew install --cask`
     # NOTE: Feel free to add your favorite apps here.
     casks = [
       "firefox"
-      # "google-chrome"
-      # "visual-studio-code"
+      "google-chrome"
+      "visual-studio-code"
       "iina" 
       "kitty"
+      "1password-cli"
+      "amethyst"
+      "syntax-highlight"
+      "zulu11"
     ];
   };
 }

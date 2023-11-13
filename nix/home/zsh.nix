@@ -7,7 +7,6 @@
 	  enable = true;
 	  plugins = [ "git" 
 	  "zoxide"
-	  "extract"
 	  "zsh-autosuggestions"
 	  "git-open"
 	  "zsh-syntax-highlighting"
