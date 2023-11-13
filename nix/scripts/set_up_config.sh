@@ -20,7 +20,26 @@ else
 	echo "The .config directory already exists."
 fi
 
-ln -sf "$HOME/dotfiles/kitty" "$config_dir/kitty"
+link_file "$HOME/dotfiles/kitty" "$config_dir/kitty"
+# ln -sf "$HOME/dotfiles/kitty" "$config_dir/kitty"
 
 sh ../../nvim/installAstroConfig.sh
-ln -sf "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/AstroNvim"
+link_file "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/AstroNvim"
+# ln -sf "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/AstroNvim"
+
+link_file() {
+	# The original file you want to link to
+	target_file="$1"
+	# The symbolic link that you want to create
+	link_name="$2"
+
+	# Check if the symbolic link already exists and points to the correct target file
+	if [ -L "$link_name" ] && [ "$(readlink -f "$link_name")" == "$(readlink -f "$target_file")" ]; then
+		# The symbolic link exists and points to the correct target file
+		echo "The symbolic link $link_name already points to $target_file."
+	else
+		# The symbolic link does not exist or points to a different target, so create or update it
+		ln -sf "$target_file" "$link_name"
+		echo "Symbolic link created or updated: $link_name -> $target_file"
+	fi
+}
