@@ -40,6 +40,6 @@ fi
 link_file "$HOME/dotfiles/kitty" "$config_dir/kitty"
 # ln -sf "$HOME/dotfiles/kitty" "$config_dir/kitty"
 
-sh ../../nvim/installAstroConfig.sh
+sh ../../../nvim/installAstroConfig.sh
 link_file "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/AstroNvim"
 # ln -sf "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/AstroNvim"
