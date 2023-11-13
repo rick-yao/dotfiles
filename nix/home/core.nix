@@ -6,9 +6,6 @@
     ripgrep # recursively searches directories for a regex pattern
     fzf # A command-line fuzzy finder
     yazi
-    zsh-autosuggestions
-	  git-open
-	  zsh-syntax-highlighting
     lazygit
     bat
     btop

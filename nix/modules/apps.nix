@@ -71,6 +71,9 @@
       "telnet"
       "oven-sh/bun/bun"
       "nexttrace"
+      "zsh-autosuggestions"
+	    "git-open"
+	    "zsh-syntax-highlighting"
     ];
 
     # `brew install --cask`
