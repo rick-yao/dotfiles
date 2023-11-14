@@ -16,6 +16,10 @@
     userName = "rick";
     userEmail = "abneryaoo@gmail.com";
 
+    ignores = [
+      ".DS_Store"
+    ];
+
     includes = [{
       # use diffrent email & name for work
       path = "~/work/.gitconfig";
@@ -26,6 +30,7 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;
+      gpg.format = "ssh";
     };
 
     signing = {
@@ -36,11 +41,6 @@
     delta = {
       enable = true;
       options = { features = "side-by-side"; };
-    };
-
-    aliases = {
-      # aliases for submodule
-      update = "submodule update --init --recursive";
     };
   };
 }
