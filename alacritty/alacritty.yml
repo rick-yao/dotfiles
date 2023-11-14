@@ -45,24 +45,24 @@ colors:
 # 设置字体
 font:
   normal:
-    family: "Hack Nerd Font Mono"
+    family: "FiraCode Nerd Font"
     style: Regular
   bold:
-    family: "JetBrains Mono"
+    family: "FiraCode Nerd Font"
     style: Regular
   italic:
-    family: "JetBrains Mono"
+    family: "FiraCode Nerd Font"
     style: Italic
   bold_italic:
-    family: "JetBrains Mono"
+    family: "FiraCode Nerd Font"
     style: Italic
 
   # 字大小
-  size: 22
+  size: 20
 
   offset:
     x: 0
-    y: 8
+    y: 0
   glyph_offset:
     x: 0
     y: 0
