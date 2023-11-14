@@ -19,3 +19,6 @@
 [submodule "nvim/AstroNvim"]
 	path = nvim/AstroNvim
 	url = https://github.com/AstroNvim/AstroNvim.git
+[submodule "nvim/astro-personal-config"]
+	path = nvim/astro-personal-config
+	url = https://github.com/rick-yao/astro-personal-config.git

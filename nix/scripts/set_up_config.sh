@@ -3,6 +3,7 @@
 # Define the path to the .config directory
 config_dir="$HOME/.config"
 
+# check if link already exists , if exists , do noting , if not create link
 link_file() {
 	# The original file you want to link to
 	target_file="$1"
@@ -38,10 +39,9 @@ else
 fi
 
 link_file "$HOME/dotfiles/kitty" "$config_dir/kitty"
-# ln -sf "$HOME/dotfiles/kitty" "$config_dir/kitty"
 
-sh ../../../nvim/installAstroConfig.sh
+# this shell copys custom user config to astro user dir
+link_file "$HOME/dotfiles/nvim/astro-personal-config" "$HOME/dotfiles/nvim/AstroNvim/lua/user"
 link_file "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/nvim"
-# ln -sf "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/AstroNvim"
 
 link_file "$HOME/dotfiles/alacritty" "$config_dir/alacritty"
