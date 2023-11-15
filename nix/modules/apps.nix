@@ -74,6 +74,7 @@
       "zsh-autosuggestions"
 	    "git-open"
 	    "zsh-syntax-highlighting"
+      "font-hack-nerd-font"
     ];
 
     # `brew install --cask`
