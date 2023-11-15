@@ -14,8 +14,8 @@
 	  theme = "robbyrussell";
 	};
 
-	shellAliases ={
-		ea = "eza -la --git"
+	shellAliases = {
+		ea = "eza -la --git";
 	};
 
 	syntaxHighlighting ={
