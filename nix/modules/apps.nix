@@ -74,8 +74,6 @@
       "zsh-autosuggestions"
 	    "git-open"
 	    "zsh-syntax-highlighting"
-      "font-fira-code-nerd-font"
-      "font-jetbrains-mono-nerd-font"
     ];
 
     # `brew install --cask`
@@ -91,6 +89,8 @@
       "syntax-highlight"
       "zulu11"
       "alacritty"
+      "font-fira-code-nerd-font"
+      "font-jetbrains-mono-nerd-font"
     ];
   };
 }
