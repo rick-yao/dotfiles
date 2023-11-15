@@ -11,6 +11,7 @@
 	  "git-open"
 	  "zsh-syntax-highlighting"
 	  ];
+	  theme = "robbyrussell";
 	};
   };
 }
