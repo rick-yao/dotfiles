@@ -1,20 +1,20 @@
 [submodule "zsh/pure"]
 	path = zsh/pure
 	url = https://github.com/sindresorhus/pure.git
-[submodule "tmux/.tmux/plugins/tpm"]
-	path = tmux/.tmux/plugins/tpm
+[submodule "tmux/tmux_plugin/tpm"]
+	path = tmux/tmux_plugin/tpm
 	url = https://github.com/tmux-plugins/tpm.git
-[submodule "tmux/.tmux/plugins/vim-tmux-navigator"]
-	path = tmux/.tmux/plugins/vim-tmux-navigator
+[submodule "tmux/tmux_plugin/vim-tmux-navigator"]
+	path = tmux/tmux_plugin/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
-[submodule "tmux/.tmux/plugins/tmux-themepack"]
-	path = tmux/.tmux/plugins/tmux-themepack
+[submodule "tmux/tmux_plugin/tmux-themepack"]
+	path = tmux/tmux_plugin/tmux-themepack
 	url = https://github.com/jimeh/tmux-themepack.git
-[submodule "tmux/.tmux/plugins/tmux-resurrect"]
-	path = tmux/.tmux/plugins/tmux-resurrect
+[submodule "tmux/tmux_plugin/tmux-resurrect"]
+	path = tmux/tmux_plugin/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
-[submodule "tmux/.tmux/plugins/tmux-continuum"]
-	path = tmux/.tmux/plugins/tmux-continuum
+[submodule "tmux/tmux_plugin/tmux-continuum"]
+	path = tmux/tmux_plugin/tmux-continuum
 	url = https://github.com/tmux-plugins/tmux-continuum.git
 [submodule "nvim/AstroNvim"]
 	path = nvim/AstroNvim
