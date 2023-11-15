@@ -16,6 +16,10 @@
 
 	shellAliases ={
 		ea = "eza -la --git"
+	};
+
+	syntaxHighlighting ={
+		enable = true;
 	}
   };
 }
