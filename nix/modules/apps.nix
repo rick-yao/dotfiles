@@ -74,7 +74,8 @@
       "zsh-autosuggestions"
 	    "git-open"
 	    "zsh-syntax-highlighting"
-      "font-hack-nerd-font"
+      "font-fira-code-nerd-font"
+      "font-jetbrains-mono-nerd-font"
     ];
 
     # `brew install --cask`
