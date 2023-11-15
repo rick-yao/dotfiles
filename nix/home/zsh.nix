@@ -20,6 +20,6 @@
 
 	syntaxHighlighting ={
 		enable = true;
-	}
+	};
   };
 }
