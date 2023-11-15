@@ -13,5 +13,9 @@
 	  ];
 	  theme = "robbyrussell";
 	};
+
+	shellAliases ={
+		ea = "eza -la --git"
+	}
   };
 }
