@@ -11,8 +11,8 @@ Host ubuntu-home
   User rick
 
 Host gcp-new
-	HostName 35.194.130.12
-	User root
+	HostName 35.236.172.235
+	User abneryaoo
   port 9774 
 
 Host hysteria
