@@ -112,3 +112,6 @@ alias f="yazi"
 
 #rust
 export CARGO_HOME="$HOME/.cargo/"
+
+#bat
+export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
