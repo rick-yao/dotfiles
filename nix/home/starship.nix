@@ -20,7 +20,7 @@
       #   format = "on [$symbol$active(\($region\))]($style) ";
       #   symbol = "🅶 ️";
       # };
-      format = concatStrings [
+      format = lib.concatStrings [
           "$username"
           "$package"
           "$hostname"
