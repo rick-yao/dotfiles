@@ -12,7 +12,7 @@
 
 	shellAliases = {
 		ea = "eza -la --git";
-		alias ea="eza -la --git"
+		alias ea="eza -la --git";
 		# achrome="open -n /Applications/Google\ Chrome\ Dev.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData";
 		gck="git checkout";
 		gsu="git submodule update --remote";
