@@ -31,7 +31,7 @@
       };
 
       gpg.format = "ssh";
-      # gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
 
       push.default = "current";
       push.autoSetupRemote = true;
@@ -40,7 +40,7 @@
     signing = {
       key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcijLLEuNPXo3ETb+euCqmvzBlgFOmA092igevTSICB";
       signByDefault = true;
-      gpgPath = "/opt/homebrew/bin/gpg";
+      # gpgPath = "/opt/homebrew/bin/gpg";
     };
 
     delta = {
