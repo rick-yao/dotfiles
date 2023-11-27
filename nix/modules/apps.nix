@@ -85,12 +85,12 @@
       "smartmontools"
       "tmux"
       "wget"
-      "1password-cli"
     ];
 
     # `brew install --cask`
     # NOTE: Feel free to add your favorite apps here.
     casks = [
+      "1password-cli"
       "firefox"
       "google-chrome"
       "visual-studio-code"
