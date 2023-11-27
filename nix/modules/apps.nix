@@ -68,7 +68,7 @@
     # NOTE: Feel free to add your favorite apps here.
     brews = [
       "pnpm"
-      "telnet"
+      # "telnet"
       "oven-sh/bun/bun"
       "nexttrace"
       "zoxide"
