@@ -69,13 +69,14 @@ font:
 
 window:
   padding:
-    x: 10
-    y: 22
-  decorations: transparent
+    x: 0
+    y: 0
+  decorations: Buttonless
   dimensions:
     columns: 230
     lines: 180
   opacity: 0.9
+  dynamic_padding: true
 
 scrolling:
   # 回滚缓冲区中的最大行数,指定“0”将禁用滚动。
