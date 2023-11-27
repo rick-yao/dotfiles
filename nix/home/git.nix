@@ -10,7 +10,6 @@
 
   programs.git = {
     enable = true;
-    lfs.enable = true;
 
     # NOTE: replace with your own name & email
     userName = "rick";
@@ -33,10 +32,10 @@
       gpg.format = "ssh";
     };
 
-    signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcijLLEuNPXo3ETb+euCqmvzBlgFOmA092igevTSICB";
-      signByDefault = true;
-    };
+    # signing = {
+    #   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcijLLEuNPXo3ETb+euCqmvzBlgFOmA092igevTSICB";
+    #   signByDefault = true;
+    # };
 
     delta = {
       enable = true;

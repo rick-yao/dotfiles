@@ -44,7 +44,7 @@
 		cnpm="npm --registry=https://registry.npmmirror.com  --cache=$HOME/.npm/.cache/cnpm  --disturl=https://npmmirror.com/mirrors/node  --userconfig=$HOME/.cnpmrc";
 		f="yazi";
 	};
-	dotDir = ".config/zsh";
-	envExtra = "export AAA = "~/.config/xxx"";
+	# dotDir = ".config/zsh";
+	# envExtra = "export AAA = "~/.config/xxx"";
   };
 }
