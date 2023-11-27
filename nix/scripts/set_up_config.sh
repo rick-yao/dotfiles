@@ -47,3 +47,5 @@ link_file "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/nvim"
 link_file "$HOME/dotfiles/alacritty" "$config_dir/alacritty"
 
 link_file "$HOME/dotfiles/tmux" "$config_dir/tmux"
+
+link_file "$HOME/dotfiles/ssh" "$config_dir/ssh"
