@@ -26,20 +26,24 @@
     }];
 
     extraConfig = {
-      init.defaultBranch = "main";
-      push.autoSetupRemote = true;
-      pull.rebase = true;
-      gpg.format = "ssh";
-    };
+      core = {
+        editor = "nvim";
+      };
 
-    # signing = {
-    #   key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcijLLEuNPXo3ETb+euCqmvzBlgFOmA092igevTSICB";
-    #   signByDefault = true;
-    # };
+      gpg.format = "ssh";
+      gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+
+      push.default = "current";
+      push.autoSetupRemote = true;
+    };
+    
+    signing = {
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcijLLEuNPXo3ETb+euCqmvzBlgFOmA092igevTSICB";
+      signByDefault = true;
+    };
 
     delta = {
       enable = true;
-      options = { features = "side-by-side"; };
     };
   };
 }
