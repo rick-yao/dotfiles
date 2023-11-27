@@ -93,6 +93,7 @@
       "1password-cli"
       "firefox"
       "google-chrome"
+      "google-chrome-dev"
       "visual-studio-code"
       "iina" 
       "kitty"
