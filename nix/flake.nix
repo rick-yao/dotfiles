@@ -70,10 +70,6 @@
           # NOTE: replace "yourusername" with your own username!
           home-manager.users.rick = import ./home;
         }
-        
-        nixpkgs.overlays = [
-          rust-overlay.overlays.default
-        ];
       ];
     };
 
