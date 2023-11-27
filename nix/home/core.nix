@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-  telnet
     # zoxide
     # ripgrep # recursively searches directories for a regex pattern
     # fzf # A command-line fuzzy finder
