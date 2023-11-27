@@ -39,6 +39,7 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
   # The `outputs` function will return all the build results of the flake. 
