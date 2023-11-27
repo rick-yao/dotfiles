@@ -22,6 +22,7 @@ alias icat="kitty +kitten icat"
 alias vim="nvim"
 alias tma="tmux a -t"
 alias tml="tmux ls"
+alias tmk="tmux kill-server"
 #lazygit
 alias lg="lazygit"
 #pnpm
