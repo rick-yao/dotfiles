@@ -85,6 +85,7 @@
       "smartmontools"
       "tmux"
       "wget"
+      "1password-cli"
     ];
 
     # `brew install --cask`
@@ -95,7 +96,7 @@
       "visual-studio-code"
       "iina" 
       "kitty"
-      "1password-cli"
+      "1password"
       "amethyst"
       "syntax-highlight"
       "zulu11"
