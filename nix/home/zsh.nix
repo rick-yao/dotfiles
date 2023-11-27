@@ -45,8 +45,6 @@
 		f="yazi";
 	};
 	dotDir = ".config/zsh";
-	envExtra ={
-		AAA = "~/.config";
-	};
+	envExtra = "export AAA = "~/.config/xxx"";
   };
 }
