@@ -2,19 +2,19 @@
 
 {
   home.packages = with pkgs; [
-    zoxide
-    ripgrep # recursively searches directories for a regex pattern
-    fzf # A command-line fuzzy finder
-    yazi
-    lazygit
-    bat
-    btop
-    cocoapods
-    fastlane
-    fd
-    smartmontools
-    tmux
-    wget
+    # zoxide
+    # ripgrep # recursively searches directories for a regex pattern
+    # fzf # A command-line fuzzy finder
+    # yazi
+    # lazygit
+    # bat
+    # btop
+    # cocoapods
+    # fastlane
+    # fd
+    # smartmontools
+    # tmux
+    # wget
   ];
 
   programs = {
