@@ -17,7 +17,7 @@ darwin-set-proxy:
 set-up-config:
 	sh scripts/set_up_config.sh
 
-deploy: set-up-config darwin_set_proxy
+deploy: set-up-config
 	# NOTE: update hostname here!
 	nix build .#darwinConfigurations.ricks-Virtual-Machine.system \
 		--extra-experimental-features 'nix-command flakes'
