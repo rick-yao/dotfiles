@@ -47,6 +47,6 @@
 	dotDir = ".config/zsh";
 	envExtra ={
 		AAA = "~/.config";
-	}
+	};
   };
 }
