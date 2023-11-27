@@ -5,5 +5,5 @@
     extraConfig = ''
       Include $HOME/.config/ssh/sshconfig
     '';
- }
+ };
 }
