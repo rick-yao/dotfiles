@@ -22,7 +22,4 @@ in {
   };
 
   nix.settings.trusted-users = [ username ];
-  nixpkgs.overlays = [
-    rust-overlay.overlays.default
-  ];
 }
