@@ -69,22 +69,11 @@
     brews = [
       "pnpm"
       "gpg"
-      # "telnet"
+      "telnet"
       "oven-sh/bun/bun"
       "nexttrace"
-      "zoxide"
-      "ripgrep" # recursively searches directories for a regex pattern
-      "fzf" # A command-line fuzzy finder
-      "yazi"
-      "lazygit"
-      "bat"
-      "btop"
       "cocoapods"
       "fastlane"
-      "fd"
-      "smartmontools"
-      "tmux"
-      "wget"
     ];
 
     # `brew install --cask`
