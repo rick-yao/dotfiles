@@ -41,7 +41,12 @@ fi
 link_file "$HOME/dotfiles/kitty" "$config_dir/kitty"
 
 # this shell copys custom user config to astro user dir
-rm -rf $HOME/dotfiles/nvim/AstroNvim/lua/user/
+if [ -L "$HOME/dotfiles/nvim/AstroNvim/lua/user" ]; then
+  echo "astro user is a symbolic link."
+else
+  echo "astro user is not a symbolic link. Delete the folder."
+  rm -rf $HOME/dotfiles/nvim/AstroNvim/lua/user/
+fi
 link_file "$HOME/dotfiles/nvim/astro-personal-config" "$HOME/dotfiles/nvim/AstroNvim/lua/user"
 link_file "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/nvim"
 
