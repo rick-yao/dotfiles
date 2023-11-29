@@ -1,1 +1,45 @@
-export YYY="$HOME/.nvm"
+# git alias
+alias ga='git add'
+alias gck='git checkout'
+alias gcl='git clone --recurse-submodules'
+alias gc='git commit --verbose'
+alias gc!='git commit --verbose --amend'
+alias gstall='git stash --all'
+alias gstp='git stash pop'
+alias gst='git status'
+alias gsu='git submodule update'
+alias gsi='git submodule init'
+
+alias cd = "z";
+alias ea = "eza -la --git";
+# achrome="open -n /Applications/Google\ Chrome\ Dev.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData";
+alias gck="git checkout";
+alias gsu="git submodule update --remote";
+alias gft="git difftool --no-symlinks --dir-diff";
+alias glg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
+alias icat="kitty +kitten icat";
+alias vim="nvim";
+alias tma="tmux a -t";
+alias tml="tmux ls";
+alias tmk="tmux kill-server";
+alias lg="lazygit";
+alias pm="pnpm";
+alias achrome="open -n /Applications/Google\ Chrome\ Dev.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData";
+alias showFiles="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder";
+alias hideFiles="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder";
+alias brewcl="brew cleanup -s --prune=all";
+alias brewup="brew upgrade; brewcl";
+alias cache-clear="
+	yarn cache clean; 
+	npm cache clean -force;
+	pnpm store prune;
+	pod cache clean --all;
+	brewcl;rm -rf ~/.gradle/cache;
+	rm -rf ~/Library/Developer/Xcode/DerivedData;
+	rm -rf ~/Library/Developer/Xcode/Archives;
+	rm -rf ~/.bun/install/cache/;
+	";
+alias fly="env https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890";
+alias fle="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890";
+alias cnpm="npm --registry=https://registry.npmmirror.com  --cache=$HOME/.npm/.cache/cnpm  --disturl=https://npmmirror.com/mirrors/node  --userconfig=$HOME/.cnpmrc";
+alias f="yazi";
