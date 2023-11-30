@@ -28,3 +28,6 @@ export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 
 # zsh comp dir
 export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-$HOST"
+
+#zoxide
+eval "$(zoxide init zsh)"
