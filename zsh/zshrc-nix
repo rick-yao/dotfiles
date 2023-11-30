@@ -43,3 +43,6 @@ alias fly="env https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:789
 alias fle="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890";
 alias cnpm="npm --registry=https://registry.npmmirror.com  --cache=$HOME/.npm/.cache/cnpm  --disturl=https://npmmirror.com/mirrors/node  --userconfig=$HOME/.cnpmrc";
 alias f="yazi";
+
+#zoxide
+eval "$(zoxide init zsh)"
