@@ -57,3 +57,5 @@ link_file "$HOME/dotfiles/tmux" "$config_dir/tmux"
 link_file "$HOME/dotfiles/ssh" "$config_dir/ssh"
 
 link_file "$HOME/dotfiles/zsh" "$config_dir/zsh"
+
+link_file "$HOME/dotfiles/npm/.npmrc" "$HOME/.npmrc"
