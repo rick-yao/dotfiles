@@ -11,10 +11,10 @@
 		envExtra = "
 		 source $HOME/.config/zsh/zshenv-nix
 		";
-	# oh-my-zsh = {
-	#   enable = true;
-	#   plugins = [ "git" "zoxide" ];
-	# };
+	oh-my-zsh = {
+	  enable = true;
+	  plugins = [ "zoxide" ];
+	};
 
 	# dotDir = ".config/zsh";
 	# envExtra = "export AAA = "~/.config/xxx"";
