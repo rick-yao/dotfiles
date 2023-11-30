@@ -13,7 +13,6 @@
     smartmontools
     tmux
     wget
-    ruby
   ];
 
   programs = {
