@@ -74,6 +74,7 @@
       "nexttrace"
       "cocoapods"
       "fastlane"
+      "protobuf"
     ];
 
     # `brew install --cask`
