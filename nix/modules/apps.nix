@@ -40,7 +40,7 @@
     enable = true;
 
     onActivation = {
-      autoUpdate = false;
+      autoUpdate = true;
       # 'zap': uninstalls all formulae(and related files) not listed here.
       cleanup = "zap";
     };
@@ -95,6 +95,23 @@
       "font-fira-code-nerd-font"
       "font-jetbrains-mono-nerd-font"
       "font-hack-nerd-font"
+      "alfred"
+      "alt-tab"
+      "appcleaner"
+      "coteditor"
+      "cyberduck"
+      "hiddenbar"
+      "fork"
+      "input-source-pro"
+      "keka"
+      "monitorcontrol"
+      "mos"
+      "netnewswire"
+      "obsidian"
+      "skim"
+      "spotify"
+      "sublime-text"
+      "syntax-highlight"
     ];
   };
 }
