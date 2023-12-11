@@ -112,6 +112,8 @@ alias f="yazi"
 
 #rust
 export CARGO_HOME="$HOME/.cargo/"
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
 #bat
 export BAT_CONFIG_PATH="$HOME/.config/bat/bat.conf"
