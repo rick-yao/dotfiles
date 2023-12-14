@@ -28,3 +28,7 @@ export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 
 # zsh comp dir
 export ZSH_COMPDUMP="$ZSH/.cache/.zcompdump-$HOST"
+
+#rust
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
