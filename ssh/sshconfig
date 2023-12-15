@@ -41,6 +41,10 @@ Host infimac
 Host infiDebian
 	Hostname 192.168.100.191
 	User yaojian
+	
+Host aws-infi
+	Hostname 54.79.4.152
+	User ec2-user
 
 Host *
     ServerAliveInterval 60
