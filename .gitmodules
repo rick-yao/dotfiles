@@ -4,18 +4,6 @@
 [submodule "tmux/tmux_plugin/tpm"]
 	path = tmux/tmux_plugin/tpm
 	url = https://github.com/tmux-plugins/tpm.git
-[submodule "tmux/tmux_plugin/vim-tmux-navigator"]
-	path = tmux/tmux_plugin/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator.git
-[submodule "tmux/tmux_plugin/tmux-themepack"]
-	path = tmux/tmux_plugin/tmux-themepack
-	url = https://github.com/jimeh/tmux-themepack.git
-[submodule "tmux/tmux_plugin/tmux-resurrect"]
-	path = tmux/tmux_plugin/tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect.git
-[submodule "tmux/tmux_plugin/tmux-continuum"]
-	path = tmux/tmux_plugin/tmux-continuum
-	url = https://github.com/tmux-plugins/tmux-continuum.git
 [submodule "nvim/AstroNvim"]
 	path = nvim/AstroNvim
 	url = https://github.com/AstroNvim/AstroNvim.git

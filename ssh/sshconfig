@@ -46,5 +46,13 @@ Host aws-infi
 	Hostname 54.79.4.152
 	User ec2-user
 
+Host pve-home
+	Hostname 10.10.10.230
+	User root
+	
+Host l4d2-home
+	Hostname 10.10.10.231
+	User rick
+	
 Host *
     ServerAliveInterval 60
