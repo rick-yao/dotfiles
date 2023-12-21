@@ -86,7 +86,9 @@ scrolling:
 
 cursor:
   style:
-    shape: Beam
+    shape: Block
+  vi_mode_style:
+    shape: Block
 
 # 如果为‘true’，则使用亮色变体绘制粗体文本。
 draw_bold_text_with_bright_colors: false
