@@ -87,7 +87,6 @@
       "visual-studio-code"
       "iina" 
       "kitty"
-      "1password"
       "amethyst"
       "syntax-highlight"
       "zulu11"
@@ -112,6 +111,9 @@
       "spotify"
       "sublime-text"
       "syntax-highlight"
+      "ffmpegthumbnailer"
+      "unar"
+      "poppler"
     ];
   };
 }
