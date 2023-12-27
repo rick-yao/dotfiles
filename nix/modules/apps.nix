@@ -75,12 +75,15 @@
       "cocoapods"
       "fastlane"
       "protobuf"
+      "1password-cli"
+      "ffmpegthumbnailer"
+      "unar"
+      "poppler"
     ];
 
     # `brew install --cask`
     # NOTE: Feel free to add your favorite apps here.
     casks = [
-      "1password-cli"
       "firefox"
       "google-chrome"
       "google-chrome-dev"
@@ -111,9 +114,6 @@
       "spotify"
       "sublime-text"
       "syntax-highlight"
-      "ffmpegthumbnailer"
-      "unar"
-      "poppler"
     ];
   };
 }
