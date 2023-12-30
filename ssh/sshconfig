@@ -13,7 +13,7 @@ Host ubuntu-home
 Host gcp-new
 	HostName 35.236.172.235
 	User abneryaoo
-  port 9774 
+  Port 9774
 
 Host hysteria
 	HostName  34.125.230.97
@@ -35,28 +35,28 @@ Host github.com
 	IdentityFile ~/.ssh/github_ed
 	
 Host infimac
-	Hostname 192.168.100.45
+	HostName 192.168.100.45
 	User test
 
 Host infiDebian
-	Hostname 192.168.100.191
+	HostName 192.168.100.191
 	User yaojian
 	
 Host aws-infi
-	Hostname 54.79.4.152
+	HostName 54.79.4.152
 	User ec2-user
 
 Host pve-home
-	Hostname 10.10.10.230
+	HostName 10.10.10.230
 	User root
 	
 Host l4d2-home
-	Hostname 10.10.10.231
+	HostName 10.10.10.231
 	User rick
 	
-Host movie-home
-	Hostname 10.10.10.233
-	User pilot
+Host pt
+	HostName 10.10.10.234
+	User pt
 	
 Host *
     ServerAliveInterval 60
