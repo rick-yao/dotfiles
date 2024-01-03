@@ -54,7 +54,11 @@ Host l4d2-home
 	HostName 10.10.10.231
 	User rick
 	
-Host pt
+Host pt-lab-ipv6
+	HostName pt.infinitedream.space
+	User pt
+	
+Host pt-lab
 	HostName 10.10.10.234
 	User pt
 	
