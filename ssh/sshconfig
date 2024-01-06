@@ -62,5 +62,9 @@ Host pt-lab
 	HostName 10.10.10.234
 	User pt
 	
+Host main-lab
+	HostName 10.10.10.235
+	User rick
+	
 Host *
     ServerAliveInterval 60
