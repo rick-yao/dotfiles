@@ -24,7 +24,7 @@ deploy: set-up-config
 
 	./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air
 
-darwin-debug: darwin-set-proxy
+darwin-debug: set-up-config
 	# NOTE: update hostname here!
 	nix build .#darwinConfigurations.Ricks-MacBook-Air.system --show-trace --verbose \
 		--extra-experimental-features 'nix-command flakes'
