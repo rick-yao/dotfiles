@@ -82,6 +82,7 @@
       "go"
       "yarn"
       "mas"
+      "dust"
     ];
 
     # `brew install --cask`
