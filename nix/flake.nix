@@ -50,7 +50,7 @@
   outputs = inputs@{ self, nixpkgs, darwin, home-manager, rust-overlay,... }: {
     # NOTE: please update the whole "hostname" placeholder string to your own hostname!
     # such as darwinConfigurations.mymac = darwin.lib.darwinSystem {
-    darwinConfigurations."ricks-Virtual-Machine" = darwin.lib.darwinSystem {
+    darwinConfigurations."Ricks-MacBook-Air" = darwin.lib.darwinSystem {
       system =
         "aarch64-darwin"; # change this to "aarch64-darwin" if you are using Apple Silicon
       modules = [

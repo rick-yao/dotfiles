@@ -19,17 +19,17 @@ set-up-config:
 
 deploy: set-up-config
 	# NOTE: update hostname here!
-	nix build .#darwinConfigurations.ricks-Virtual-Machine.system \
+	nix build .#darwinConfigurations.Ricks-MacBook-Air.system \
 		--extra-experimental-features 'nix-command flakes'
 
-	./result/sw/bin/darwin-rebuild switch --flake .#ricks-Virtual-Machine
+	./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air
 
 darwin-debug: darwin-set-proxy
 	# NOTE: update hostname here!
-	nix build .#darwinConfigurations.ricks-Virtual-Machine.system --show-trace --verbose \
+	nix build .#darwinConfigurations.Ricks-MacBook-Air.system --show-trace --verbose \
 		--extra-experimental-features 'nix-command flakes'
 
-	./result/sw/bin/darwin-rebuild switch --flake .#ricks-Virtual-Machine --show-trace --verbose
+	./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air --show-trace --verbose
 
 ############################################################################
 #

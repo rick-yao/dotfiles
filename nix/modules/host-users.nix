@@ -8,7 +8,7 @@
 
 let
   # NOTE: change this to your hostname
-  hostname = "ricks-Virtual-Machine";
+  hostname = "Ricks-MacBook-Air";
   username = "rick";
 in {
   networking.hostName = hostname;
