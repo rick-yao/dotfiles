@@ -57,6 +57,7 @@
       Copyless = 993841014;
       RDP = 1295203466;
       Xcode-Cleaner = 1296084683;
+      Tick-Tick = 966085870;
     };
 
     taps = [
@@ -120,6 +121,7 @@
       "spotify"
       "sublime-text"
       "syntax-highlight"
+      "snipaste"
     ];
   };
 }
