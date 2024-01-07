@@ -78,6 +78,8 @@
       "unar"
       "poppler"
       "go"
+      "yarn"
+      "mas"
     ];
 
     # `brew install --cask`
