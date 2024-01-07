@@ -79,6 +79,7 @@
       "ffmpegthumbnailer"
       "unar"
       "poppler"
+      "go"
     ];
 
     # `brew install --cask`
