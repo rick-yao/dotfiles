@@ -25,7 +25,7 @@
 
       # customize dock
       dock = {
-        autohide = false;
+        autohide = true;
         show-recents = false; # disable recent apps
 
         # customize Hot Corners(触发角, 鼠标移动到屏幕角落时触发的动作)
@@ -72,6 +72,8 @@
         NSNavPanelExpandedStateForSaveMode =
           true; # expand save panel by default(保存文件时的路径选择/文件名输入页)
         NSNavPanelExpandedStateForSaveMode2 = true;
+        # use 24 hour time
+        AppleICUForce24HourTime = true;
       };
 
       # Customize settings that not supported by nix-darwin directly
