@@ -56,7 +56,6 @@
     # };
 
     taps = [
-      "homebrew/cask"
       "homebrew/cask-fonts"
       "homebrew/services"
       "homebrew/cask-versions"
@@ -75,7 +74,6 @@
       "cocoapods"
       "fastlane"
       "protobuf"
-      "1password-cli"
       "ffmpegthumbnailer"
       "unar"
       "poppler"
@@ -86,6 +84,7 @@
     # NOTE: Feel free to add your favorite apps here.
     casks = [
       "firefox"
+      "1password-cli"
       "google-chrome"
       "google-chrome-dev"
       "visual-studio-code"
@@ -111,7 +110,6 @@
       "mos"
       "netnewswire"
       "obsidian"
-      "skim"
       "spotify"
       "sublime-text"
       "syntax-highlight"

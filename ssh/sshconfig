@@ -3,8 +3,6 @@
 #   User vega
 #   Port 22
 #   IdentityFile ~/.ssh/id_rsa.pub
-Host *
-	IdentityFile ~/.ssh/ed25519
 
 Host ubuntu-home
 	HostName 10.10.10.240
@@ -67,4 +65,4 @@ Host main-lab
 	User rick
 	
 Host *
-    ServerAliveInterval 60
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
