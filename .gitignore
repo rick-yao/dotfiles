@@ -1,3 +1,4 @@
 nvim/plugin/
 .DS_Store
 tmux/tmux_plugin
+nix/result
