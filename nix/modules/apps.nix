@@ -55,6 +55,8 @@
       # QQ = 451108668;
       Telegram = 747648890;
       Copyless = 993841014;
+      RDP = 1295203466;
+      Xcode-Cleaner = 1296084683;
     };
 
     taps = [
