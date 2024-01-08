@@ -21,6 +21,15 @@ link_file() {
 	fi
 }
 
+check_or_create_folder() {
+  if [ -d "$1" ]; then
+    echo "Folder $1 exists"
+  else
+    mkdir "$1"
+    echo "Folder $1 created"
+  fi
+}
+
 # Check if the .config directory exists
 if [ ! -d "$config_dir" ]; then
 	# Directory does not exist, so create it
@@ -59,3 +68,7 @@ link_file "$HOME/dotfiles/ssh" "$config_dir/ssh"
 link_file "$HOME/dotfiles/zsh" "$config_dir/zsh"
 
 link_file "$HOME/dotfiles/npm/.npmrc" "$HOME/.npmrc"
+
+# rust
+check_or_create_folder "$HOME/.cargo"
+link_file "$HOME/dotfiles/rust/config" "$HOME/.cargo/config"
