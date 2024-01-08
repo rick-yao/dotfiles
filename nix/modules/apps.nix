@@ -88,7 +88,6 @@
       "mas"
       "dust"
       "iperf3"
-      "smartmontools"
     ];
 
     # `brew install --cask`
