@@ -124,6 +124,7 @@
       "sublime-text"
       "syntax-highlight"
       "snipaste"
+      "logi-options-plus"
     ];
   };
 }
