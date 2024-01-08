@@ -72,3 +72,6 @@ link_file "$HOME/dotfiles/npm/.npmrc" "$HOME/.npmrc"
 # rust
 check_or_create_folder "$HOME/.cargo"
 link_file "$HOME/dotfiles/rust/config" "$HOME/.cargo/config"
+
+# starship
+link_file "$HOME/dotfiles/starship/starship.toml" "$config_dir/starship.toml"
