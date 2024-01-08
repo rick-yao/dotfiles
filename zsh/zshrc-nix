@@ -31,19 +31,20 @@ alias showFiles="defaults write com.apple.finder AppleShowAllFiles -boolean true
 alias hideFiles="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder";
 alias brewcl="brew cleanup -s --prune=all";
 alias brewup="brew upgrade; brewcl";
-alias cache-clear="
-	yarn cache clean; 
-	npm cache clean -force;
-	pnpm store prune;
-	pod cache clean --all;
-	brewcl;rm -rf ~/.gradle/cache;
-	rm -rf ~/Library/Developer/Xcode/DerivedData;
-	rm -rf ~/Library/Developer/Xcode/Archives;
-	rm -rf ~/.bun/install/cache/;
-	";
 alias fly="env https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890";
 alias fle="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890";
 alias cnpm="npm --registry=https://registry.npmmirror.com  --cache=$HOME/.npm/.cache/cnpm  --disturl=https://npmmirror.com/mirrors/node  --userconfig=$HOME/.cnpmrc";
 alias f="yazi";
 
 alias dud="dust -D -d 1";
+
+cleanup() {
+	yarn cache clean
+	npm cache clean --force
+	pnpm store prune
+	pod cache clean --all
+	brew cleanup
+	rm -rf ~/.gradle/caches
+	rm -rf ~/Library/Developer/Xcode/DerivedData
+	rm -rf ~/Library/Developer/Xcode/Archives
+}
