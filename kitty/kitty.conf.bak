@@ -6,7 +6,7 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family      JetBrains Mono
+font_family      FiraCode Nerd Font
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -679,9 +679,9 @@ scrollback_lines 3000
 
 #: Window layout {{{
 
-# remember_window_size  yes
-initial_window_width  1000
-initial_window_height 800
+remember_window_size  no
+initial_window_width  2000
+initial_window_height 1400
 
 #: If enabled, the OS Window size will be remembered so that new
 #: instances of kitty will have the same size as the previous
@@ -771,7 +771,7 @@ initial_window_height 800
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-# hide_window_decorations no
+ # hide_window_decorations y 
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only can be used to only hide the titlebar.
@@ -831,7 +831,7 @@ initial_window_height 800
 #: insensitive, from the set [0-9A-Z]. Specify your preference as a
 #: string of characters.
 
-# confirm_os_window_close -1
+confirm_os_window_close 0
 
 #: Ask for confirmation when closing an OS window or a tab with at
 #: least this number of kitty windows in it by window manager (e.g.
@@ -1374,7 +1374,7 @@ background_opacity 0.8
 #: special value of ask means that kitty will ask before opening the
 #: link when clicked.
 
-# shell_integration enabled
+ shell_integration no-cursor
 
 #: Enable shell integration on supported shells. This enables features
 #: such as jumping to previous prompts, browsing the output of the
@@ -1456,7 +1456,7 @@ background_opacity 0.8
 #: background_opacity. If you want to use both, you are probably
 #: better off just hiding the titlebar with hide_window_decorations.
 
-# macos_option_as_alt no
+macos_option_as_alt yes
 
 #: Use the Option key as an Alt key on macOS. With this set to no,
 #: kitty will use the macOS native Option+Key to enter Unicode
@@ -2290,6 +2290,6 @@ background_opacity 0.8
 
 
 # BEGIN_KITTY_THEME
-# Solarized Darcula
+# Flatland
 include current-theme.conf
 # END_KITTY_THEME
