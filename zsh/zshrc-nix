@@ -46,4 +46,4 @@ alias fle="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:
 alias cnpm="npm --registry=https://registry.npmmirror.com  --cache=$HOME/.npm/.cache/cnpm  --disturl=https://npmmirror.com/mirrors/node  --userconfig=$HOME/.cnpmrc";
 alias f="yazi";
 
-alias dustd="dust -D -d 1";
+alias dud="dust -D -d 1";
