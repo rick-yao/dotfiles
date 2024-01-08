@@ -58,6 +58,7 @@
       RDP = 1295203466;
       Xcode-Cleaner = 1296084683;
       Tick-Tick = 966085870;
+      Run-Cat = 1429033973;
     };
 
     taps = [
