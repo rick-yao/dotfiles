@@ -125,6 +125,7 @@
       "syntax-highlight"
       "snipaste"
       "logi-options-plus"
+      "font-monaspace"
     ];
   };
 }
