@@ -106,6 +106,7 @@
       "font-fira-code-nerd-font"
       "font-jetbrains-mono-nerd-font"
       "font-hack-nerd-font"
+      "font-symbols-nerd-font"
       "alfred"
       "alt-tab"
       "appcleaner"
