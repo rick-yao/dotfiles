@@ -83,14 +83,15 @@
       "iperf3"
       "btop"
       "zoxide"
-      "ripgrep" # recursively searches directories for a regex pattern
-      "fzf" # A command-line fuzzy finder
+      "ripgrep"
+      "fzf"
       "yazi"
       "lazygit"
       "bat"
       "fd"
       "smartmontools"
       "tmux"
+      "jq"
     ];
 
     # `brew install --cask`
