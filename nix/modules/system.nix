@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{pkgs, ...}:
 ###################################################################################
 #
 #  macOS's System configuration
@@ -11,7 +10,6 @@
 #
 ###################################################################################
 {
-
   system = {
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     activationScripts.postUserActivation.text = ''
@@ -30,7 +28,7 @@
         show-recents = true; # disable recent apps
 
         # customize Hot Corners(触发角, 鼠标移动到屏幕角落时触发的动作)
-        wvous-bl-corner = 13; # bottom-left 
+        wvous-bl-corner = 13; # bottom-left
       };
 
       # customize finder
@@ -57,7 +55,7 @@
         # sets how long it takes before it starts repeating.
         InitialKeyRepeat =
           15; # normal minimum is 15 (225 ms), maximum is 120 (1800 ms)
-        # sets how fast it repeats once it starts. 
+        # sets how fast it repeats once it starts.
         KeyRepeat = 3; # normal minimum is 2 (30 ms), maximum is 120 (1800 ms)
 
         NSAutomaticCapitalizationEnabled =
@@ -80,7 +78,7 @@
       # Customize settings that not supported by nix-darwin directly
       # see the source code of this project to get more undocumented options:
       #    https://github.com/rgcr/m-cli
-      # 
+      #
       # All custom entries can be found by running `defaults read` command.
       # or `defaults read xxx` to read a specific domain.
       # CustomUserPreferences = {
@@ -139,7 +137,7 @@
       # remapCapsLockToEscape =
       #   true; # remap caps lock to escape, useful for vim users
 
-      # swap left command and left alt 
+      # swap left command and left alt
       # so it matches common keyboard layout: `ctrl | command | alt`
       #
       # disabled, caused only problems!
@@ -153,7 +151,7 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   # this is required if you want to use darwin's default shell - zsh
   programs.zsh.enable = true;
-  environment.shells = [ pkgs.zsh ];
+  environment.shells = [pkgs.zsh];
 
   # Set your time zone.
   # comment this due to the issue:

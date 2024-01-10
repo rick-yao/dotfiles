@@ -1,11 +1,9 @@
-{ ... }@args:
-
+{...} @ args:
 #############################################################
 #
 #  Host & Users configuration
 #
 #############################################################
-
 let
   # NOTE: change this to your hostname
   hostname = "Ricks-MacBook-Air";
@@ -21,5 +19,5 @@ in {
     description = username;
   };
 
-  nix.settings.trusted-users = [ username ];
+  nix.settings.trusted-users = [username];
 }
