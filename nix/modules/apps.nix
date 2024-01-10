@@ -66,7 +66,6 @@
       "homebrew/services"
       "homebrew/cask-versions"
       "1password/tap"
-      "oven-sh/bun"
     ];
 
     # `brew install`
