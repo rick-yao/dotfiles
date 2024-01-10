@@ -74,7 +74,6 @@
       "pnpm"
       "gpg"
       "telnet"
-      "oven-sh/bun/bun"
       "nexttrace"
       "cocoapods"
       "fastlane"
