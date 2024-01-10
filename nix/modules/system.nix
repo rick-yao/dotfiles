@@ -91,8 +91,10 @@
           WebKitDeveloperExtras = true;
         };
         "com.apple.finder" = {
+          AppleShowAllExtensions = 1;
+          FXPreferredGroupBy = "Kind";
           ShowExternalHardDrivesOnDesktop = true;
-          ShowHardDrivesOnDesktop = true;
+          # ShowHardDrivesOnDesktop = true;
           ShowMountedServersOnDesktop = true;
           ShowRemovableMediaOnDesktop = true;
           _FXSortFoldersFirst = true;
