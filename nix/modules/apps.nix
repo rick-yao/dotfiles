@@ -86,6 +86,7 @@
       "mas"
       "dust"
       "iperf3"
+      "btop"
     ];
 
     # `brew install --cask`
