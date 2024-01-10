@@ -8,7 +8,7 @@
     yazi
     lazygit
     bat
-    btop
+    # btop
     fd
     smartmontools
     tmux
