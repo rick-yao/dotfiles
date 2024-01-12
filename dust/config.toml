@@ -1,0 +1,7 @@
+# Sample Config file, works with toml and yaml
+# Place in either:
+#   ~/.config/dust/config.toml
+#   ~/.dust.toml
+
+# Print tree upside down (biggest highest)
+reverse = true
