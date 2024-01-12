@@ -128,6 +128,9 @@
       "snipaste"
       "logi-options-plus"
       "font-monaspace"
+      "raycast"
+      "font-jetbrains-mono"
+      "font-fira-code"
     ];
   };
 }
