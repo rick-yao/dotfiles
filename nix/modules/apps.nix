@@ -92,6 +92,7 @@
       "smartmontools"
       "tmux"
       "jq"
+      "gnu-sed"
     ];
 
     # `brew install --cask`
