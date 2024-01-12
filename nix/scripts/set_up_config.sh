@@ -75,3 +75,6 @@ link_file "$HOME/dotfiles/rust/config" "$HOME/.cargo/config"
 
 # starship
 link_file "$HOME/dotfiles/starship/starship.toml" "$config_dir/starship.toml"
+
+# duts
+link_file "$HOME/dotfiles/dust"  "$config_dir/dust"
