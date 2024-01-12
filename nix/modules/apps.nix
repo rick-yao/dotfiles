@@ -109,7 +109,6 @@
       "zulu11"
       "alacritty"
       "font-symbols-only-nerd-font"
-      "alfred"
       "alt-tab"
       "appcleaner"
       "coteditor"
