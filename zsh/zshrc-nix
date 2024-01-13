@@ -38,7 +38,7 @@ alias f="yazi";
 
 alias dud="dust -D -d 1";
 
-cleanup() {
+clean_up() {
 	yarn cache clean
 	npm cache clean --force
 	pnpm store prune
@@ -47,4 +47,8 @@ cleanup() {
 	rm -rf ~/.gradle/caches
 	rm -rf ~/Library/Developer/Xcode/DerivedData
 	rm -rf ~/Library/Developer/Xcode/Archives
+}
+
+performace_test(){
+	for i in {1..10}; do time zsh -i -c exit; done
 }
