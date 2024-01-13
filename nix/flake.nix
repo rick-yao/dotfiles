@@ -19,6 +19,7 @@
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org"
     ];
+    auto-optimise-store = true;
   };
 
   # This is the standard format for flake.nix. `inputs` are the dependencies of the flake,
