@@ -54,6 +54,7 @@
       Xcode-Cleaner = 1296084683;
       Tick-Tick = 966085870;
       Run-Cat = 1429033973;
+      Server-Cat = 1501532023;
     };
 
     taps = [
