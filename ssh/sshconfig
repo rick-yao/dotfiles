@@ -59,8 +59,12 @@ Host pt-lab
 	HostName 10.10.10.234
 	User pt
 	
-Host main-lab
+Host home-lab
 	HostName 10.10.10.235
+	User rick
+	
+Host home-lab-v6
+	HostName lab.infinitedream.space
 	User rick
 	
 Host *
