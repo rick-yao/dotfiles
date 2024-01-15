@@ -4,10 +4,6 @@
 #   Port 22
 #   IdentityFile ~/.ssh/id_rsa.pub
 
-Host ubuntu-home
-	HostName 10.10.10.240
-  User rick
-
 Host gcp-new
 	HostName 35.236.172.235
 	User abneryaoo
@@ -21,21 +17,17 @@ Host openwrt-xian
 	HostName 10.10.10.252
 	User root
 
-Host aliyun
-	HostName 47.114.191.168
-	User root
-
 Host github.com
 	# Hostname ssh.github.com
 	# Port 443
 	AddKeysToAgent yes
   UseKeychain yes
 	
-Host infimac
+Host mac-infi
 	HostName 192.168.100.45
 	User test
 
-Host infiDebian
+Host Debian-infi
 	HostName 192.168.100.191
 	User yaojian
 	
@@ -47,16 +39,12 @@ Host pve-home
 	HostName 10.10.10.230
 	User root
 	
-Host l4d2-home
-	HostName 10.10.10.231
-	User rick
-	
-Host pt-lab-ipv6
-	HostName pt.infinitedream.space
+Host pt-home
+	HostName 10.10.10.234
 	User pt
 	
-Host pt-lab
-	HostName 10.10.10.234
+Host pt-home-v6
+	HostName pt.infinitedream.space
 	User pt
 	
 Host home-lab
@@ -65,6 +53,14 @@ Host home-lab
 	
 Host home-lab-v6
 	HostName lab.infinitedream.space
+	User rick
+	
+Host build-lab
+	HostName 10.10.10.236
+	User rick
+	
+Host build-lab-v6
+	HostName build.infinitedream.space
 	User rick
 	
 Host *
