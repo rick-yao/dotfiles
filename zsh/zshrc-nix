@@ -1,3 +1,4 @@
+#!/bin/zsh
 # git alias
 alias ga='git add'
 alias gck='git checkout'

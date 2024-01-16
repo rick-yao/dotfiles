@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 export XDG_CONFIG_HOME="$HOME/.config"
 # 需要判断并且自动安装
 #nvm
