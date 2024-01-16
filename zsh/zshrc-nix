@@ -39,12 +39,32 @@ alias f="yazi";
 alias dud="dust -D -d 1";
 
 clean_up() {
+	echo "cleaning yarn cache..."
+	echo
 	yarn cache clean
+	echo
+	echo "cleaning npm cache..."
+	echo
 	npm cache clean --force
+	echo
+	echo "cleaning pnpm cache..."
+	echo
 	pnpm store prune
+	echo
+	echo "cleaning pod cache..."
+	echo
 	pod cache clean --all
+	echo
+	echo "cleaning brew cache..."
+	echo
 	brew cleanup
+	echo
+	echo "cleaning gradle cache..."
+	echo
 	rm -rf ~/.gradle/caches
+	echo
+	echo "cleaning xcode cache..."
+	echo
 	rm -rf ~/Library/Developer/Xcode/DerivedData
 	rm -rf ~/Library/Developer/Xcode/Archives
 }
