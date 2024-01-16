@@ -35,15 +35,15 @@ Host aws-infi
 	HostName 54.79.4.152
 	User ec2-user
 
-Host pve-home
+Host pve-lab
 	HostName 10.10.10.230
 	User root
 	
-Host pt-home
+Host pt-lab
 	HostName 10.10.10.234
 	User pt
 	
-Host pt-home-v6
+Host pt-lab-v6
 	HostName pt.infinitedream.space
 	User pt
 	
