@@ -67,5 +67,9 @@ Host build-lab-v6
 	HostName build.infinitedream.space
 	User rick
 	
+Host nix-lab
+	HostName 10.10.10.238
+	User rick
+	
 Host *
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
