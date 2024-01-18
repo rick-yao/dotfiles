@@ -52,23 +52,23 @@ shape = "Block"
 size = 20
 
 [font.bold]
-family = "FiraCode Nerd Font"
-style = "Regular"
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
 
 [font.bold_italic]
-family = "FiraCode Nerd Font"
-style = "Italic"
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "FiraCode Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "FiraCode Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.offset]
@@ -148,7 +148,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
-decorations = "Buttonless"
+decorations = "buttonless"
 dynamic_padding = true
 opacity = 0.9
 
