@@ -46,6 +46,7 @@ Host pt-lab
 Host pt-lab-v6
 	HostName pt.infinitedream.space
 	User pt
+	AddressFamily inet6
 	
 Host home-lab
 	HostName 10.10.10.235
@@ -54,6 +55,7 @@ Host home-lab
 Host home-lab-v6
 	HostName lab.infinitedream.space
 	User rick
+	AddressFamily inet6
 	
 Host build-lab
 	HostName 10.10.10.236
@@ -62,6 +64,7 @@ Host build-lab
 Host build-lab-v6
 	HostName build.infinitedream.space
 	User rick
+	AddressFamily inet6
 	
 Host *
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
