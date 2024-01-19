@@ -1,4 +1,8 @@
 #!/bin/zsh
+
+# Zsh root
+ZSHAREDIR=$HOME/.local/share/zsh-nix
+
 # git alias
 alias ga='git add'
 alias gck='git checkout'
