@@ -4,12 +4,11 @@
     enableCompletion = true;
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
-    dotDir = ".config/zsh-nix";
     historySubstringSearch.enable = true;
     history = {
-    path = "$ZDOTDIR/.zsh_history";
-    save = 10000;
-    size = 10000;
+      path = "$HOME/.config/zsh-nix/.zsh_history";
+      save = 10000;
+      size = 10000;
     };
 
     initExtra = "
