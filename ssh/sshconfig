@@ -36,34 +36,18 @@ Host aws-infi
 	User ec2-user
 
 Host pve-lab
-	HostName 10.10.10.230
-	User root
-	
-Host pve-lab-v6
 	HostName pve.infinitedream.space
 	User root
 	
 Host pt-lab
-	HostName 10.10.10.234
-	User pt
-	
-Host pt-lab-v6
 	HostName pt.infinitedream.space
 	User pt
 	
 Host home-lab
-	HostName 10.10.10.235
-	User rick
-	
-Host home-lab-v6
 	HostName lab.infinitedream.space
 	User rick
 	
 Host build-lab
-	HostName 10.10.10.236
-	User rick
-	
-Host build-lab-v6
 	HostName build.infinitedream.space
 	User rick
 	

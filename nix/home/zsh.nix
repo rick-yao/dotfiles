@@ -26,4 +26,9 @@
     # dotDir = ".config/zsh";
     # envExtra = "export AAA = "~/.config/xxx"";
   };
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+    flags = ["--disable-up-arrow"];
+  };
 }
