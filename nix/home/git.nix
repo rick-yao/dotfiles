@@ -47,6 +47,7 @@
           insteadOf = "https://github.com/";
         };
       };
+      init.defaultBranch = "main";
     };
 
     signing = {
