@@ -20,7 +20,11 @@
 		";
     oh-my-zsh = {
       enable = true;
-      plugins = ["zoxide"];
+      custom = "$XDG_CONFIG_HOME/omz";
+      plugins = [
+        "zoxide"
+        "zsh-nvm"
+      ];
     };
 
     # dotDir = ".config/zsh";
