@@ -25,6 +25,11 @@
         "zoxide"
         "zsh-nvm"
       ];
+      extraConfig = "
+      export NVM_COMPLETION=false
+      export NVM_LAZY_LOAD=true
+      export NVM_LAZY_LOAD_EXTRA_COMMANDS=(vim nvim pnpm yarn)
+      ";
     };
 
     # dotDir = ".config/zsh";
