@@ -55,6 +55,7 @@
       Tick-Tick = 966085870;
       Run-Cat = 1429033973;
       Server-Cat = 1501532023;
+      Wecom = 1189898970;
     };
 
     taps = [
