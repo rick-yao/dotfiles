@@ -95,6 +95,7 @@
       "tmux"
       "jq"
       "gnu-sed"
+      "gitui"
     ];
 
     # `brew install --cask`
