@@ -1,4 +1,4 @@
 config/nvim/plugin/
 .DS_Store
-config/tmux/tmux_plugin
+config/tmux/tmux_plugin/
 nix/result
