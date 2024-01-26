@@ -96,6 +96,7 @@
       "jq"
       "gnu-sed"
       "gitui"
+      "lsd"
     ];
 
     # `brew install --cask`
