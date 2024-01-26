@@ -84,7 +84,7 @@ link_file "$HOME/dotfiles/config/dust" "$config_dir/dust"
 link_file "$HOME/dotfiles/config/lsd" "$config_dir/lsd"
 
 # atuin
-link_file "$HOME/dotfiles/config/atuin" "$config_dir/atuin"
+link_file "$HOME/dotfiles/config/atuin/config.toml" "$config_dir/atuin/config.toml"
 
 # bat
 link_file "$HOME/dotfiles/config/bat" "$config_dir/bat"
