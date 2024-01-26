@@ -23,6 +23,7 @@ alias ggpush='git push origin "$(git_current_branch)"'
 
 alias cd="z";
 alias ea="eza -la --git";
+alias ll="lsd -la";
 # achrome="open -n /Applications/Google\ Chrome\ Dev.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData";
 alias icat="kitty +kitten icat";
 alias vim="nvim";
