@@ -12,7 +12,7 @@ classic: false
 blocks:
   - permission
   - user
-  - group
+  # - group
   - size
   - date
   - git
@@ -39,7 +39,7 @@ color:
 # `date_format` will be a `strftime` formatted value. e.g. `date: '+%d %b %y %X'` will give you a date like this: 17 Jun 21 20:14:55
 # date: date
 # date: "%Y-%-m-%-d %H:%M"
-date: "+%Y-%m-%d %H:%M"
+date: "+%y-%m-%d %H:%M"
 
 # == Dereference ==
 # Whether to dereference symbolic links.
