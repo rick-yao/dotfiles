@@ -22,12 +22,12 @@ link_file() {
 }
 
 check_or_create_folder() {
-  if [ -d "$1" ]; then
-    echo "Folder $1 exists"
-  else
-    mkdir "$1"
-    echo "Folder $1 created"
-  fi
+	if [ -d "$1" ]; then
+		echo "Folder $1 exists"
+	else
+		mkdir "$1"
+		echo "Folder $1 created"
+	fi
 }
 
 # Check if the .config directory exists
@@ -47,34 +47,47 @@ else
 	echo "The .config directory already exists."
 fi
 
-link_file "$HOME/dotfiles/kitty" "$config_dir/kitty"
-
 # this shell copys custom user config to astro user dir
-if [ -L "$HOME/dotfiles/nvim/AstroNvim/lua/user" ]; then
-  echo "astro user is a symbolic link."
+if [ -L "$HOME/dotfiles/config/nvim/AstroNvim/lua/user" ]; then
+	echo "astro user is a symbolic link."
 else
-  echo "astro user is not a symbolic link. Delete the folder."
-  rm -rf $HOME/dotfiles/nvim/AstroNvim/lua/user/
+	echo "astro user is not a symbolic link. Delete the folder."
+	rm -rf $HOME/dotfiles/config/nvim/AstroNvim/lua/user/
 fi
-link_file "$HOME/dotfiles/nvim/astro-personal-config" "$HOME/dotfiles/nvim/AstroNvim/lua/user"
-link_file "$HOME/dotfiles/nvim/AstroNvim" "$config_dir/nvim"
+link_file "$HOME/dotfiles/config/nvim/AstroNvim" "$config_dir/nvim"
+link_file "$HOME/dotfiles/config/nvim/astro-personal-config" "$HOME/dotfiles/config/nvim/AstroNvim/lua/user"
 
-link_file "$HOME/dotfiles/alacritty" "$config_dir/alacritty"
+link_file "$HOME/dotfiles/config/tmux" "$config_dir/tmux"
 
-link_file "$HOME/dotfiles/tmux" "$config_dir/tmux"
+# alacritty
+link_file "$HOME/dotfiles/config/alacritty" "$config_dir/alacritty"
 
-link_file "$HOME/dotfiles/ssh" "$config_dir/ssh"
+# ssh
+link_file "$HOME/dotfiles/config/ssh" "$config_dir/ssh"
 
-link_file "$HOME/dotfiles/zsh" "$config_dir/zsh"
+link_file "$HOME/dotfiles/config/zsh" "$config_dir/zsh"
 
-link_file "$HOME/dotfiles/npm/.npmrc" "$HOME/.npmrc"
+# npmrc
+link_file "$HOME/dotfiles/config/npm/.npmrc" "$HOME/.npmrc"
 
 # rust
 check_or_create_folder "$HOME/.cargo"
-link_file "$HOME/dotfiles/rust/config" "$HOME/.cargo/config"
+link_file "$HOME/dotfiles/config/rust/config" "$HOME/.cargo/config"
 
 # starship
-link_file "$HOME/dotfiles/starship/starship.toml" "$config_dir/starship.toml"
+link_file "$HOME/dotfiles/config/starship/starship.toml" "$config_dir/starship.toml"
 
-# duts
-link_file "$HOME/dotfiles/dust"  "$config_dir/dust"
+# dust
+link_file "$HOME/dotfiles/config/dust" "$config_dir/dust"
+
+# lsd
+link_file "$HOME/dotfiles/config/lsd" "$config_dir/lsd"
+
+# atuin
+link_file "$HOME/dotfiles/config/atuin" "$config_dir/atuin"
+
+# bat
+link_file "$HOME/dotfiles/config/bat" "$config_dir/bat"
+
+# kitty
+link_file "$HOME/dotfiles/config/kitty" "$config_dir/kitty"

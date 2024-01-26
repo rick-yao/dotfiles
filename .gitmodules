@@ -1,9 +1,9 @@
-[submodule "tmux/tmux_plugin/tpm"]
-	path = tmux/tmux_plugin/tpm
-	url = https://github.com/tmux-plugins/tpm.git
-[submodule "nvim/AstroNvim"]
-	path = nvim/AstroNvim
+[submodule "config/nvim/AstroNvim"]
+	path = config/nvim/AstroNvim
 	url = https://github.com/AstroNvim/AstroNvim.git
-[submodule "nvim/astro-personal-config"]
-	path = nvim/astro-personal-config
+[submodule "config/nvim/astro-personal-config"]
+	path = config/nvim/astro-personal-config
 	url = https://github.com/rick-yao/astro-personal-config.git
+[submodule "config/tmux/tmux_plugin/tpm"]
+	path = config/tmux/tmux_plugin/tpm
+	url = https://github.com/tmux-plugins/tpm.git
