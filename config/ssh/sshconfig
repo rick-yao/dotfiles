@@ -1,9 +1,3 @@
-#Host nextcloud
-#   HostName 192.168.1.20
-#   User vega
-#   Port 22
-#   IdentityFile ~/.ssh/id_rsa.pub
-
 Host gcp-new
 	HostName 35.236.172.235
 	User abneryaoo
@@ -23,35 +17,35 @@ Host github.com
 	AddKeysToAgent yes
   UseKeychain yes
 	
-Host mac-infi
+Host infi-mac
 	HostName 192.168.100.45
 	User test
 
-Host Debian-infi
+Host infi-Debian
 	HostName 192.168.100.191
 	User yaojian
 	
-Host aws-infi
+Host infi-aws
 	HostName 54.79.4.152
 	User ec2-user
 
-Host pve-lab
+Host lab-pve
 	HostName pve.infinitedream.space
 	User root
 	
-Host pt-lab
+Host lab-pt
 	HostName pt.infinitedream.space
 	User pt
 	
-Host home-lab
+Host lab-home
 	HostName lab.infinitedream.space
 	User rick
 	
-Host build-lab
+Host lab-build
 	HostName build.infinitedream.space
 	User rick
 	
-Host nix-lab
+Host lab-nix
 	HostName 10.10.10.238
 	User rick
 	
