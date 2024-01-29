@@ -138,6 +138,7 @@
       "font-fira-code"
       "microsoft-edge"
       "macupdater"
+      "zed"
     ];
   };
 }
