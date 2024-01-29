@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    wget
+    wget du-dust
   ];
 
   programs = {

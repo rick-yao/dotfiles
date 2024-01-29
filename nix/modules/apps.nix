@@ -81,7 +81,7 @@
       "go"
       "yarn"
       "mas"
-      "dust"
+      # "dust"
       "iperf3"
       "btop"
       "zoxide"
