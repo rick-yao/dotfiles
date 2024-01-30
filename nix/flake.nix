@@ -61,10 +61,10 @@
     darwinConfigurations."Ricks-MacBook-Air" = darwin.lib.darwinSystem {
       system = "aarch64-darwin"; # change this to "aarch64-darwin" if you are using Apple Silicon
       modules = [
-        ./modules/nix-core.nix
-        ./modules/system.nix
-        ./modules/apps.nix
-        ./modules/host-users.nix
+        ./darwin/nix-core.nix
+        ./darwin/system.nix
+        ./darwin/apps.nix
+        ./darwin/host-users.nix
 
         # home manager
         home-manager.darwinModules.home-manager
@@ -75,7 +75,7 @@
           home-manager.extraSpecialArgs = inputs;
 
           # NOTE: replace "yourusername" with your own username!
-          home-manager.users.rick = import ./home;
+          home-manager.users.rick = import ../home-manager;
         }
 
         ({pkgs, ...}: {
