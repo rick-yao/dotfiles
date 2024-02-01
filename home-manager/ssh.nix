@@ -1,7 +1,7 @@
 {...}: {
   programs.ssh = {
     enable = true;
-    serverAliveInterval = 60;
+    serverAliveInterval = 15;
     extraConfig = ''
       Include ~/.config/ssh/sshconfig
     '';
