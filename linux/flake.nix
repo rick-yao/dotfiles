@@ -14,10 +14,18 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      username = "rick";
     in {
-      homeConfigurations."rick" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.username = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+  home = {
+    username = username;
+    homeDirectory = "/home/${username}";
+    stateVersion = "23.11";
+  };
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [ ../home-manager ];
