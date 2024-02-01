@@ -12,10 +12,8 @@ Host openwrt-xian
 	User root
 
 Host github.com
-	# Hostname ssh.github.com
-	# Port 443
-	AddKeysToAgent yes
-  UseKeychain yes
+	Hostname ssh.github.com
+	Port 443
 	
 Host infi-mac
 	HostName 192.168.100.45
