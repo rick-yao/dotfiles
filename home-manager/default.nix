@@ -3,7 +3,7 @@
   username = "rick";
 in {
   # import sub modules
-  imports = [./zsh.nix ./core.nix ./git.nix ./starship.nix ./ssh.nix];
+  imports = [./zsh.nix ./core.nix ./git.nix ./starship.nix ./ssh.nix ./pkgs.nix];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
