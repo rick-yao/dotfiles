@@ -22,6 +22,6 @@
     lsd
     gitui
     jq
-    libgcc
+    gcc
   ];
 }
