@@ -2,15 +2,17 @@
   description = "Home Manager configuration of rick";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, rust-overlay, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -18,17 +20,21 @@
     in {
       homeConfigurations.username = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-  home = {
-    username = username;
-    homeDirectory = "/home/${username}";
-    stateVersion = "23.11";
-  };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ../home-manager ];
+        modules = [
+        ./home.nix 
+        
+        # rust-overlay
+        ({pkgs, ...}: {
+          nixpkgs.overlays = [rust-overlay.overlays.default];
+          environment.systemPackages = [
+            (pkgs.rust-bin.stable.latest.default.override {
+              extensions = ["rust-src"];
+            })
+          ];
+        })
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
