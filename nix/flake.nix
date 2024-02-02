@@ -75,7 +75,7 @@
           home-manager.extraSpecialArgs = inputs;
 
           # NOTE: replace "yourusername" with your own username!
-          home-manager.users.rick = import ../home-manager;
+          home-manager.users.rick = import ./home.nix;
         }
 
         ({pkgs, ...}: {
