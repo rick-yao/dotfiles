@@ -1,9 +1,9 @@
 {
   pkgs,
-  rust-overlay,
+  overlays,
   ...
 }: {
-  nixpkgs.overlays = [rust-overlay.overlays.default];
+  nixpkgs.overlays = overlays;
   home.packages = with pkgs; [
     (pkgs.rust-bin.stable.latest.default.override {
       extensions = ["rust-src"];
