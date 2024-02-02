@@ -4,10 +4,10 @@
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];
 
-    substituters = [
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
-      "https://cache.nixos.org"
-    ];
+    # substituters = [
+    #   "https://mirrors.ustc.edu.cn/nix-channels/store"
+    #   "https://cache.nixos.org"
+    # ];
     
     auto-optimise-store = true;
   };
@@ -23,7 +23,7 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, rust-overlay, ... }:
+  outputs = inputs @ {self, nixpkgs, home-manager, rust-overlay, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
