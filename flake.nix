@@ -1,33 +1,36 @@
 {
   description = "Nix for macOS configuration";
-  
-  outputs = inputs @{self, nixpkgs, darwin, home-manager, ...}: let 
-   
+
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    darwin,
+    home-manager,
+    ...
+  }: let
     overlays = [
-     inputs.rust-overlay.overlays.default
+      inputs.rust-overlay.overlays.default
     ];
-    
+
     mkSystem = import ./lib/mksystem.nix {
       inherit overlays nixpkgs inputs;
     };
-    in {
-    
+    # mkfmt = import ./lib/mkfmt.nix;
+  in {
     # darwinConfigurations."Ricks-MacBook-Air"  = mkSystem "Ricks-MacBook-Air" {
     #   system = "aarch64-darwin";
     #   user   = "rick";
     #   darwin = true;
     # };
-    
+
     homeConfigurations.rick = mkSystem "rick" {
       system = "x86_64-linux";
-      user   = "rick";
-      linux  = true;
+      user = "rick";
+      linux = true;
     };
-    
-     # formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
-    
-    };
-    
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+  };
+
   # outputs = inputs @ {
   #   self,
   #   nixpkgs,
@@ -72,7 +75,7 @@
   #   # nix codee formmater
   #   formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   # };
-  
+
   nixConfig = {
     experimental-features = ["nix-command" "flakes"];
 
@@ -80,7 +83,7 @@
     #   "https://mirrors.ustc.edu.cn/nix-channels/store"
     #   "https://cache.nixos.org"
     # ];
-    
+
     auto-optimise-store = true;
   };
 
@@ -97,7 +100,7 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
 }
