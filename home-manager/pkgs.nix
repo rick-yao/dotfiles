@@ -23,5 +23,6 @@
     gitui
     jq
     gcc
+    go
   ];
 }
