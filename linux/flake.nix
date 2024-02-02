@@ -1,6 +1,17 @@
 {
   description = "Home Manager configuration of rick";
 
+  nixConfig = {
+    experimental-features = ["nix-command" "flakes"];
+
+    substituters = [
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org"
+    ];
+    
+    auto-optimise-store = true;
+  };
+  
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     
