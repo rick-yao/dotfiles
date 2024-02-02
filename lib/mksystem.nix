@@ -54,7 +54,7 @@ then
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
 
-        home-manager.users.${user} = import userHMConfig { inputs = inputs; isLinux = false; name = user; lib = pkgs.lib; };
+        home-manager.users.${user} = import userHMConfig { inputs = inputs; isDarwin = true; name = user; lib = pkgs.lib; };
       }
 
       ({ pkgs, ... }: {
