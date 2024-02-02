@@ -10,5 +10,5 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  imports = [../home-manager/zsh.nix ../home-manager/core.nix ../home-manager/git.nix ../home-manager/starship.nix ../home-manager/ssh.nix ../home-manager/pkgs.nix];
+  imports = [../home-manager];
 }
