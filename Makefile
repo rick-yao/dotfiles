@@ -17,7 +17,10 @@ darwin-set-proxy:
 set-up-config:
 	sh machines/scripts/set_up_config.sh
 
-deploy: set-up-config
+deploy-linux: set-up-config
+	home-manager switch --flake ~/dotfiles/
+	
+deploy-mac: set-up-config
 	# NOTE: update hostname here!
 	nix build .#darwinConfigurations.Ricks-MacBook-Air.system \
 		--extra-experimental-features 'nix-command flakes'
