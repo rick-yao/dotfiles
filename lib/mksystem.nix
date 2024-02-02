@@ -1,5 +1,3 @@
-# This function creates a NixOS system based on our VM setup for a
-# particular architecture.
 { nixpkgs
 , overlays
 , inputs
@@ -12,21 +10,14 @@
          }:
 let
   pkgs = nixpkgs.legacyPackages.${system};
-  # The config files for this system.
-  machineConfig = ../machines/${name}.nix;
-  userOSConfig =
-    ../users/${user}/${
-      if darwin
-      then "darwin"
-      else "linux"
-    }.nix;
-  userHMConfig = ../users/${user}/home-manager.nix;
+  userHMConfig = ../home-manager;
 
   # NixOS vs nix-darwin functionst
   systemFunc =
     if darwin
     then inputs.darwin.lib.darwinSystem
     else inputs.home-manager.lib.homeManagerConfiguration;
+  # HM , if linux , should be empty
   home-manager =
     if darwin
     then inputs.home-manager.darwinModules
@@ -39,12 +30,12 @@ then
     inherit pkgs;
 
     modules = [
-      import userHMConfig {inputs = inputs;isLinux=true;}
-      ../linux/overlay/rust.nix
+      (import userHMConfig { inputs = inputs; isLinux = true; name = name; lib = pkgs.lib; })
+      ../overlay/rust.nix
     ];
 
     extraSpecialArgs = { inherit overlays; };
-    
+
   }
 else if darwin
 then
@@ -55,16 +46,12 @@ then
     modules = [
       ../nix/darwin
 
-      # machineConfig
-      # userOSConfig
       home-manager.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
 
-        # home-manager.extraSpecialArgs = inputs;
-
-        home-manager.users.${user} = import userHMConfig {inputs = inputs;isLinux=false;};
+        home-manager.users.${user} = import userHMConfig { inputs = inputs; isLinux = false; name = name; lib = pkgs.lib; };
       }
 
       ({ pkgs, ... }: {
@@ -75,17 +62,6 @@ then
           })
         ];
       })
-      # We expose some extra arguments so that our modules can parameterize
-      # better based on these values.
-      {
-        config._module.args = {
-          currentSystem = system;
-          currentSystemName = name;
-          currentSystemUser = user;
-          isLinux = linux;
-          inputs = inputs;
-        };
-      }
     ];
   }
 else { }
