@@ -39,11 +39,12 @@ then
     inherit pkgs;
 
     modules = [
-      ../linux/home.nix
+      import userHMConfig {inputs = inputs;isLinux=true;}
       ../linux/overlay/rust.nix
     ];
 
     extraSpecialArgs = { inherit overlays; };
+    
   }
 else if darwin
 then
@@ -53,15 +54,6 @@ then
 
     modules = [
       ../nix/darwin
-      # apply our overlays. overlays are keyed by system type so we have
-      # to go through and apply our system type. we do this first so
-      # the overlays are available globally.
-      # { nixpkgs.overlays = overlays; }
-      #     environment.systemPackages = [
-      #       (pkgs.rust-bin.stable.latest.default.override {
-      #         extensions = ["rust-src"];
-      #       })
-      #     ]
 
       # machineConfig
       # userOSConfig
@@ -72,7 +64,7 @@ then
 
         # home-manager.extraSpecialArgs = inputs;
 
-        home-manager.users.${user} = import userHMConfig;
+        home-manager.users.${user} = import userHMConfig {inputs = inputs;isLinux=false;};
       }
 
       ({ pkgs, ... }: {
@@ -85,15 +77,15 @@ then
       })
       # We expose some extra arguments so that our modules can parameterize
       # better based on these values.
-      # {
-      #   config._module.args = {
-      #     currentSystem = system;
-      #     currentSystemName = name;
-      #     currentSystemUser = user;
-      #     isWSL = isWSL;
-      #     inputs = inputs;
-      #   };
-      # }
+      {
+        config._module.args = {
+          currentSystem = system;
+          currentSystemName = name;
+          currentSystemUser = user;
+          isLinux = linux;
+          inputs = inputs;
+        };
+      }
     ];
   }
 else { }
