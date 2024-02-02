@@ -1,36 +1,36 @@
 {
   description = "Nix for Rick's Personal Machines";
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    darwin,
-    home-manager,
-    ...
-  }: let
-    overlays = [
-      inputs.rust-overlay.overlays.default
-    ];
+  outputs =
+    inputs @ { self
+    , nixpkgs
+    , darwin
+    , home-manager
+    , ...
+    }:
+    let
+      overlays = [
+        inputs.rust-overlay.overlays.default
+      ];
 
-    mkSystem = import ./lib/mksystem.nix {
-      inherit overlays nixpkgs inputs;
-    };
-  in {
-    darwinConfigurations."Ricks-MacBook-Air" = mkSystem "Ricks-MacBook-Air" {
-      system = "aarch64-darwin";
-      user = "rick";
-      darwin = true;
-    };
+      mkSystem = import ./lib/mksystem.nix {
+        inherit overlays nixpkgs inputs;
+      };
+    in
+    {
+      darwinConfigurations."Ricks-MacBook-Air" = mkSystem "Ricks-MacBook-Air" {
+        system = "aarch64-darwin";
+        user = "rick";
+        darwin = true;
+      };
 
-    homeConfigurations.rick = mkSystem "rick" {
-      system = "x86_64-linux";
-      user = "rick";
-      linux = true;
-    };
+      homeConfigurations.rick = mkSystem "rick" {
+        system = "x86_64-linux";
+        user = "rick";
+        linux = true;
+      };
 
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
-    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
-  };
+    };
 
   # outputs = inputs @ {
   #   self,
@@ -78,7 +78,7 @@
   # };
 
   nixConfig = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
 
     # substituters = [
     #   "https://mirrors.ustc.edu.cn/nix-channels/store"

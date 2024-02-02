@@ -10,7 +10,7 @@
 
   # the nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
 
     substituters = [
       # Replace official cache with a mirror located in China
@@ -48,48 +48,48 @@
   # parameters in `outputs` are defined in `inputs` and can be referenced by their names.
   # However, `self` is an exception, this special parameter points to the `outputs` itself (self-reference)
   # The `@` syntax here is used to alias the attribute set of the inputs's parameter, making it convenient to use inside the function.
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    darwin,
-    home-manager,
-    rust-overlay,
-    ...
-  }: {
-    # NOTE: please update the whole "hostname" placeholder string to your own hostname!
-    # such as darwinConfigurations.mymac = darwin.lib.darwinSystem {
-    darwinConfigurations."Ricks-MacBook-Air" = darwin.lib.darwinSystem {
-      system = "aarch64-darwin"; # change this to "aarch64-darwin" if you are using Apple Silicon
-      modules = [
-        ./darwin/nix-core.nix
-        ./darwin/system.nix
-        ./darwin/apps.nix
-        ./darwin/host-users.nix
+  outputs =
+    inputs @ { self
+    , nixpkgs
+    , darwin
+    , home-manager
+    , rust-overlay
+    , ...
+    }: {
+      # NOTE: please update the whole "hostname" placeholder string to your own hostname!
+      # such as darwinConfigurations.mymac = darwin.lib.darwinSystem {
+      darwinConfigurations."Ricks-MacBook-Air" = darwin.lib.darwinSystem {
+        system = "aarch64-darwin"; # change this to "aarch64-darwin" if you are using Apple Silicon
+        modules = [
+          ./darwin/nix-core.nix
+          ./darwin/system.nix
+          ./darwin/apps.nix
+          ./darwin/host-users.nix
 
-        # home manager
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
+          # home manager
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
 
-          home-manager.extraSpecialArgs = inputs;
+            home-manager.extraSpecialArgs = inputs;
 
-          # NOTE: replace "yourusername" with your own username!
-          home-manager.users.rick = import ./home.nix;
-        }
+            # NOTE: replace "yourusername" with your own username!
+            home-manager.users.rick = import ./home.nix;
+          }
 
-        ({pkgs, ...}: {
-          nixpkgs.overlays = [rust-overlay.overlays.default];
-          environment.systemPackages = [
-            (pkgs.rust-bin.stable.latest.default.override {
-              extensions = ["rust-src"];
-            })
-          ];
-        })
-      ];
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            environment.systemPackages = [
+              (pkgs.rust-bin.stable.latest.default.override {
+                extensions = [ "rust-src" ];
+              })
+            ];
+          })
+        ];
+      };
+
+      # nix codee formmater
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
     };
-
-    # nix codee formmater
-    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
-  };
 }

@@ -2,7 +2,7 @@
   description = "Home Manager configuration of rick";
 
   nixConfig = {
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
 
     # substituters = [
     #   "https://mirrors.ustc.edu.cn/nix-channels/store"
@@ -23,28 +23,30 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    home-manager,
-    rust-overlay,
-    ...
-  }: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    username = "rick";
-  in {
-    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+  outputs =
+    inputs @ { self
+    , nixpkgs
+    , home-manager
+    , rust-overlay
+    , ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      username = "rick";
+    in
+    {
+      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-      modules = [
-        ./home.nix
-        ./overlay/rust.nix
-      ];
+        modules = [
+          ./home.nix
+          ./overlay/rust.nix
+        ];
 
-      extraSpecialArgs = {inherit rust-overlay;};
+        extraSpecialArgs = { inherit rust-overlay; };
+      };
+
+      formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     };
-
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
-  };
 }

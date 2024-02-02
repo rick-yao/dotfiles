@@ -1,6 +1,8 @@
-{...}: let
+{ ... }:
+let
   username = "rick";
-in {
+in
+{
   home = {
     username = username;
     homeDirectory = "/Users/${username}";
@@ -9,5 +11,5 @@ in {
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  imports = [../home-manager];
+  imports = [ ../home-manager ];
 }

@@ -1,15 +1,16 @@
 # This function creates a NixOS system based on our VM setup for a
 # particular architecture.
-{
-  nixpkgs,
-  overlays,
-  inputs,
-}: name: {
-  system,
-  user,
-  darwin ? false,
-  linux ? false,
-}: let
+{ nixpkgs
+, overlays
+, inputs
+,
+}: name: { system
+         , user
+         , darwin ? false
+         , linux ? false
+         ,
+         }:
+let
   pkgs = nixpkgs.legacyPackages.${system};
   # The config files for this system.
   machineConfig = ../machines/${name}.nix;
@@ -29,68 +30,70 @@
   home-manager =
     if darwin
     then inputs.home-manager.darwinModules
-    else {};
+    else { };
 in
-  if linux
-  then
-    systemFunc {
-      inherit pkgs;
+if linux
+then
+  systemFunc
+  {
+    inherit pkgs;
 
-      modules = [
-        ../linux/home.nix
-        ../linux/overlay/rust.nix
-      ];
+    modules = [
+      ../linux/home.nix
+      ../linux/overlay/rust.nix
+    ];
 
-      extraSpecialArgs = {inherit overlays;};
-    }
-  else if darwin
-  then
-    systemFunc {
-      inherit system;
+    extraSpecialArgs = { inherit overlays; };
+  }
+else if darwin
+then
+  systemFunc
+  {
+    inherit system;
 
-      modules = [
-        ../nix/darwin
-        # apply our overlays. overlays are keyed by system type so we have
-        # to go through and apply our system type. we do this first so
-        # the overlays are available globally.
-        # { nixpkgs.overlays = overlays; }
-        #     environment.systemPackages = [
-        #       (pkgs.rust-bin.stable.latest.default.override {
-        #         extensions = ["rust-src"];
-        #       })
-        #     ]
+    modules = [
+      ../nix/darwin
+      # apply our overlays. overlays are keyed by system type so we have
+      # to go through and apply our system type. we do this first so
+      # the overlays are available globally.
+      # { nixpkgs.overlays = overlays; }
+      #     environment.systemPackages = [
+      #       (pkgs.rust-bin.stable.latest.default.override {
+      #         extensions = ["rust-src"];
+      #       })
+      #     ]
 
-        # machineConfig
-        # userOSConfig
-        home-manager.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
+      # machineConfig
+      # userOSConfig
+      home-manager.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
 
-          # home-manager.extraSpecialArgs = inputs;
+        # home-manager.extraSpecialArgs = inputs;
 
-          home-manager.users.${user} = import userHMConfig;
-        }
+        home-manager.users.${user} = import userHMConfig;
+      }
 
-        ({pkgs, ...}: {
-          nixpkgs.overlays = overlays;
-          environment.systemPackages = [
-            (pkgs.rust-bin.stable.latest.default.override {
-              extensions = ["rust-src"];
-            })
-          ];
-        })
-        # We expose some extra arguments so that our modules can parameterize
-        # better based on these values.
-        # {
-        #   config._module.args = {
-        #     currentSystem = system;
-        #     currentSystemName = name;
-        #     currentSystemUser = user;
-        #     isWSL = isWSL;
-        #     inputs = inputs;
-        #   };
-        # }
-      ];
-    }
-  else {}
+      ({ pkgs, ... }: {
+        nixpkgs.overlays = overlays;
+        environment.systemPackages = [
+          (pkgs.rust-bin.stable.latest.default.override {
+            extensions = [ "rust-src" ];
+          })
+        ];
+      })
+      # We expose some extra arguments so that our modules can parameterize
+      # better based on these values.
+      # {
+      #   config._module.args = {
+      #     currentSystem = system;
+      #     currentSystemName = name;
+      #     currentSystemUser = user;
+      #     isWSL = isWSL;
+      #     inputs = inputs;
+      #   };
+      # }
+    ];
+  }
+else { }

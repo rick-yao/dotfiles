@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -38,6 +38,6 @@
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
-    flags = ["--disable-up-arrow"];
+    flags = [ "--disable-up-arrow" ];
   };
 }
