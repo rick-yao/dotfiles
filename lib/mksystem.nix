@@ -12,6 +12,7 @@ let
   pkgs = nixpkgs.legacyPackages.${system};
   userHMConfig = ../home-manager;
 
+  machineConfig = ../machines/${name}.nix;
   # NixOS vs nix-darwin functionst
   systemFunc =
     if darwin
@@ -30,7 +31,7 @@ then
     inherit pkgs;
 
     modules = [
-      (import userHMConfig { inputs = inputs; isLinux = true; name = name; lib = pkgs.lib; })
+      (import userHMConfig { inputs = inputs; isLinux = true; name = user; lib = pkgs.lib; })
       ../overlay/rust.nix
     ];
 
@@ -46,12 +47,13 @@ then
     modules = [
       ../nix/darwin
 
+      machineConfig
       home-manager.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
 
-        home-manager.users.${user} = import userHMConfig { inputs = inputs; isLinux = false; name = name; lib = pkgs.lib; };
+        home-manager.users.${user} = import userHMConfig { inputs = inputs; isLinux = false; name = user; lib = pkgs.lib; };
       }
 
       ({ pkgs, ... }: {
