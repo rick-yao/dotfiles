@@ -25,5 +25,6 @@
     gcc
     go
     lua
+    unzip
   ];
 }
