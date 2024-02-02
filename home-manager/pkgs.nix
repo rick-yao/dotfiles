@@ -26,5 +26,6 @@
     go
     lua
     unzip
+    nixpkgs-fmt
   ];
 }

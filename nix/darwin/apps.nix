@@ -14,7 +14,7 @@
   # But on macOS, it's less stable than homebrew.
   #
   # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
-  environment.systemPackages = with pkgs; [nixpkgs-fmt];
+  # environment.systemPackages = with pkgs; [nixpkgs-fmt];
   environment.variables.EDITOR = "nvim";
 
   # Homebrew Mirror in China
@@ -72,7 +72,6 @@
       "telnet"
       "cocoapods"
       "fastlane"
-      "go"
       "yarn"
       "mas"
       "tmux"
