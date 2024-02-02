@@ -1,6 +1,6 @@
 # This function creates a NixOS system based on our VM setup for a
 # particular architecture.
-{ nixpkgs, overlays, inputs, ...}:
+{ nixpkgs, overlays, inputs }:
 
 name:
 {
@@ -24,11 +24,11 @@ in if linux then systemFunc {
 
       inherit pkgs;
 
-     # { nixpkgs.overlays = overlays; }
       modules = [
         ../linux/home.nix
-         # ../linux/overlays/rust.nix
+        ../linux/overlay/rust.nix
       ];
+      
       extraSpecialArgs = {inherit overlays;};
   # inherit system;
   #

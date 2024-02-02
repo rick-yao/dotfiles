@@ -8,7 +8,7 @@
     ];
     
     mkSystem = import ./lib/mksystem.nix {
-      inherit overlays nixpkgs inputs self;
+      inherit overlays nixpkgs inputs;
     };
     in {
     
