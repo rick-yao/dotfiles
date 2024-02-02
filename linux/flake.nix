@@ -37,14 +37,14 @@
         ./home.nix 
         
         # rust-overlay
-        # ({pkgs, ...}: {
-        #   nixpkgs.overlays = [rust-overlay.overlays.default];
-        #   environment.systemPackages = [
-        #     (pkgs.rust-bin.stable.latest.default.override {
-        #       extensions = ["rust-src"];
-        #     })
-        #   ];
-        # })
+        ({pkgs, ...}: {
+          nixpkgs.overlays = [rust-overlay.overlays.default];
+          home.packages =with pkgs; [
+            (pkgs.rust-bin.stable.latest.default.override {
+              extensions = ["rust-src"];
+            })
+          ];
+        })
         ];
 
         # Optionally use extraSpecialArgs
