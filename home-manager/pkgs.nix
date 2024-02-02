@@ -24,5 +24,6 @@
     jq
     gcc
     go
+    lua
   ];
 }
