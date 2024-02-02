@@ -15,7 +15,7 @@ darwin-set-proxy:
 	sudo python3 scripts/darwin_set_proxy.py
 
 set-up-config:
-	sh scripts/set_up_config.sh
+	sh machines/scripts/set_up_config.sh
 
 deploy: set-up-config
 	# NOTE: update hostname here!
