@@ -1,5 +1,5 @@
 {
-  description = "Nix for macOS configuration";
+  description = "Nix for Rick's Personal Machines";
 
   outputs = inputs @ {
     self,
@@ -15,20 +15,21 @@
     mkSystem = import ./lib/mksystem.nix {
       inherit overlays nixpkgs inputs;
     };
-    # mkfmt = import ./lib/mkfmt.nix;
   in {
-    # darwinConfigurations."Ricks-MacBook-Air"  = mkSystem "Ricks-MacBook-Air" {
-    #   system = "aarch64-darwin";
-    #   user   = "rick";
-    #   darwin = true;
-    # };
+    darwinConfigurations."Ricks-MacBook-Air" = mkSystem "Ricks-MacBook-Air" {
+      system = "aarch64-darwin";
+      user = "rick";
+      darwin = true;
+    };
 
     homeConfigurations.rick = mkSystem "rick" {
       system = "x86_64-linux";
       user = "rick";
       linux = true;
     };
+
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
 
   # outputs = inputs @ {

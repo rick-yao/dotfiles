@@ -43,37 +43,54 @@ in
 
       extraSpecialArgs = {inherit overlays;};
     }
-  else systemFunc {
-    # inherit system;
-    #
-    # modules = [
-    #   # apply our overlays. overlays are keyed by system type so we have
-    #   # to go through and apply our system type. we do this first so
-    #   # the overlays are available globally.
-    #   { nixpkgs.overlays = overlays; }
-    #
-    #   machineConfig
-    #   userOSConfig
-    #   home-manager.home-manager {
-    #     home-manager.useGlobalPkgs = true;
-    #     home-manager.useUserPackages = true;
-    #     home-manager.users.${user} = import userHMConfig {
-    #       isWSL = isWSL;
-    #       inputs = inputs;
-    #     };
-    #   }
-    #
-    #   extraSpecialArgs = {inherit rust-overlay};
-    #   # We expose some extra arguments so that our modules can parameterize
-    #   # better based on these values.
-    #   {
-    #     config._module.args = {
-    #       currentSystem = system;
-    #       currentSystemName = name;
-    #       currentSystemUser = user;
-    #       isWSL = isWSL;
-    #       inputs = inputs;
-    #     };
-    #   }
-    # ];
-  }
+  else if darwin
+  then
+    systemFunc {
+      inherit system;
+
+      modules = [
+        ../nix/darwin
+        # apply our overlays. overlays are keyed by system type so we have
+        # to go through and apply our system type. we do this first so
+        # the overlays are available globally.
+        # { nixpkgs.overlays = overlays; }
+        #     environment.systemPackages = [
+        #       (pkgs.rust-bin.stable.latest.default.override {
+        #         extensions = ["rust-src"];
+        #       })
+        #     ]
+
+        # machineConfig
+        # userOSConfig
+        home-manager.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+
+          # home-manager.extraSpecialArgs = inputs;
+
+          home-manager.users.${user} = import userHMConfig;
+        }
+
+        ({pkgs, ...}: {
+          nixpkgs.overlays = overlays;
+          environment.systemPackages = [
+            (pkgs.rust-bin.stable.latest.default.override {
+              extensions = ["rust-src"];
+            })
+          ];
+        })
+        # We expose some extra arguments so that our modules can parameterize
+        # better based on these values.
+        # {
+        #   config._module.args = {
+        #     currentSystem = system;
+        #     currentSystemName = name;
+        #     currentSystemUser = user;
+        #     isWSL = isWSL;
+        #     inputs = inputs;
+        #   };
+        # }
+      ];
+    }
+  else {}
