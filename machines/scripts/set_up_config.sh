@@ -11,7 +11,7 @@ link_file() {
 	link_name="$2"
 
 	# Check if the symbolic link already exists and points to the correct target file
-	if [ -L "$link_name" ] && [ "$(readlink -f "$link_name")" == "$(readlink -f "$target_file")" ]; then
+	if [ -L "$link_name" ] && [ "$(realpath "$link_name")" == "$(readlink -f "$target_file")" ]; then
 		# The symbolic link exists and points to the correct target file
 		echo "The symbolic link $link_name already points to $target_file."
 	else
