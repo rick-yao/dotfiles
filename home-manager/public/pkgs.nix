@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     wget
     du-dust
@@ -25,7 +25,5 @@
     go
     lua
     unzip
-    pre-commit
-    nixpkgs-fmt
   ];
 }

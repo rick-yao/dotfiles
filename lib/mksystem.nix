@@ -1,14 +1,13 @@
-{ nixpkgs
-, overlays
-, inputs
-,
-}: name: { system
-         , user
-         , darwin ? false
-         , linux ? false
-         ,
-         }:
-let
+{
+  nixpkgs,
+  overlays,
+  inputs,
+}: name: {
+  system,
+  user,
+  darwin ? false,
+  linux ? false,
+}: let
   pkgs = nixpkgs.legacyPackages.${system};
   userHMConfig = ../home-manager;
 
@@ -22,49 +21,58 @@ let
   home-manager =
     if darwin
     then inputs.home-manager.darwinModules
-    else { };
+    else {};
 in
-if linux
-then
-  systemFunc
-  {
-    inherit pkgs;
+  if linux
+  then
+    systemFunc
+    {
+      inherit pkgs;
 
-    modules = [
-      (import userHMConfig { inputs = inputs; isLinux = true; name = user; lib = pkgs.lib; })
-      ../overlay/rust.nix
-    ];
+      modules = [
+        (import userHMConfig {
+          inputs = inputs;
+          isLinux = true;
+          name = user;
+          lib = pkgs.lib;
+        })
+        ../overlay/rust.nix
+      ];
 
-    extraSpecialArgs = { inherit overlays; };
+      extraSpecialArgs = {inherit overlays;};
+    }
+  else if darwin
+  then
+    systemFunc
+    {
+      inherit system;
 
-  }
-else if darwin
-then
-  systemFunc
-  {
-    inherit system;
+      modules = [
+        ../machines/darwin
 
-    modules = [
-      ../machines/darwin
+        machineConfig
 
-      machineConfig
+        home-manager.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
 
-      home-manager.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
+          home-manager.users.${user} = import userHMConfig {
+            inputs = inputs;
+            isDarwin = true;
+            name = user;
+            lib = pkgs.lib;
+          };
+        }
 
-        home-manager.users.${user} = import userHMConfig { inputs = inputs; isDarwin = true; name = user; lib = pkgs.lib; };
-      }
-
-      ({ pkgs, ... }: {
-        nixpkgs.overlays = overlays;
-        environment.systemPackages = [
-          (pkgs.rust-bin.stable.latest.default.override {
-            extensions = [ "rust-src" ];
-          })
-        ];
-      })
-    ];
-  }
-else { }
+        ({pkgs, ...}: {
+          nixpkgs.overlays = overlays;
+          environment.systemPackages = [
+            (pkgs.rust-bin.stable.latest.default.override {
+              extensions = ["rust-src"];
+            })
+          ];
+        })
+      ];
+    }
+  else {}
