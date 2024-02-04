@@ -1,10 +1,6 @@
 # Rick's dotfile
 
-Currently this setup is written by nix and heavily inspired by following repo:
-
-1. [mitchellh/nixos-config](https://github.com/mitchellh/nixos-config)
-2. [ryan4yin/nix-darwin-kickstarter](https://github.com/ryan4yin/nix-darwin-kickstarter)
-3. [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book)
+Currently this setup is written by nix flake.
 
 ## Platforms
 
@@ -60,3 +56,11 @@ make deploy-mac
 ```bash
 home-manager switch --flake /your/dotfiles/path
 ```
+
+## Inspired By
+
+This project is heavily inspired by following repo:
+
+1. [mitchellh/nixos-config](https://github.com/mitchellh/nixos-config)
+2. [ryan4yin/nix-darwin-kickstarter](https://github.com/ryan4yin/nix-darwin-kickstarter)
+3. [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book)
