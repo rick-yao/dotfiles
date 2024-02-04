@@ -1,4 +1,4 @@
-## Rick's dotfile
+# Rick's dotfile
 
 Currently this setup is written by nix and heavily inspired by following repo:
 
@@ -6,12 +6,12 @@ Currently this setup is written by nix and heavily inspired by following repo:
 2. [ryan4yin/nix-darwin-kickstarter](https://github.com/ryan4yin/nix-darwin-kickstarter)
 3. [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book)
 
-### Platforms
+## Platforms
 
 - macOS
 - Ubuntu(which I use most, cannot guarantee for other distribution)
 
-### Project Structure
+## Project Structure
 
 - `flake.nix`: Describes the project and its dependencies (only for flake-enabled projects).
 - `home-manager/`: Describes different hm config based on platform.
@@ -20,11 +20,11 @@ Currently this setup is written by nix and heavily inspired by following repo:
 - `overlays/`: Directory for Nix package overlays.
 - `config/`: Directory for my custom app config.
 
-### How to use
+## How to use
 
-#### Platform Prerequisite
+### Platform Prerequisite
 
-##### For MacOS
+#### For MacOS
 
 Some deps need installing.
 
@@ -36,13 +36,13 @@ Optional:
 
 - 1password -- I use 1password to sync my ssh keys
 
-##### For Linux
+#### For Linux
 
 - [Standalone Home manager](https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-standalone)
 
-#### Deploy
+### Deploy
 
-##### MacOS
+#### MacOS
 
 1. Update the home name of your mac
 2. execute command
@@ -53,7 +53,7 @@ make deploy-mac
 
 3. Logout and login to make setting take effect
 
-##### Linux
+#### Linux
 
 1. execute command
 
