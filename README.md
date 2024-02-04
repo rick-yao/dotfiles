@@ -44,7 +44,7 @@ Optional:
 
 #### MacOS
 
-1. Update the home name of your mac
+1. Update the hostname of your mac
 2. execute command
 
 ```bash
