@@ -1,3 +1,3 @@
 { ... }: {
-  imports = [ ./apps.nix ./host-users.nix ./nix-core.nix];
+  imports = [ ./apps.nix ./host-users.nix ./nix-core.nix ];
 }

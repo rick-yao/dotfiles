@@ -48,7 +48,7 @@ then
       ../machines/darwin
 
       machineConfig
-      
+
       home-manager.home-manager
       {
         home-manager.useGlobalPkgs = true;
