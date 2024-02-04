@@ -35,8 +35,6 @@
         editor = "nvim";
       };
 
-      gpg.format = "ssh";
-
       push.default = "current";
       push.autoSetupRemote = true;
 

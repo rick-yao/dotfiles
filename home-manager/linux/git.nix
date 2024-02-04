@@ -5,7 +5,7 @@
     };
 
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcijLLEuNPXo3ETb+euCqmvzBlgFOmA092igevTSICB";
+      key = "30AA9065ECFE9D2E";
       signByDefault = true;
     };
   };
