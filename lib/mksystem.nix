@@ -12,7 +12,7 @@
   userHMConfig = ../home-manager;
 
   machineConfig = ../machines/${name}.nix;
-  # NixOS vs nix-darwin functionst
+  # NixOS vs nix-darwin functionst , if darwin , should be darwinSystem, if linux , should be homeManagerConfiguration because i use hm standalone version in linux
   systemFunc =
     if darwin
     then inputs.darwin.lib.darwinSystem
@@ -64,7 +64,7 @@ in
             lib = pkgs.lib;
           };
         }
-
+        # Rust overlay
         ({pkgs, ...}: {
           nixpkgs.overlays = overlays;
           environment.systemPackages = [

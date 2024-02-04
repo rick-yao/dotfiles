@@ -31,10 +31,8 @@
       export NVM_LAZY_LOAD_EXTRA_COMMANDS=(vim nvim pnpm yarn)
       ";
     };
-
-    # dotDir = ".config/zsh";
-    # envExtra = "export AAA = "~/.config/xxx"";
   };
+
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;

@@ -1,3 +1,10 @@
+# home manager conf, shared between all platforms
+# parameters:
+#   - name: the user name
+#   - lib: the nixpkgs lib
+#   - isLinux: true if the system is linux
+#   - isDarwin: true if the system is darwin
+# this will load the configuration from the public folder and the platform specific folder
 {
   isLinux ? false,
   name,

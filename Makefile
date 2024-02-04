@@ -1,19 +1,8 @@
-#
-#  NOTE: Makefile's target name should not be the same as one of the file or directory in the current directory, 
-#    otherwise the target will not be executed!
-#
-
-
-############################################################################
-#
-#  Darwin related commands
-#
-############################################################################
-
-#  NOTE: don't need this , but I keep it just in case
+# I don't need this , but I keep it just in case network connection is not stable
 darwin-set-proxy:
-	sudo python3 scripts/darwin_set_proxy.py
+	sudo python3 machines/scripts/darwin_set_proxy.py
 
+# alias all necceary config file
 set-up-config:
 	sh machines/scripts/set_up_config.sh
 
@@ -26,6 +15,8 @@ deploy-mac: set-up-config
 		--extra-experimental-features 'nix-command flakes'
 
 	./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air
+	
+	rm ./result
 
 darwin-debug: set-up-config
 	# NOTE: update hostname here!
@@ -54,9 +45,7 @@ gc:
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
 
-
 fmt:
-	# format the nix files in this repo
 	nix fmt
 
 .PHONY: clean  

@@ -47,16 +47,19 @@ else
 	echo "The .config directory already exists."
 fi
 
-# this shell copys custom user config to astro user dir
+# check if astro user is a symbolic link, if not , delete the folder
 if [ -L "$HOME/dotfiles/config/nvim/AstroNvim/lua/user" ]; then
 	echo "astro user is a symbolic link."
 else
 	echo "astro user is not a symbolic link. Delete the folder."
 	rm -rf $HOME/dotfiles/config/nvim/AstroNvim/lua/user/
 fi
+
+# link astro user and nvim config
 link_file "$HOME/dotfiles/config/nvim/AstroNvim" "$config_dir/nvim"
 link_file "$HOME/dotfiles/config/nvim/astro-personal-config" "$HOME/dotfiles/config/nvim/AstroNvim/lua/user"
 
+# tmux
 link_file "$HOME/dotfiles/config/tmux" "$config_dir/tmux"
 
 # alacritty
@@ -65,6 +68,7 @@ link_file "$HOME/dotfiles/config/alacritty" "$config_dir/alacritty"
 # ssh
 link_file "$HOME/dotfiles/config/ssh" "$config_dir/ssh"
 
+# zsh
 link_file "$HOME/dotfiles/config/zsh" "$config_dir/zsh"
 
 # npmrc
