@@ -34,6 +34,12 @@ darwin-debug: set-up-config
 
 update:
 	nix flake update
+	
+update-mac: update
+	make deploy-mac
+	
+update-linux: update
+	make deploy-linux
 
 history:
 	nix profile history --profile /nix/var/nix/profiles/system
