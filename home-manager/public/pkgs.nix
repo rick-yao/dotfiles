@@ -26,5 +26,6 @@
     lua
     unzip
     deno
+    helix
   ];
 }
