@@ -61,6 +61,7 @@
       "yarn"
       "mas"
       "tmux"
+      "gnu-sed"
     ];
 
     # `brew install --cask`
