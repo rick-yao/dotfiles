@@ -1,6 +1,6 @@
 Host gcp-new
-	HostName 35.221.151.43
-	User abneryaoo
+	HostName 34.80.240.104
+	User rick
   Port 9774
 
 Host hysteria
