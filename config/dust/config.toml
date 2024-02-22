@@ -4,4 +4,4 @@
 #   ~/.dust.toml
 
 # Print tree upside down (biggest highest)
-reverse = true
+reverse = false
