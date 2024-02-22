@@ -3,22 +3,30 @@
 # Define the path to the .config directory
 config_dir="$HOME/.config"
 
-# check if link already exists , if exists , do noting , if not create link
+# check if link already exists , if exists , do noting , if target is not a link , delete the file or folder then create link
 link_file() {
 	# The original file you want to link to
 	target_file="$1"
 	# The symbolic link that you want to create
 	link_name="$2"
-
-	# Check if the symbolic link already exists and points to the correct target file
+	
+	# First, check if the symlink already exists and points to the correct target
 	if [ -L "$link_name" ] && [ "$(realpath "$link_name")" = "$(realpath "$target_file")" ]; then
 		# The symbolic link exists and points to the correct target file
 		echo "The symbolic link $link_name already points to $target_file."
-	else
-		# The symbolic link does not exist or points to a different target, so create or update it
-		ln -sf "$target_file" "$link_name"
-		echo "Symbolic link created or updated: $link_name -> $target_file"
+		return # Exit the function
 	fi
+
+	# If the symlink exists but doesn't point to the correct target,
+	# or if it doesn't exist but the name is taken by a file or directory, report and remove
+	if [ -L "$link_name" ] || [ -e "$link_name" ]; then
+		echo "target is not a symbolic link or already exists. Deleting the folder or file."
+		rm -rf "$link_name"
+	fi
+
+	# Create or update the symbolic link
+	ln -sf "$target_file" "$link_name"
+	echo "Symbolic link created or updated: $link_name -> $target_file"
 }
 
 check_or_create_folder() {
@@ -95,3 +103,7 @@ link_file "$HOME/dotfiles/config/bat" "$config_dir/bat"
 
 # kitty
 link_file "$HOME/dotfiles/config/kitty" "$config_dir/kitty"
+
+#zsh-nvm
+check_or_create_folder "$config_dir/omz/plugins"
+link_file "$HOME/dotfiles/config/zsh/zsh-nvm" "$config_dir/omz/plugins/zsh-nvm"

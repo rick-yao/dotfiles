@@ -7,3 +7,6 @@
 [submodule "config/tmux/tmux_plugin/tpm"]
 	path = config/tmux/tmux_plugin/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "config/zsh/zsh-nvm"]
+	path = config/zsh/zsh-nvm
+	url = https://github.com/lukechilds/zsh-nvm.git
