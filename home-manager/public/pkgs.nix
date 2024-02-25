@@ -27,5 +27,6 @@
     unzip
     deno
     helix
+    tmux
   ];
 }

@@ -60,7 +60,6 @@
       "fastlane"
       "yarn"
       "mas"
-      "tmux"
       "gnu-sed"
     ];
 
