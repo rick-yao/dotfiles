@@ -103,6 +103,7 @@
       "microsoft-edge"
       "macupdater"
       "zed"
+      "font-cascadia-code"
     ];
   };
 }
