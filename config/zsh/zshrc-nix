@@ -28,7 +28,7 @@ alias ll="lsd -la";
 # achrome="open -n /Applications/Google\ Chrome\ Dev.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData";
 alias icat="kitty +kitten icat";
 alias vim="nvim";
-alias tma="tmux a -t";
+alias tma="tmux a";
 alias tml="tmux ls";
 alias tmk="tmux kill-server";
 alias lg="lazygit";
