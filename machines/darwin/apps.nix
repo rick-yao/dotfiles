@@ -103,6 +103,7 @@
       "macupdater"
       "zed"
       "font-cascadia-code"
+      "stats"
     ];
   };
 }
