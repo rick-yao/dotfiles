@@ -22,7 +22,7 @@ alias glg="git log --graph --abbrev-commit --decorate --date=relative --format=f
 alias ggpush='git push origin "$(git_current_branch)"'
 
 alias cd="z";
-alias ea="eza -la --git --git-repos-no-status";
+alias ea="eza -la --git --git-repos-no-status --classify=always";
 alias ll="lsd -la";
 # alias ea="lsd -la";
 # achrome="open -n /Applications/Google\ Chrome\ Dev.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData";
