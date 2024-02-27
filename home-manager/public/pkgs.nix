@@ -28,5 +28,6 @@
     deno
     helix
     tmux
+    fnm
   ];
 }
