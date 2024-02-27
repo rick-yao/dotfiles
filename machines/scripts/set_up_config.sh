@@ -104,6 +104,6 @@ link_file "$HOME/dotfiles/config/bat" "$config_dir/bat"
 # kitty
 link_file "$HOME/dotfiles/config/kitty" "$config_dir/kitty"
 
-#zsh-nvm
-check_or_create_folder "$config_dir/omz/plugins"
-link_file "$HOME/dotfiles/config/zsh/zsh-nvm" "$config_dir/omz/plugins/zsh-nvm"
+# #zsh-nvm
+# check_or_create_folder "$config_dir/omz/plugins"
+# link_file "$HOME/dotfiles/config/zsh/zsh-nvm" "$config_dir/omz/plugins/zsh-nvm"
