@@ -3,5 +3,6 @@
     gcc
     nodePackages_latest.pnpm
     pandoc
+    cmake
   ];
 }
