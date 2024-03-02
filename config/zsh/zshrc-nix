@@ -46,6 +46,8 @@ alias s="kitty +kitten ssh";
 
 alias dud="dust -D -d 1";
 
+cowsay "Welcome, Homan."
+
 clean_up() {
 	echo "cleaning yarn cache..."
 	echo

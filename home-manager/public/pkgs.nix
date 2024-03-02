@@ -30,5 +30,6 @@
     tmux
     fnm
     onefetch
+    cowsay
   ];
 }
