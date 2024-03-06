@@ -2,4 +2,4 @@
 --theme="ansi"
 
 # Show line numbers, Git modifications and file header (but no grid)
---style="numbers,changes,header"
+--style="numbers,changes,header,grid"
