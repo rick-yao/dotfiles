@@ -31,5 +31,6 @@
     fnm
     onefetch
     cowsay
+    deno
   ];
 }
