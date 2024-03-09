@@ -46,6 +46,8 @@ alias s="kitty +kitten ssh";
 
 alias dud="dust -D -d 1";
 
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
 cowsay "Welcome, Human."
 
 clean_up() {
