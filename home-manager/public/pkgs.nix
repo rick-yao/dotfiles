@@ -22,7 +22,7 @@
     lsd
     gitui
     jq
-    go
+    # go
     lua
     unzip
     deno

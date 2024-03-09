@@ -61,6 +61,7 @@
       "yarn"
       "mas"
       "gnu-sed"
+      "go"
     ];
 
     # `brew install --cask`
