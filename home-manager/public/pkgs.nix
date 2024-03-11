@@ -32,5 +32,6 @@
     onefetch
     cowsay
     deno
+    go_1_22
   ];
 }
