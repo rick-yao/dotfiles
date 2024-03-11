@@ -86,7 +86,6 @@
       "fork"
       "input-source-pro"
       "keka"
-      "monitorcontrol"
       "mos"
       "netnewswire"
       "obsidian"
