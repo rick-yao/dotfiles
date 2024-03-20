@@ -103,6 +103,7 @@
       "zed"
       "font-cascadia-code"
       "stats"
+      "alfred"
     ];
   };
 }
