@@ -1,12 +1,12 @@
 {...}: {
   programs.git = {
-    # extraConfig = {
-    # gpg.ssh.program = "/home/rick/.nix-profile/bin/gpg2";
-    # };
+    extraConfig = {
+      gpg.format = "ssh";
+    };
 
-    # signing = {
-    # key = "30AA9065ECFE9D2E";
-    # signByDefault = true;
-    # };
+    signing = {
+      key = "~/.ssh/id_ed25519.pub";
+      signByDefault = true;
+    };
   };
 }
