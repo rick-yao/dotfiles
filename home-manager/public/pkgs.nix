@@ -33,5 +33,9 @@
     cowsay
     deno
     go_1_22
+    hyperfine
+    gping
+    procs
+    doggo
   ];
 }
