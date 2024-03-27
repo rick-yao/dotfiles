@@ -19,12 +19,10 @@ Currently this setup is written by nix flake.
 ## How to use
 
 ### Platform Prerequisite
-
+- nix -- recommend [nix-installer](https://github.com/DeterminateSystems/nix-installer)
 #### For MacOS
 
 Some deps need installing.
-
-- nix -- recommend [nix-installer](https://github.com/DeterminateSystems/nix-installer)
 
 - [Homebrew](https://brew.sh/)
 
@@ -35,6 +33,11 @@ Optional:
 #### For Linux
 
 - [Standalone Home manager](https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-standalone)
+- make --- install via sudo apt-get install make
+- add trusted user to /etc/nix/nix.conf
+```
+trusted-users = your-user-name
+```
 
 ### Deploy
 
