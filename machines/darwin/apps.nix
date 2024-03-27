@@ -94,7 +94,6 @@
       "snipaste"
       "logi-options-plus"
       "font-monaspace"
-      "raycast"
       "font-jetbrains-mono"
       "font-jetbrains-mono-nerd-font"
       "font-fira-code"
