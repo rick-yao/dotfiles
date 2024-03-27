@@ -37,5 +37,8 @@
     gping
     procs
     doggo
+    duf
+    delta
+    curlie
   ];
 }
