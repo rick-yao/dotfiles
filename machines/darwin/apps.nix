@@ -72,7 +72,7 @@
       "visual-studio-code"
       "iina"
       "kitty"
-      "amethyst"
+      # "amethyst"
       "syntax-highlight"
       "zulu11"
       "alacritty"
