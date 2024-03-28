@@ -80,8 +80,9 @@ clean_up() {
 }
 
 performace_test(){
-	for i in {1..10}; do time zsh -i -c exit; done
+	hyperfine --runs 10 'zsh -i -c exit'
 }
+
 rs() {
 		if [ "$#" -lt 1 ]; then
         echo "Usage: remote-ssh <host> [additional ssh options]"
