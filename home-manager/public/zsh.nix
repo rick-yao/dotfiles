@@ -14,20 +14,22 @@
 
     initExtra = "
 		 source $HOME/.config/zsh/zshrc-nix
+		 eval \"$(zoxide init zsh)\"
+     eval \"$(fnm env --use-on-cd)\"
 		";
     envExtra = "
 		 source $HOME/.config/zsh/zshenv-nix
 		";
-    oh-my-zsh = {
-      enable = true;
-      custom = "$XDG_CONFIG_HOME/omz";
-      plugins = [
-        "zoxide"
-      ];
-      extraConfig = "
-         eval \"$(fnm env --use-on-cd)\"
-      ";
-    };
+    # oh-my-zsh = {
+    #   enable = true;
+    #   custom = "$XDG_CONFIG_HOME/omz";
+    #   plugins = [
+    #     "zoxide"
+    #   ];
+    #   extraConfig = "
+    #      eval \"$(fnm env --use-on-cd)\"
+    #   ";
+    # };
   };
 
   programs.atuin = {
