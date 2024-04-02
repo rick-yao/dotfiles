@@ -55,17 +55,8 @@ else
 	echo "The .config directory already exists."
 fi
 
-# check if astro user is a symbolic link, if not , delete the folder
-if [ -L "$HOME/dotfiles/config/nvim/AstroNvim/lua/user" ]; then
-	echo "astro user is a symbolic link."
-else
-	echo "astro user is not a symbolic link. Delete the folder."
-	rm -rf $HOME/dotfiles/config/nvim/AstroNvim/lua/user/
-fi
-
 # link astro user and nvim config
 link_file "$HOME/dotfiles/config/nvim/AstroNvim" "$config_dir/nvim"
-link_file "$HOME/dotfiles/config/nvim/astro-personal-config" "$HOME/dotfiles/config/nvim/AstroNvim/lua/user"
 
 # tmux
 link_file "$HOME/dotfiles/config/tmux" "$config_dir/tmux"
@@ -103,7 +94,3 @@ link_file "$HOME/dotfiles/config/bat" "$config_dir/bat"
 
 # kitty
 link_file "$HOME/dotfiles/config/kitty" "$config_dir/kitty"
-
-# #zsh-nvm
-# check_or_create_folder "$config_dir/omz/plugins"
-# link_file "$HOME/dotfiles/config/zsh/zsh-nvm" "$config_dir/omz/plugins/zsh-nvm"
