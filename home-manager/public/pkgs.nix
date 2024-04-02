@@ -40,5 +40,6 @@
     duf
     delta
     curlie
+    rust-analyzer
   ];
 }
