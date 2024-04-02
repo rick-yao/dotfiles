@@ -23,7 +23,7 @@
     gitui
     jq
     # go
-    lua
+    lua54Packages.lua
     unzip
     deno
     helix
