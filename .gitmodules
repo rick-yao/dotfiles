@@ -1,6 +1,3 @@
 [submodule "config/tmux/tmux_plugin/tpm"]
 	path = config/tmux/tmux_plugin/tpm
 	url = https://github.com/tmux-plugins/tpm.git
-[submodule "config/nvim/astro_nvim_config"]
-	path = config/nvim/astro_nvim_config
-	url = https://github.com/rick-yao/astro_nvim_config.git
