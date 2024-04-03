@@ -9,7 +9,7 @@ link_file() {
 	target_file="$1"
 	# The symbolic link that you want to create
 	link_name="$2"
-	
+
 	# First, check if the symlink already exists and points to the correct target
 	if [ -L "$link_name" ] && [ "$(realpath "$link_name")" = "$(realpath "$target_file")" ]; then
 		# The symbolic link exists and points to the correct target file
@@ -56,7 +56,7 @@ else
 fi
 
 # link astro user and nvim config
-link_file "$HOME/dotfiles/config/nvim/AstroNvim" "$config_dir/nvim"
+link_file "$HOME/dotfiles/config/nvim/astro" "$config_dir/nvim"
 
 # tmux
 link_file "$HOME/dotfiles/config/tmux" "$config_dir/tmux"
