@@ -43,6 +43,10 @@ Host lab-build
 	HostName build.infinitedream.space
 	User rick
 	
+Host lab-route
+	HostName route.infinitedream.space
+	User rick
+	
 Host lab-nix
 	HostName 10.10.10.238
 	User rick
