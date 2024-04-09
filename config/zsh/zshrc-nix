@@ -108,3 +108,21 @@ rs() {
     eval ssh ${host} ${forwards} $@
 }
 
+convert_to_hevc() {
+  input_filename=$1
+  
+  if [[ -z "$input_filename" ]]; then
+    echo "Usage: convert_to_hevc <input_filename>"
+    return 1
+  fi
+
+  # if [[ ! -f "$input_filename" ]]; then
+  #   echo "Error: File '$input_filename' not found."
+  #   return 1
+  # fi
+
+  output_filename="hevc_${input_filename}"
+  ffmpeg -i $input_filename -c:v hevc_videotoolbox -crf 28 $output_filename
+  
+  echo "Output generated: $output_filename"
+}
