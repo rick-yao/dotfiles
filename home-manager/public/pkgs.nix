@@ -41,5 +41,6 @@
     delta
     curlie
     rust-analyzer
+    gh
   ];
 }
