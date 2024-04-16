@@ -17,17 +17,19 @@
       inherit overlays nixpkgs inputs;
     };
 
+    mkMeta = import ./lib/mkmeta.nix {};
+
     eachSystem = nixpkgs.lib.genAttrs (import systems);
   in {
     darwinConfigurations."Ricks-MacBook-Air" = mkSystem "Ricks-MacBook-Air" {
       system = "aarch64-darwin";
-      user = "rick";
+      user = mkMeta.username;
       darwin = true;
     };
 
-    homeConfigurations.rick = mkSystem "build" {
+    homeConfigurations."${mkMeta.username}" = mkSystem "build" {
       system = "x86_64-linux";
-      user = "rick";
+      user = mkMeta.username;
       linux = true;
     };
 
