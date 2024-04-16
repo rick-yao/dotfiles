@@ -3,6 +3,11 @@ Host gcp-new
 	User rick
   Port 9774
 
+Host bg
+	HostName 67.230.181.70
+	User root
+	Port 29436
+	
 Host hysteria
 	HostName  34.125.230.97
 	User abneryaoo
