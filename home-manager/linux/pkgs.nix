@@ -5,6 +5,5 @@
     pandoc
     cmake
     yarn
-    nginx
   ];
 }
