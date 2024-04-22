@@ -4,7 +4,7 @@ darwin-set-proxy:
 
 # alias all necceary config file
 set-up-config:
-	sh machines/scripts/set_up_config.sh
+	python3 machines/scripts/set_up_config.py
 
 deploy-linux: set-up-config
 	home-manager switch --flake ~/dotfiles/
