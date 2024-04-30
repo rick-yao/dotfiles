@@ -42,5 +42,6 @@
     curlie
     rust-analyzer
     gh
+    http-server
   ];
 }
