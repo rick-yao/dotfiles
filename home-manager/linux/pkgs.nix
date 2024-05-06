@@ -4,6 +4,6 @@
     nodePackages_latest.pnpm
     pandoc
     cmake
-    yarn
+    # yarn
   ];
 }
