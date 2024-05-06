@@ -97,8 +97,8 @@ rs() {
 
     local host=$1
     shift 1
-    local start_port=4000
-    local end_port=4100
+    local start_port=3000
+    local end_port=3100
     local forwards=""
 
     for port in {$start_port..$end_port}; do
