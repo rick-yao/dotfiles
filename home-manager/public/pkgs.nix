@@ -43,5 +43,6 @@
     rust-analyzer
     gh
     http-server
+    hyfetch
   ];
 }
