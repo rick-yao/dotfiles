@@ -44,12 +44,18 @@ update-linux: update
 history:
 	nix profile history --profile /nix/var/nix/profiles/system
 
-gc:
+gc-mac:
 	# remove all generations older than 7 days
 	sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
 
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
+
+gc-linux:
+	# remove all generations
+  home-manager expire-generations -d
+	# garbage collect all unused nix store entries
+	nix store gc --debug
 
 fmt:
 	nix fmt
