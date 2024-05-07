@@ -96,8 +96,8 @@ link_file(f"{Path.home()}/dotfiles/config/lsd", f"{config_dir}/lsd")
 atuin_config_dir = config_dir_path / "atuin"
 check_or_create_folder(atuin_config_dir)
 link_file(
-    f"{Path.home()}/dotfiles/config/atuin/config.toml",
-    f"{atuin_config_dir}/config.toml",
+    f"{Path.home()}/dotfiles/config/atuin",
+    f"{atuin_config_dir}",
 )
 
 # bat
