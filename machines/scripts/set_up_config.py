@@ -1,9 +1,29 @@
 import os
 import shutil
+import stat
 from pathlib import Path
 
 # Define the path to the .config directory
 config_dir = f"{Path.home()}/.config"
+
+
+# this function adds execute permissions to all python files in a directory
+def add_execute_permission_to_all_files(folder_path):
+    # List all files in the directory
+    python_files = [file for file in os.listdir(folder_path) if file.endswith(".py")]
+
+    # Loop through each file and update permissions
+    for filename in python_files:
+        file_path = os.path.join(folder_path, filename)
+        print(f"Adding execute permissions to {filename}")
+
+        # Retrieve current file permissions
+        current_permissions = os.stat(file_path).st_mode
+
+        # Add execute permissions (user, group, others)
+        os.chmod(
+            file_path, current_permissions | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH
+        )
 
 
 def link_file(target_file, link_name):
@@ -107,4 +127,6 @@ link_file(f"{Path.home()}/dotfiles/config/bat", f"{config_dir}/bat")
 link_file(f"{Path.home()}/dotfiles/config/kitty", f"{config_dir}/kitty")
 
 # my scripts
-link_file(f"{Path.home()}/dotfiles/config/my_scripts", f"{config_dir}/my_scripts")
+script_path = Path.home() / "dotfiles/config/my_scripts"
+link_file(script_path, f"{config_dir}/my_scripts")
+add_execute_permission_to_all_files(script_path)
