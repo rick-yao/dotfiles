@@ -89,27 +89,6 @@ performace_test(){
 	hyperfine --runs 10 'zsh -i -c exit'
 }
 
-rs() {
-		if [ "$#" -lt 1 ]; then
-        echo "Usage: remote-ssh <host> [additional ssh options]"
-        return 1
-    fi
-
-    local host=$1
-    shift 1
-    local start_port=3000
-    local end_port=3100
-    local forwards=""
-
-    for port in {$start_port..$end_port}; do
-        forwards+="-L ${port}:localhost:${port} "
-    done
-
-    # echo "Connecting to $host with port forwards $start_port through $end_port..."
-    # echo "ssh ${host} ${forwards} $@"
-    eval ssh ${host} ${forwards} $@
-}
-
 convert_to_hevc() {
   input_filename=$1
   

@@ -105,3 +105,6 @@ link_file(f"{Path.home()}/dotfiles/config/bat", f"{config_dir}/bat")
 
 # kitty
 link_file(f"{Path.home()}/dotfiles/config/kitty", f"{config_dir}/kitty")
+
+# my scripts
+link_file(f"{Path.home()}/dotfiles/config/my_scripts", f"{config_dir}/my_scripts")
