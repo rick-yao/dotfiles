@@ -50,12 +50,14 @@ gc-mac:
 
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
+	nix-collect-garbage -d
 
 gc-linux:
 	# remove all generations
 	home-manager expire-generations -d
 	# garbage collect all unused nix store entries
 	nix store gc --debug
+	nix-collect-garbage -d
 
 fmt:
 	nix fmt
