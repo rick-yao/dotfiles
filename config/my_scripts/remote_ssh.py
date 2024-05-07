@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-
 import subprocess
 import sys
+
+
+def is_single_port(argument):
+    """Check if the argument is a single port number."""
+    return argument.isdigit()
 
 
 def is_port_range(argument):
@@ -19,19 +23,23 @@ def remote_ssh(host, *args):
         ssh_command = ["ssh", host]
     else:
         first_arg = args[0]
-        if is_port_range(first_arg):
+        if is_single_port(first_arg):
+            # Single port forwarding
+            port = int(first_arg)
+            forwards = [f"-L {port}:localhost:{port}"]
+            ssh_options = args[1:]  # Treat remaining arguments as SSH options
+            ssh_command = ["ssh", host] + forwards + list(ssh_options)
+        elif is_port_range(first_arg):
             # Handle port forwarding if a valid range is provided
             start_port, end_port = map(int, first_arg.split("-"))
             forwards = [
                 f"-L {port}:localhost:{port}"
                 for port in range(start_port, end_port + 1)
             ]
-            ssh_options = args[
-                1:
-            ]  # All other arguments are passed as additional SSH options
+            ssh_options = args[1:]  # Treat remaining arguments as SSH options
             ssh_command = ["ssh", host] + forwards + list(ssh_options)
         else:
-            # No port range; treat all as SSH options
+            # No port forwarding; treat all as SSH options
             ssh_command = ["ssh", host] + list(args)
 
     # Executing the SSH command
@@ -45,7 +53,7 @@ def remote_ssh(host, *args):
 def main():
     if len(sys.argv) < 2:
         print(
-            "Usage: python remote_ssh.py <host> [port_range] [additional ssh options]"
+            "Usage: ./remote_ssh.py <host> [port_number|port_range] [additional ssh options]"
         )
         sys.exit(1)
 
