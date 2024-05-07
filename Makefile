@@ -53,7 +53,7 @@ gc-mac:
 
 gc-linux:
 	# remove all generations
-  home-manager expire-generations -d
+	home-manager expire-generations -d
 	# garbage collect all unused nix store entries
 	nix store gc --debug
 
