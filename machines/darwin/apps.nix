@@ -102,7 +102,7 @@
       "zed"
       "font-cascadia-code"
       "stats"
-      "alfred"
+      "raycast"
     ];
   };
 }
