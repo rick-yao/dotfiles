@@ -77,13 +77,13 @@
 # ############################################################### #
 
 # focus window
-alt - h : yabai -m window --focus west
+# alt - h : yabai -m window --focus west
 
 # swap managed window
-shift + alt - h : yabai -m window --swap north
+# shift + alt - h : yabai -m window --swap north
 
 # move managed window
-shift + cmd - h : yabai -m window --warp east
+# shift + cmd - h : yabai -m window --warp east
 
 # balance size of windows
 # shift + alt - 0 : yabai -m space --balance
@@ -101,8 +101,8 @@ shift + cmd - h : yabai -m window --warp east
 #                   yabai -m space --focus "${index}"
 
 # fast focus desktop
-cmd + alt - x : yabai -m space --focus recent
-cmd + alt - 1 : yabai -m space --focus 1
+# cmd + alt - x : yabai -m space --focus recent
+# cmd + alt - 1 : yabai -m space --focus 1
 
 # send window to desktop and follow focus
 # shift + cmd - z : yabai -m window --space next; yabai -m space --focus next
@@ -117,8 +117,8 @@ cmd + alt - 1 : yabai -m space --focus 1
 # ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
 
 # move floating window
-shift + ctrl - a : yabai -m window --move rel:-20:0
-shift + ctrl - s : yabai -m window --move rel:0:20
+# shift + ctrl - a : yabai -m window --move rel:-20:0
+# shift + ctrl - s : yabai -m window --move rel:0:20
 
 # increase window size
 # shift + alt - a : yabai -m window --resize left:-20:0
@@ -145,7 +145,30 @@ shift + ctrl - s : yabai -m window --move rel:0:20
 # alt - p : yabai -m window --toggle sticky --toggle pip
 
 
-ctrl + cmd - h : yabai -m window --resize left:-100:100
+# https://github.com/koekeishiya/yabai/issues/643#issuecomment-692058799
+ctrl + cmd - h : yabai -m window --resize right:-150:0
+ctrl + cmd - l : yabai -m window --resize right:150:0
+ctrl + cmd - h : yabai -m window --resize left:-150:0
+ctrl + cmd - l : yabai -m window --resize left:150:0
 
-ctrl + cmd - l : yabai -m window --resize bottom_right:100:-100
+ctrl + cmd - r : yabai --restart-service
+
+# ctrl + cmd - i : yabai -m window --focus next || yabai -m window --focus first
+
+ctrl + cmd - p : yabai -m window --swap next || yabai -m window --swap first
+
+ctrl + cmd - i : ~/.config/yabai/cycle_focus.sh
+
+ctrl + cmd - j : ~/.config/yabai/toggle_bsp.sh
+
+ctrl + cmd - v : yabai -m display --focus next
+
+ctrl + cmd - b : yabai -m display --focus prev
+
+ctrl + cmd - n : ~/.config/yabai/space_cycle_next.sh
+
+ctrl + cmd - m : ~/.config/yabai/space_cycle_prev.sh
+
+#skhd
+ctrl + shift - r : skhd --restart-service
 
