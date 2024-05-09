@@ -132,3 +132,7 @@ link_file(f"{Path.home()}/dotfiles/config/kitty", f"{config_dir}/kitty")
 script_path = Path.home() / "dotfiles/config/my_scripts"
 link_file(script_path, f"{config_dir}/my_scripts")
 add_execute_permission_to_all_files(script_path)
+
+# skhd and yabai
+link_file(f"{Path.home()}/dotfiles/config/skhd", f"{config_dir}/skhd")
+link_file(f"{Path.home()}/dotfiles/config/yabai", f"{config_dir}/yabai")

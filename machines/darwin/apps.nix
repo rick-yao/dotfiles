@@ -50,6 +50,7 @@
       "homebrew/services"
       "homebrew/cask-versions"
       "1password/tap"
+      "koekeishiya/formulae"
     ];
 
     # `brew install`
@@ -61,6 +62,8 @@
       "yarn"
       "mas"
       "gnu-sed"
+      # "skhd"
+      "yabai"
     ];
 
     # `brew install --cask`
@@ -103,6 +106,7 @@
       "font-cascadia-code"
       "stats"
       "raycast"
+      "sfm"
     ];
   };
 }
