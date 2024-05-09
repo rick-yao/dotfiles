@@ -63,7 +63,7 @@
       "mas"
       "gnu-sed"
       # "skhd"
-      "yabai"
+      # "yabai"
     ];
 
     # `brew install --cask`
@@ -106,7 +106,7 @@
       "font-cascadia-code"
       "stats"
       "raycast"
-      "sfm"
+      # "sfm"
     ];
   };
 }
