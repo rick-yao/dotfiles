@@ -44,5 +44,6 @@
     gh
     http-server
     hyfetch
+    zellij
   ];
 }
