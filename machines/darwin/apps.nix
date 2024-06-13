@@ -46,9 +46,9 @@
     };
 
     taps = [
-      "homebrew/cask-fonts"
+      #"homebrew/cask-fonts"
       "homebrew/services"
-      "homebrew/cask-versions"
+      #"homebrew/cask-versions"
       "1password/tap"
       "koekeishiya/formulae"
     ];
@@ -71,13 +71,13 @@
       "firefox"
       "1password-cli"
       "google-chrome"
-      "google-chrome-dev"
+      "google-chrome@dev"
       "visual-studio-code"
       "iina"
       "kitty"
       "amethyst"
       "syntax-highlight"
-      "zulu11"
+      "zulu@11"
       "alacritty"
       "font-symbols-only-nerd-font"
       "alt-tab"
