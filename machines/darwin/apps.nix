@@ -68,6 +68,7 @@
 
     # `brew install --cask`
     casks = [
+      "jordanbaird-ice"
       "firefox"
       "1password-cli"
       "google-chrome"
@@ -84,7 +85,7 @@
       "appcleaner"
       "coteditor"
       "cyberduck"
-      "hiddenbar"
+      # "hiddenbar"
       "fork"
       "input-source-pro"
       "keka"
