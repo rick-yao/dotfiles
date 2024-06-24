@@ -24,7 +24,7 @@
       # dock
       dock = {
         autohide = true;
-        show-recents = true; # disable recent apps
+        show-recents = false; # disable recent apps
         # customize Hot Corners
         wvous-bl-corner = 5; # bottom-left
       };
