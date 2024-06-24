@@ -24,7 +24,7 @@ in {
       if isLinux
       then "/home/${name}"
       else "/Users/${name}";
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
 
   programs.home-manager.enable = true;
