@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+  nix-prefetch-git
     wget
     du-dust
     protobuf
