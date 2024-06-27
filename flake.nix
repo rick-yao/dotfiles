@@ -11,7 +11,6 @@
   }: let
     overlays = [
       inputs.rust-overlay.overlays.default
-      inputs.yazi.overlays.default
     ];
 
     mkSystem = import ./lib/mksystem.nix {
@@ -45,8 +44,6 @@
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org"
     ];
-    extra-substituters = [ "https://yazi.cachix.org" ];
-    extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
 
     auto-optimise-store = true;
   };
@@ -65,8 +62,6 @@
     };
 
     rust-overlay.url = "github:oxalica/rust-overlay";
-
-    yazi.url = "github:sxyazi/yazi";
 
     systems.url = "github:nix-systems/default";
   };
