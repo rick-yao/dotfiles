@@ -45,8 +45,8 @@ history:
 	nix profile history --profile /nix/var/nix/profiles/system
 
 gc-mac:
-	# remove all generations older than 7 days
-	sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
+	# remove all generations older than 1 days
+	sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 1d
 
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
