@@ -1,0 +1,5 @@
+[plugin]
+deps = [{ use = "yazi-rs/plugins#lsar", commit = "eaa682d" }]
+
+[flavor]
+deps = []

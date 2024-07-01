@@ -3,3 +3,5 @@ config/nvim/plugin/
 config/tmux/tmux_plugin/
 nix/result
 result
+
+config/yazi/plugins/
