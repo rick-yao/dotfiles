@@ -66,6 +66,7 @@
       "yarn"
       "mas"
       "gnu-sed"
+      "luarocks"
       # "skhd"
       # "yabai"
     ];
