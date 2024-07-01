@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    yazi
     gcc
     nodePackages_latest.pnpm
     pandoc

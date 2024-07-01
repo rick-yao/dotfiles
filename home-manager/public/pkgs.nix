@@ -14,7 +14,6 @@
     zoxide
     ripgrep
     fzf
-    yazi
     lazygit
     bat
     fd
