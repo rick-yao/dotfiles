@@ -5,7 +5,7 @@
     nodePackages_latest.pnpm
     pandoc
     cmake
-    nodePackages_latest.wrangler
+    # nodePackages_latest.wrangler
     # yarn
   ];
 }
