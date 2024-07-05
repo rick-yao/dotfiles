@@ -14,5 +14,9 @@
       enable = true;
       enableBashIntegration = true;
     };
+    
+    yazi = {
+      enable = true;
+    };
   };
 }
