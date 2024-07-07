@@ -44,10 +44,11 @@
     substituters = [
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://yazi.cachix.org"
       "https://cache.nixos.org"
     ];
-    extra-substituters = [ "https://yazi.cachix.org" ];
-    extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
+
+    extra-trusted-public-keys = ["yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="];
 
     auto-optimise-store = true;
   };
@@ -66,8 +67,8 @@
     };
 
     rust-overlay.url = "github:oxalica/rust-overlay";
-    
-   	yazi.url = "github:sxyazi/yazi";
+
+    yazi.url = "github:sxyazi/yazi";
 
     systems.url = "github:nix-systems/default";
   };
