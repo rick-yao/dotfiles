@@ -12,7 +12,6 @@
     iperf3
     zoxide
     ripgrep
-    fzf
     lazygit
     bat
     fd
