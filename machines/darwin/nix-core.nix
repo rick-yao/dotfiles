@@ -15,7 +15,7 @@
   # don't wan't the daemon service to be managed for you.
   # nix.useDaemon = true;
 
-  nix.package = pkgs.nix;
+  # nix.package = pkgs.nix;
 
   programs.nix-index.enable = true;
 
