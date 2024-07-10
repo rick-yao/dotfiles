@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    tailspin
     wget
     du-dust
     protobuf
