@@ -50,9 +50,7 @@
     };
 
     taps = [
-      #"homebrew/cask-fonts"
       "homebrew/services"
-      #"homebrew/cask-versions"
       "1password/tap"
       "koekeishiya/formulae"
     ];
@@ -67,8 +65,6 @@
       "mas"
       "gnu-sed"
       "luarocks"
-      # "skhd"
-      # "yabai"
     ];
 
     # `brew install --cask`
@@ -90,7 +86,6 @@
       "appcleaner"
       "coteditor"
       "cyberduck"
-      # "hiddenbar"
       "fork"
       "input-source-pro"
       "keka"
@@ -112,7 +107,6 @@
       "font-cascadia-code"
       "stats"
       "raycast"
-      # "sfm"
     ];
   };
 }
