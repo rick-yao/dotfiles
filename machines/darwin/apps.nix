@@ -34,7 +34,6 @@
     masApps = {
       # NOTE: use https://github.com/mas-cli/mas to check the app id.
       Wechat = 836500024;
-      VidHub = 1659622164;
       TailScale = 1475387142;
       # CommandX = 2141473041;
       Amphetamine = 937984704;
