@@ -45,5 +45,6 @@
     http-server
     hyfetch
     zellij
+    p7zip
   ];
 }
