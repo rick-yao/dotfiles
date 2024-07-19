@@ -1,5 +1,5 @@
 [plugin]
-deps = [{ use = "yazi-rs/plugins#lsar", commit = "eaa682d" }, { use = "yazi-rs/plugins#smart-filter", commit = "eaa682d" }]
+deps = [{ use = "yazi-rs/plugins#lsar", commit = "eaa682d" }, { use = "yazi-rs/plugins#smart-filter", commit = "eaa682d" }, { use = "KKV9/compress", commit = "7353ab9" }]
 
 [flavor]
 deps = []
