@@ -6,6 +6,7 @@
   "nix": {
     "enabled": true
   },
+  "ignoreDeps": ["config/tmux/tmux_plugin/tpm"],
   "git-submodules": {
     "enabled": true
   },
