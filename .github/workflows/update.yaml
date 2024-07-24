@@ -1,0 +1,83 @@
+name: Nix Flake and Submodule Update
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Run daily at midnight UTC
+  workflow_dispatch:
+    inputs:
+      update_submodule:
+        description: "Update submodule"
+        required: true
+        default: "true"
+      update_flake:
+        description: "Update flake"
+        required: true
+        default: "true"
+      create_pr:
+        description: "Create or update PR"
+        required: true
+        default: "true"
+
+env:
+  PR_BRANCH: "automated-flake-and-submodule-update"
+  PR_LABEL: "automated-update"
+
+jobs:
+  update-flake-and-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          submodules: "recursive"
+          fetch-depth: 0
+
+      - name: Check for existing PR
+        if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
+        id: check_pr
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            // ... (same as before)
+
+      - name: Update submodule
+        if: github.event.inputs.update_submodule == 'true' || github.event_name == 'schedule'
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git checkout -b ${{ env.PR_BRANCH }}
+          git submodule update --remote config/nvim/astro
+          git add config/nvim/astro
+          git commit -m "chore: update astro nvim submodule" || echo "No changes to submodule"
+
+      - name: Install Nix
+        if: github.event.inputs.update_flake == 'true' || github.event_name == 'schedule'
+        uses: cachix/install-nix-action@v20
+
+      - name: Update flake.lock
+        if: github.event.inputs.update_flake == 'true' || github.event_name == 'schedule'
+        run: |
+          nix flake update
+          git add flake.lock
+          git commit -m "chore: update flake.lock" || echo "No changes to flake.lock"
+
+      - name: Push changes
+        if: (github.event.inputs.update_submodule == 'true' || github.event.inputs.update_flake == 'true' || github.event_name == 'schedule')
+        run: git push --set-upstream origin ${{ env.PR_BRANCH }} --force
+
+      - name: Create Pull Request
+        if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "chore: update flake.lock and astro nvim submodule"
+          title: "chore: update flake.lock and astro nvim submodule"
+          body: |
+            This is an automated PR to update `flake.lock` to the latest versions and update the 'config/nvim/astro' submodule.
+
+            Please review the changes and merge if everything looks good.
+          branch: ${{ env.PR_BRANCH }}
+          delete-branch: true
+          base: "main" # Change this if your default branch has a different name
+          labels: |
+            ${{ env.PR_LABEL }}
