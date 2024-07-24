@@ -18,6 +18,10 @@ on:
         required: true
         default: "true"
 
+permissions:
+  contents: write
+  pull-requests: write
+
 env:
   PR_BRANCH: "automated-flake-and-submodule-update"
   PR_LABEL: "automated-update"
@@ -115,7 +119,7 @@ jobs:
 
       - name: Create Pull Request
         if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "chore: update flake.lock and astro nvim submodule"
           title: "chore: update flake.lock and astro nvim submodule"
