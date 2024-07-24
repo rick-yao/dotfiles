@@ -58,7 +58,7 @@ jobs:
       - name: Update flake.lock
         if: github.event.inputs.update_flake == 'true' || github.event_name == 'schedule'
         run: |
-          nix flake update
+          nix flake update --accept-flake-config
           git add flake.lock
           git commit -m "chore: update flake.lock" || echo "No changes to flake.lock"
 
