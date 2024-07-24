@@ -32,6 +32,13 @@ jobs:
           submodules: "recursive"
           fetch-depth: 0
 
+      - name: Debug Info
+        run: |
+          echo "GitHub event name: ${{ github.event_name }}"
+          echo "Update submodule: ${{ github.event.inputs.update_submodule }}"
+          echo "Update flake: ${{ github.event.inputs.update_flake }}"
+          echo "Create PR: ${{ github.event.inputs.create_pr }}"
+
       - name: Check for existing PR
         if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
         id: check_pr
@@ -39,17 +46,41 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            // ... (same as before)
+            console.log("Checking for existing PR");
+            const prs = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${process.env.PR_BRANCH}`
+            });
+            console.log(`Found ${prs.data.length} potential PRs`);
+            for (const pr of prs.data) {
+              const labels = pr.labels.map(label => label.name);
+              console.log(`PR #${pr.number} labels: ${labels.join(', ')}`);
+              if (labels.includes(process.env.PR_LABEL)) {
+                console.log(`Existing automated PR found: #${pr.number}`);
+                await github.rest.pulls.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: pr.number,
+                  state: 'closed'
+                });
+                console.log(`Closed PR #${pr.number}`);
+                break;
+              }
+            }
 
       - name: Update submodule
         if: github.event.inputs.update_submodule == 'true' || github.event_name == 'schedule'
         run: |
+          echo "Updating submodule"
           git config user.name github-actions
           git config user.email github-actions@github.com
           git checkout -b ${{ env.PR_BRANCH }}
           git submodule update --remote config/nvim/astro
           git add config/nvim/astro
-          git commit -m "chore: update astro nvim submodule" || echo "No changes to submodule"
+          git diff --cached --exit-code || (git commit -m "chore: update astro nvim submodule" && echo "Submodule changes committed")
+          echo "Submodule update complete"
 
       - name: Install Nix
         if: github.event.inputs.update_flake == 'true' || github.event_name == 'schedule'
@@ -58,13 +89,18 @@ jobs:
       - name: Update flake.lock
         if: github.event.inputs.update_flake == 'true' || github.event_name == 'schedule'
         run: |
-          nix flake update --accept-flake-config
+          echo "Updating flake.lock"
+          nix flake update
           git add flake.lock
-          git commit -m "chore: update flake.lock" || echo "No changes to flake.lock"
+          git diff --cached --exit-code || (git commit -m "chore: update flake.lock" && echo "Flake.lock changes committed")
+          echo "Flake.lock update complete"
 
       - name: Push changes
         if: (github.event.inputs.update_submodule == 'true' || github.event.inputs.update_flake == 'true' || github.event_name == 'schedule')
-        run: git push --set-upstream origin ${{ env.PR_BRANCH }} --force
+        run: |
+          echo "Pushing changes"
+          git push --set-upstream origin ${{ env.PR_BRANCH }} --force
+          echo "Changes pushed"
 
       - name: Create Pull Request
         if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
@@ -81,3 +117,9 @@ jobs:
           base: "main" # Change this if your default branch has a different name
           labels: |
             ${{ env.PR_LABEL }}
+
+      - name: PR Creation Result
+        if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
+        run: |
+          echo "PR creation step completed"
+          echo "If no PR was created, check if there were any changes to commit"
