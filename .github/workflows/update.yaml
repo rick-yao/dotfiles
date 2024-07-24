@@ -129,7 +129,7 @@ jobs:
             Please review the changes and merge if everything looks good.
           branch: ${{ env.PR_BRANCH }}
           # delete-branch: true
-          # base: "main" # Change this if your default branch has a different name
+          base: "main" # Change this if your default branch has a different name
           labels: |
             ${{ env.PR_LABEL }}
 
