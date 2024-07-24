@@ -99,12 +99,12 @@ jobs:
           git diff --cached --exit-code || (git commit -m "chore: update flake.lock" && echo "Flake.lock changes committed")
           echo "Flake.lock update complete"
 
-      - name: Push changes
-        if: (github.event.inputs.update_submodule == 'true' || github.event.inputs.update_flake == 'true' || github.event_name == 'schedule')
-        run: |
-          echo "Pushing changes"
-          git push --set-upstream origin ${{ env.PR_BRANCH }} --force
-          echo "Changes pushed"
+      # - name: Push changes
+      #   if: (github.event.inputs.update_submodule == 'true' || github.event.inputs.update_flake == 'true' || github.event_name == 'schedule')
+      #   run: |
+      #     echo "Pushing changes"
+      #     git push --set-upstream origin ${{ env.PR_BRANCH }} --force
+      #     echo "Changes pushed"
 
       - name: Debug Git Status
         run: |
