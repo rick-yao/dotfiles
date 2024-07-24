@@ -108,7 +108,7 @@
       "font-cascadia-code"
       "stats"
       "raycast"
-      "betterdisplay"
+      # "betterdisplay"
     ];
   };
 }
