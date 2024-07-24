@@ -2,7 +2,7 @@ name: Nix Flake and Submodule Update
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Run daily at midnight UTC
+    - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
       update_submodule:
@@ -99,24 +99,6 @@ jobs:
           git diff --cached --exit-code || (git commit -m "chore: update flake.lock" && echo "Flake.lock changes committed")
           echo "Flake.lock update complete"
 
-      # - name: Push changes
-      #   if: (github.event.inputs.update_submodule == 'true' || github.event.inputs.update_flake == 'true' || github.event_name == 'schedule')
-      #   run: |
-      #     echo "Pushing changes"
-      #     git push --set-upstream origin ${{ env.PR_BRANCH }} --force
-      #     echo "Changes pushed"
-
-      - name: Debug Git Status
-        run: |
-          echo "Current branch:"
-          git branch --show-current
-          echo "Git status:"
-          git status
-          echo "Diff with main:"
-          git diff main
-          echo "Log of last few commits:"
-          git log -n 5 --oneline
-
       - name: Create Pull Request
         if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
         uses: peter-evans/create-pull-request@v6
@@ -128,8 +110,8 @@ jobs:
 
             Please review the changes and merge if everything looks good.
           branch: ${{ env.PR_BRANCH }}
-          # delete-branch: true
-          base: "main" # Change this if your default branch has a different name
+          delete-branch: true
+          base: "main"
           labels: |
             ${{ env.PR_LABEL }}
 
