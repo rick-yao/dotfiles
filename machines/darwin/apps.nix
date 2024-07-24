@@ -65,6 +65,7 @@
       "mas"
       "gnu-sed"
       "luarocks"
+      "ollama"
     ];
 
     # `brew install --cask`
