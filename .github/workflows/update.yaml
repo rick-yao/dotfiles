@@ -90,7 +90,7 @@ jobs:
         if: github.event.inputs.update_flake == 'true' || github.event_name == 'schedule'
         run: |
           echo "Updating flake.lock"
-          nix flake update
+          nix flake update --accept-flake-config
           git add flake.lock
           git diff --cached --exit-code || (git commit -m "chore: update flake.lock" && echo "Flake.lock changes committed")
           echo "Flake.lock update complete"
@@ -101,6 +101,17 @@ jobs:
           echo "Pushing changes"
           git push --set-upstream origin ${{ env.PR_BRANCH }} --force
           echo "Changes pushed"
+
+      - name: Debug Git Status
+        run: |
+          echo "Current branch:"
+          git branch --show-current
+          echo "Git status:"
+          git status
+          echo "Diff with main:"
+          git diff main
+          echo "Log of last few commits:"
+          git log -n 5 --oneline
 
       - name: Create Pull Request
         if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
