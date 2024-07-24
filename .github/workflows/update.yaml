@@ -83,7 +83,7 @@ jobs:
           git checkout -b ${{ env.PR_BRANCH }}
           git submodule update --remote config/nvim/astro
           git add config/nvim/astro
-          git diff --cached --exit-code || (git commit -m "chore: update astro nvim submodule" && echo "Submodule changes committed")
+          git diff --cached --exit-code || (git commit -m "chore(deps): update astro nvim submodule" && echo "Submodule changes committed")
           echo "Submodule update complete"
 
       - name: Install Nix
@@ -96,15 +96,15 @@ jobs:
           echo "Updating flake.lock"
           nix flake update --accept-flake-config
           git add flake.lock
-          git diff --cached --exit-code || (git commit -m "chore: update flake.lock" && echo "Flake.lock changes committed")
+          git diff --cached --exit-code || (git commit -m "chore(deps): update flake.lock" && echo "Flake.lock changes committed")
           echo "Flake.lock update complete"
 
       - name: Create Pull Request
         if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "chore: update flake.lock and astro nvim submodule"
-          title: "chore: update flake.lock and astro nvim submodule"
+          commit-message: "chore(deps): update flake.lock and astro nvim submodule"
+          title: "chore(deps): update flake.lock and astro nvim submodule"
           body: |
             This is an automated PR to update `flake.lock` to the latest versions and update the 'config/nvim/astro' submodule.
 
