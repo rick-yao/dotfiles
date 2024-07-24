@@ -84,7 +84,7 @@ jobs:
 
       - name: Install Nix
         if: github.event.inputs.update_flake == 'true' || github.event_name == 'schedule'
-        uses: cachix/install-nix-action@v20
+        uses: cachix/install-nix-action@v27
 
       - name: Update flake.lock
         if: github.event.inputs.update_flake == 'true' || github.event_name == 'schedule'
