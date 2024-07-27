@@ -99,10 +99,6 @@ jobs:
           git diff --cached --exit-code || (git commit -m "chore(deps): update flake.lock" && echo "Flake.lock changes committed")
           echo "Flake.lock update complete"
 
-      - name: Push changes
-        if: (github.event.inputs.update_submodule == 'true' || github.event.inputs.update_flake == 'true' || github.event_name == 'schedule')
-        run: git push --set-upstream origin ${{ env.PR_BRANCH }} --force
-
       - name: Create Pull Request
         if: github.event.inputs.create_pr == 'true' || github.event_name == 'schedule'
         uses: peter-evans/create-pull-request@v6
