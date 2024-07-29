@@ -46,5 +46,6 @@
     hyfetch
     zellij
     p7zip
+    chafa
   ];
 }
