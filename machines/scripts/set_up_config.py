@@ -137,5 +137,8 @@ add_execute_permission_to_all_files(script_path)
 link_file(f"{Path.home()}/dotfiles/config/skhd", f"{config_dir}/skhd")
 link_file(f"{Path.home()}/dotfiles/config/yabai", f"{config_dir}/yabai")
 
-#yazi
+# yazi
 link_file(f"{Path.home()}/dotfiles/config/yazi", f"{config_dir}/yazi")
+
+# pip
+link_file(f"{Path.home()}/dotfiles/config/pip", f"{config_dir}/pip")
