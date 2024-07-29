@@ -56,5 +56,9 @@ Host lab-nix
 	HostName 10.10.10.238
 	User rick
 	
+Host lab-ai
+	HostName ai.infinitedream.space
+	User rick
+	
 Host *
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
