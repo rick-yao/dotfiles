@@ -57,7 +57,7 @@ Host lab-nix
 	User rick
 	
 Host lab-ai
-	HostName ai.infinitedream.space
+	HostName labai.infinitedream.space
 	User rick
 	
 Host *
