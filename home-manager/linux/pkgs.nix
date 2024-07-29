@@ -5,7 +5,8 @@
     nodePackages_latest.pnpm
     pandoc
     cmake
-    python3
+    python312Full
+    python312Packages.pip
     # nodePackages_latest.wrangler
     # yarn
   ];
