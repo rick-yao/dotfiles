@@ -66,6 +66,7 @@
       "gnu-sed"
       "luarocks"
       "ollama"
+      "catme0w/tap/zouxian"
     ];
 
     # `brew install --cask`
