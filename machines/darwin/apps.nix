@@ -53,6 +53,7 @@
       "homebrew/services"
       "1password/tap"
       "koekeishiya/formulae"
+      "oven-sh/bun"
     ];
 
     # `brew install`
@@ -67,6 +68,7 @@
       "luarocks"
       "ollama"
       "catme0w/tap/zouxian"
+      "bun"
     ];
 
     # `brew install --cask`
