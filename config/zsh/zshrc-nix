@@ -52,6 +52,8 @@ alias compose-update-sudo="sudo docker compose down && sudo docker compose pull 
 
 alias dud="dust -D -d 1";
 
+alias neovim-restore="nvim --headless "+Lazy! restore" +qa"
+
 cowsay "Welcome, Human."
 
 clean_up() {
