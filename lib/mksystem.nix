@@ -27,7 +27,11 @@ in
   then
     systemFunc
     {
-      inherit pkgs;
+      pkgs = import nixpkgs {
+        inherit system;
+        # allow unfree pkgs, for example, 1password
+        config.allowUnfree = true;
+      };
 
       modules = [
         (import userHMConfig {
