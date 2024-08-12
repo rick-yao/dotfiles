@@ -51,6 +51,8 @@ gc-mac:
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
 	nix-collect-garbage -d
+	nix-store --gc --option keep-outputs false --option keep-derivations false
+	nix-store --optimise
 
 gc-linux:
 	# remove all generations
@@ -58,6 +60,8 @@ gc-linux:
 	# garbage collect all unused nix store entries
 	nix store gc --debug
 	nix-collect-garbage -d
+	nix-store --optimise
+	nix-store --gc --option keep-outputs false --option keep-derivations false
 
 fmt:
 	nix fmt
