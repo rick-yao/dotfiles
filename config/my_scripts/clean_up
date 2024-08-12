@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+import platform
+import subprocess
+
+
+def run_command(command):
+    print(f"Running: {command}")
+    subprocess.run(command, shell=True, check=True)
+    print()
+
+
+def clean_up():
+    system = platform.system()
+
+    if system == "Darwin":  # macOS
+        print("Cleaning yarn cache...")
+        run_command("yarn cache clean")
+
+        print("Cleaning npm cache...")
+        run_command("npm cache clean --force")
+
+        print("Cleaning pnpm cache...")
+        run_command("pnpm store prune")
+
+        print("Cleaning pod cache...")
+        run_command("pod cache clean --all")
+
+        print("Cleaning brew cache...")
+        run_command("brew cleanup --prune=all")
+        run_command("brew autoremove")
+
+        print("Cleaning gradle cache...")
+        run_command("rm -rf ~/.gradle/caches")
+
+        print("Cleaning xcode cache...")
+        run_command("rm -rf ~/Library/Developer/Xcode/DerivedData")
+        run_command("rm -rf ~/Library/Developer/Xcode/Archives")
+
+    elif system == "Linux":
+        print("Cleaning yarn cache...")
+        run_command("yarn cache clean")
+
+        print("Cleaning npm cache...")
+        run_command("npm cache clean --force")
+
+        print("Cleaning pnpm cache...")
+        run_command("pnpm store prune")
+
+    else:
+        print(f"Unsupported platform: {system}")
+
+
+if __name__ == "__main__":
+    clean_up()
