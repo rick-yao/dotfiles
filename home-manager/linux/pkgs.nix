@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    yarn
     _1password
     gcc
     nodePackages_latest.pnpm
