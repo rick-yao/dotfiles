@@ -78,7 +78,7 @@ else:
     print("The .config directory already exists.")
 
 # link astro user and nvim config
-link_file(f"{Path.home()}/dotfiles/config/nvim/astro", f"{config_dir}/nvim")
+link_file(f"{Path.home()}/dotfiles/config/nvim", f"{config_dir}/nvim")
 
 # tmux
 link_file(f"{Path.home()}/dotfiles/config/tmux", f"{config_dir}/tmux")
