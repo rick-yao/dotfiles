@@ -46,8 +46,8 @@
       init.defaultBranch = "main";
     };
 
-    delta = {
-      enable = true;
-    };
+    # delta = {
+    #   enable = true;
+    # };
   };
 }

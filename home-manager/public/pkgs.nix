@@ -38,7 +38,7 @@
     procs
     doggo
     duf
-    delta
+    # delta
     curlie
     rust-analyzer
     gh
