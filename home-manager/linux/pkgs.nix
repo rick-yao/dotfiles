@@ -3,7 +3,7 @@
     yarn
     _1password
     gcc
-    nodePackages_latest.pnpm
+    pnpm
     pandoc
     cmake
     python312Full
