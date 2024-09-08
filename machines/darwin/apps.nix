@@ -112,6 +112,7 @@
       "stats"
       "raycast"
       "skim"
+      "loop"
     ];
   };
 }
