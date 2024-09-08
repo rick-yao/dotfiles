@@ -99,7 +99,7 @@
       "sublime-text"
       "syntax-highlight"
       "snipaste"
-      # "logi-options-plus"
+      "logi-options-plus"
       "font-monaspace"
       "font-jetbrains-mono"
       "font-jetbrains-mono-nerd-font"
