@@ -60,6 +60,10 @@ Host lab-storage
 	HostName 10.10.10.213
 	User rick
 	
+Host lab-game
+	HostName 10.10.10.214
+	User rick
+	
 Host lab-ai
 	HostName labai.infinitedream.space
 	User rick
