@@ -8,6 +8,7 @@
 
     eza = {
       enable = true;
+      enableZshIntegration = false;
     };
 
     # skim = {
