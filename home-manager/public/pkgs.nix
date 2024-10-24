@@ -7,7 +7,6 @@
     protobuf
     btop
     gnupg
-    nexttrace
     ffmpegthumbnailer
     unar
     poppler
