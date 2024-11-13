@@ -54,6 +54,7 @@
       "1password/tap"
       "koekeishiya/formulae"
       "oven-sh/bun"
+      "buo/cask-upgrade"
     ];
 
     # `brew install`
