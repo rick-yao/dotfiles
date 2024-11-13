@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     ncdu
     yarn
-    _1password
+    _1password-cli
     gcc
     pnpm
     pandoc
