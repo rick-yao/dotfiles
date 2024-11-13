@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    ncdu
     yarn
     _1password
     gcc
