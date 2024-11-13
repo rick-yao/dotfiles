@@ -1,6 +1,11 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     xh
+    htop
+    ncdu
+    procs
+    lazydocker
+    fastfetch
     # tailspin
     wget
     du-dust
