@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     xh
     htop
-    ncdu
     procs
     lazydocker
     fastfetch
