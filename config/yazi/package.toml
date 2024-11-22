@@ -1,7 +1,8 @@
 [plugin]
 deps = [
-  { use = "yazi-rs/plugins#smart-filter", commit = "eaa682d" },
-  { use = "KKV9/compress", commit = "7353ab9" }, { use = "Rolv-Apneseth/starship", commit = "dc9989c" },
+  { use = "KKV9/compress", commit = "7353ab9", rev = "60b24af" },
+  { use = "Rolv-Apneseth/starship", commit = "dc9989c", rev = "77a65f5" },
+  { use = "yazi-rs/plugins:smart-filter", rev = "776b160" },
 ]
 
 [flavor]
