@@ -69,6 +69,8 @@
       "luarocks"
       "ollama"
       "bun"
+      "python"
+      "pyenv"
     ];
 
     # `brew install --cask`
