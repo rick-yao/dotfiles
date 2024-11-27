@@ -1,14 +1,19 @@
 #!/bin/zsh
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
 export XDG_CONFIG_HOME="$HOME/.config"
-
 export PNPM_HOME="$HOME/.cache"
 
-#android studio
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+# macOS-specific
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # Homebrew shellenv only for macOS
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    
+    #android studio
+    export ANDROID_HOME=$HOME/Library/Android/sdk
+    export PATH=$PATH:$ANDROID_HOME/emulator
+    export PATH=$PATH:$ANDROID_HOME/platform-tools
+fi
+
 export PATH=$PATH:$XDG_CONFIG_HOME/my_scripts
 
 # zsh comp dir
