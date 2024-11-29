@@ -115,6 +115,7 @@
       "raycast"
       "skim"
       "loop"
+      "proxy-audio-device"
     ];
   };
 }
