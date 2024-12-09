@@ -17,11 +17,13 @@
 		 eval \"$(zoxide init zsh)\"
      eval \"$(fnm env --use-on-cd)\"
 		";
-    envExtra = "
-		 source $HOME/.config/zsh/zshenv-nix
-		 export LIBVA_DRIVER_NAME=iHD  # or i965 depending on your GPU
-		 export LIBVA_DRIVERS_PATH=${pkgs.intel-media-driver}/lib/dri:${pkgs.intel-vaapi-driver}/lib/dri
-		";
+    envExtra = ''
+      source $HOME/.config/zsh/zshenv-nix
+      ${if pkgs.stdenv.isLinux then ''
+        export LIBVA_DRIVER_NAME="iHD"  # or i965 depending on your GPU
+        export LIBVA_DRIVERS_PATH="${pkgs.intel-media-driver}/lib/dri:${pkgs.intel-vaapi-driver}/lib/dri"
+      '' else ""}
+    '';
     # oh-my-zsh = {
     #   enable = true;
     #   custom = "$XDG_CONFIG_HOME/omz";
