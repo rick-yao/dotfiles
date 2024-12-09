@@ -12,7 +12,7 @@
     protobuf
     btop
     gnupg
-    ffmpegthumbnailer
+    # ffmpegthumbnailer
     unar
     poppler
     iperf3
