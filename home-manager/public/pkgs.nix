@@ -12,7 +12,6 @@
     protobuf
     btop
     gnupg
-    # ffmpegthumbnailer
     unar
     poppler
     iperf3
@@ -26,7 +25,6 @@
     lsd
     gitui
     jq
-    # go
     lua54Packages.lua
     unzip
     deno
@@ -42,7 +40,6 @@
     procs
     doggo
     duf
-    # delta
     curlie
     rust-analyzer
     gh

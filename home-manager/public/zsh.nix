@@ -1,4 +1,4 @@
-{...}: {
+{pkgs,...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -19,6 +19,8 @@
 		";
     envExtra = "
 		 source $HOME/.config/zsh/zshenv-nix
+		 export LIBVA_DRIVER_NAME=iHD  # or i965 depending on your GPU
+		 export LIBVA_DRIVERS_PATH=${pkgs.intel-media-driver}/lib/dri:${pkgs.intel-vaapi-driver}/lib/dri
 		";
     # oh-my-zsh = {
     #   enable = true;
