@@ -46,7 +46,7 @@
     http-server
     hyfetch
     zellij
-    p7zip
+    _7zz
     chafa
     imagemagick
   ];
