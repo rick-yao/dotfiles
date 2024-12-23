@@ -45,7 +45,6 @@ alias brewup="brew upgrade; brewcl";
 alias fly="env https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890";
 alias fle="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890";
 alias cnpm="npm --registry=https://registry.npmmirror.com  --cache=$HOME/.npm/.cache/cnpm  --disturl=https://npmmirror.com/mirrors/node  --userconfig=$HOME/.cnpmrc";
-alias f="yazi";
 alias s="kitty +kitten ssh";
 alias compose-update="docker compose down && docker compose pull && docker compose up -d";
 alias compose-update-sudo="sudo docker compose down && sudo docker compose pull && sudo docker compose up -d";
@@ -56,11 +55,11 @@ alias neovim-restore="nvim --headless "+Lazy! restore" +qa"
 
 cowsay "Welcome, Human."
 
-performace_test(){
+function performace_test(){
 	hyperfine --runs 10 'zsh -i -c exit'
 }
 
-convert_to_hevc() {
+function convert_to_hevc() {
   input_filename=$1
   
   if [[ -z "$input_filename" ]]; then
@@ -79,7 +78,7 @@ convert_to_hevc() {
   echo "Output generated: $output_filename"
 }
 
-cycle(){
+function cycle(){
 	win=$(yabai -m query --windows --window last | jq '.id')
 
 	while : ; do
@@ -88,4 +87,13 @@ cycle(){
         	break
     	fi
 	done
+}
+
+function f() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
