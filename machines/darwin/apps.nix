@@ -116,6 +116,7 @@
       "skim"
       "loop"
       "proxy-audio-device"
+      "ghostty"
     ];
   };
 }
