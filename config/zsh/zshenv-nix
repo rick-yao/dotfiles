@@ -27,3 +27,7 @@ export PATH=/Users/rick/.cargo/bin:$PATH
 
 #vim
 export MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc"
+
+if [[ -f $XDG_CONFIG_HOME/zsh/keys ]]; then
+    source $XDG_CONFIG_HOME/zsh/keys
+fi
