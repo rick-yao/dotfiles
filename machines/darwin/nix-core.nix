@@ -9,17 +9,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-  # Use this instead of services.nix-daemon.enable if you
-  # don't wan't the daemon service to be managed for you.
-  # nix.useDaemon = true;
-
   nix.package = pkgs.nixVersions.latest;
 
   programs.nix-index.enable = true;
 
   system.stateVersion = 5;
+  
+  ids.gids.nixbld = 305;
 
   # do garbage collection weekly to keep disk usage low
   nix.gc = {
