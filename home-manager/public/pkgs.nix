@@ -34,7 +34,7 @@
     onefetch
     cowsay
     deno
-    go_1_22
+    go
     hyperfine
     gping
     procs
