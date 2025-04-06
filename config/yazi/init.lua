@@ -1,13 +1,13 @@
-THEME.git = THEME.git or {}
-THEME.git.modified = ui.Style():fg("blue")
-THEME.git.deleted = ui.Style():fg("red"):bold()
+th.git = th.git or {}
+th.git.modified = ui.Style():fg("blue")
+th.git.deleted = ui.Style():fg("red"):bold()
 
-THEME.git.modified_sign = "M"
-THEME.git.deleted_sign = "D"
-THEME.git.ignored_sign = "I"
-THEME.git.added_sign = "A"
-THEME.git.updated_sign = "U"
-THEME.git.untracked_sign = "??"
+th.git.modified_sign = "M"
+th.git.deleted_sign = "D"
+th.git.ignored_sign = "I"
+th.git.added_sign = "A"
+th.git.updated_sign = "U"
+th.git.untracked_sign = "??"
 require("git"):setup()
 
 require("starship"):setup()
