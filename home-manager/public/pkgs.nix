@@ -49,5 +49,6 @@
     _7zz
     chafa
     imagemagick
+    axel
   ];
 }
