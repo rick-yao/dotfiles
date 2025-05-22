@@ -9,16 +9,22 @@
 #    https://github.com/rgcr/m-cli
 #
 ###################################################################################
+let 
+  mkMeta = import ../lib/mkmeta.nix {};
+  username = mkMeta.username;
+in 
 {
   system = {
+
+    primaryUser = username;
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     # NOTE: not working on macOS 14
-    activationScripts.postUserActivation.text = ''
-      # activateSettings -u will reload the settings from the database and apply them to the current session,
-      # so we do not need to logout and login again to make the changes take effect.
-      echo "reload start..."
-      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-    '';
+    # activationScripts.postUserActivation.text = ''
+    #   # activateSettings -u will reload the settings from the database and apply them to the current session,
+    #   # so we do not need to logout and login again to make the changes take effect.
+    #   echo "reload start..."
+    #   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    # '';
 
     defaults = {
       # dock

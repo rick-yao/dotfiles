@@ -12,7 +12,7 @@
       size = 10000;
     };
 
-    initExtra = "
+    initContent = "
 		 source $HOME/.config/zsh/zshrc-nix
 		 eval \"$(zoxide init zsh)\"
      eval \"$(fnm env --use-on-cd)\"

@@ -14,7 +14,7 @@ deploy-mac: set-up-config
 	nix build .#darwinConfigurations.Ricks-MacBook-Air.system \
 		--extra-experimental-features 'nix-command flakes'
 
-	./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air
+	sudo ./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air
 	
 	rm ./result
 
