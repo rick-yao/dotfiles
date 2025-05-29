@@ -6,7 +6,7 @@
     procs
     lazydocker
     fastfetch
-    # tailspin
+    tailspin
     wget
     du-dust
     protobuf
