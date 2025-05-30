@@ -70,7 +70,7 @@
       "ollama"
       "bun"
       "python"
-      "pyenv"
+      "uv"
     ];
 
     # `brew install --cask`
