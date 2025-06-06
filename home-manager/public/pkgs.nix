@@ -50,5 +50,6 @@
     chafa
     imagemagick
     axel
+    exiftool
   ];
 }
