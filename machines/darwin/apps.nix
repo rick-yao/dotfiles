@@ -71,6 +71,7 @@
       "bun"
       "python"
       "uv"
+      "cloudflared"
     ];
 
     # `brew install --cask`
