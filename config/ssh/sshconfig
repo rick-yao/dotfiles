@@ -1,3 +1,6 @@
+Host servergateway.infinitedream.space
+  ProxyCommand /opt/homebrew/bin/cloudflared access ssh --hostname %h
+  
 Host gcp-new
 	HostName 35.236.170.12
 	User rick
