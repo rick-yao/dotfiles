@@ -32,9 +32,10 @@ def clean_up():
         print("Cleaning gradle cache...")
         run_command("rm -rf ~/.gradle/caches")
 
-        print("Cleaning xcode cache...")
+        print("Cleaning xcode and spm cache...")
         run_command("rm -rf ~/Library/Developer/Xcode/DerivedData")
         run_command("rm -rf ~/Library/Developer/Xcode/Archives")
+        run_command("rm -rf ~/Library/Caches/org.swift.swiftpm")
 
     elif system == "Linux":
         print("Cleaning yarn cache...")
