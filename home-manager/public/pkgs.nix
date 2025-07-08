@@ -51,5 +51,6 @@
     imagemagick
     axel
     exiftool
+    yt-dlp
   ];
 }
