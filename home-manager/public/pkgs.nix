@@ -52,5 +52,6 @@
     axel
     exiftool
     yt-dlp
+    ouch
   ];
 }
