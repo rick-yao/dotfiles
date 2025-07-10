@@ -13,6 +13,11 @@ use = "yazi-rs/plugins:git"
 rev = "b886025"
 hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "bb941c4"
+hash = "956b02fe8213e7b92e21a941b9abe764"
+
 [[flavor.deps]]
 use = "dangooddd/kanagawa"
 rev = "31167ed"
