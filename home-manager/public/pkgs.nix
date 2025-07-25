@@ -43,7 +43,6 @@
     curlie
     rust-analyzer
     gh
-    http-server
     hyfetch
     zellij
     _7zz
