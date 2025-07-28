@@ -8,3 +8,5 @@ config/yazi/plugins/
 config/yazi/flavors/
 
 config/zsh/API_KEYS
+
+.vscode/
