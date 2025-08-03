@@ -5,7 +5,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
-    dotDir = ".config/zsh-nix";
+    dotDir = "\${config.home.homeDirectory}/.config/zsh-nix";
     history = {
       path = "$HOME/.config/zsh-nix/.zsh_history";
       save = 10000;
