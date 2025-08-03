@@ -1,11 +1,11 @@
-{pkgs,...}: {
+{config,pkgs,...}: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
-    dotDir = "`\${config.xdg.configHome}/.config/zsh-nix`";
+    dotDir = "${config.xdg.configHome}/zsh-nix";
     history = {
       path = "$HOME/.config/zsh-nix/.zsh_history";
       save = 10000;
