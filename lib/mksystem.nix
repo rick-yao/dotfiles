@@ -40,7 +40,6 @@ in
           name = user;
           lib = pkgs.lib;
         })
-        ../overlay/rust.nix
       ];
 
       extraSpecialArgs = {inherit overlays;};
@@ -68,15 +67,6 @@ in
             lib = pkgs.lib;
           };
         }
-        # Rust overlay
-        ({pkgs, ...}: {
-          nixpkgs.overlays = overlays;
-          environment.systemPackages = [
-            (pkgs.rust-bin.stable.latest.default.override {
-              extensions = ["rust-src"];
-            })
-          ];
-        })
       ];
     }
   else {}

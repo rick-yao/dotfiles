@@ -11,7 +11,6 @@
     ...
   }: let
     overlays = [
-      inputs.rust-overlay.overlays.default
       yazi.overlays.default
     ];
 
@@ -65,8 +64,6 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    rust-overlay.url = "github:oxalica/rust-overlay";
 
     yazi.url = "github:sxyazi/yazi";
 
