@@ -21,10 +21,10 @@ export PATH=$PATH:$XDG_CONFIG_HOME/my_scripts
 export ZSH_COMPDUMP="$HOME/.cache/.zcompdump-$HOST"
 
 #rust
-export RUSTUP_DIST_SERVER="https://rsproxy.cn"
-export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
-export CARGO_UNSTABLE_SPARSE_REGISTRY=true
-export PATH=/Users/rick/.cargo/bin:$PATH
+# export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+# export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+# export CARGO_UNSTABLE_SPARSE_REGISTRY=true
+# export PATH=/Users/rick/.cargo/bin:$PATH
 
 #vim
 export MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc"

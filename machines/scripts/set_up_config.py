@@ -95,13 +95,6 @@ link_file(f"{Path.home()}/dotfiles/config/zsh", f"{config_dir}/zsh")
 # npmrc
 link_file(f"{Path.home()}/dotfiles/config/npm/.npmrc", f"{Path.home()}/.npmrc")
 
-# rust
-rust_cargo_dir = Path.home() / ".cargo"
-check_or_create_folder(rust_cargo_dir)
-link_file(
-    f"{Path.home()}/dotfiles/config/rust/config.toml", f"{rust_cargo_dir}/config.toml"
-)
-
 # starship
 link_file(
     f"{Path.home()}/dotfiles/config/starship/starship.toml",
