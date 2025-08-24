@@ -52,5 +52,6 @@
     exiftool
     yt-dlp
     ouch
+    asciinema_3
   ];
 }
