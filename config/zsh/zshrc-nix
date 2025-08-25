@@ -17,7 +17,6 @@ alias gstall='git stash --all'
 alias gstp='git stash pop'
 alias gst='git status'
 alias gpr='git pull --rebase'
-alias gsu='git submodule update'
 alias gsi='git submodule init'
 alias gck="git checkout";
 alias gsu="git submodule update --remote";
