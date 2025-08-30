@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 #
 # nvim-wrapper: 从 macOS 钥匙串安全地加载环境变量并启动 Neovim
