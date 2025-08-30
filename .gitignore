@@ -7,6 +7,6 @@ result
 config/yazi/plugins/
 config/yazi/flavors/
 
-config/zsh/API_KEYS
+config/zsh/nvim-secrets.env
 
 .vscode/
