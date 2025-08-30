@@ -15,5 +15,6 @@
     libva
     libva-utils
     libsecret
+    uv
   ];
 }
