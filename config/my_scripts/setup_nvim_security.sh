@@ -23,9 +23,9 @@
 SECRETS_FILE_PATH="$HOME/.config/zsh/nvim-secrets.env"
 
 KEYS_TO_FETCH="
-  GEMINI_API_KEY com.avante-nvim.api GEMINI_API_KEY
+  VERTEX_GEMINI_API_KEY com.avante-nvim.api VERTEX_GEMINI_API_KEY
 
-  GEMINI_SUGGEST_API_KEY com.avante-nvim.api GEMINI_SUGGEST_API_KEY
+  VERTEX_GEMINI_SUGGEST_API_KEY com.avante-nvim.api VERTEX_GEMINI_SUGGEST_API_KEY
 "
 # --- 核心逻辑区 ---
 
