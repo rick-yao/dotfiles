@@ -30,7 +30,8 @@ alias lls="eza -laag --git-repos-no-status --classify=always --group-directories
 # alias ea="lsd -la";
 # achrome="open -n /Applications/Google\ Chrome\ Dev.app/ --args --disable-web-security  --user-data-dir=/Users/rick/Downloads/chromeDevData";
 alias icat="kitty +kitten icat";
-alias vim="nvim";
+alias nvim="~/.config/my_scripts/setup_nvim_security.sh"
+alias vim="nvim"
 alias tma="tmux a";
 alias tml="tmux ls";
 alias tmk="tmux kill-server";
