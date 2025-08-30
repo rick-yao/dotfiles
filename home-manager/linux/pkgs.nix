@@ -14,5 +14,6 @@
     intel-vaapi-driver # for i965
     libva
     libva-utils
+    libsecret
   ];
 }

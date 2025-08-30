@@ -27,33 +27,66 @@ KEYS_TO_FETCH="
   GEMINI_SUGGEST_API_KEY com.avante-nvim.api GEMINI_SUGGEST_API_KEY
 "
 
-# --- 核心逻辑区 (通常无需修改) ---
+# --- 核心逻辑区 ---
+
+# 定义一个函数，用于根据不同平台从安全存储中获取密钥
+# 参数1: service, 参数2: account
+get_key_from_secure_storage() {
+  local service="$1"
+  local account="$2"
+  local os_type
+  os_type="$(uname -s)"
+
+  case "$os_type" in
+    # macOS
+    Darwin)
+      security find-generic-password -s "$service" -a "$account" -w 2>/dev/null
+      ;;
+    # Linux
+    Linux)
+      # 检查 secret-tool 是否已安装
+      if ! command -v secret-tool &> /dev/null; then
+        # 只在第一次调用时打印错误，避免重复刷屏
+        if [[ -z "$SECRET_TOOL_MISSING_ERROR_SHOWN" ]]; then
+          echo "nvim-wrapper: 错误 - 'secret-tool' 命令未找到。请安装 'libsecret-tools' (Debian/Ubuntu) 或 'libsecret' (Fedora/RHEL)。" >&2
+          # 设置一个标志，防止重复打印此错误
+          export SECRET_TOOL_MISSING_ERROR_SHOWN=1
+        fi
+        return 1 # 返回失败
+      fi
+      secret-tool lookup service "$service" account "$account"
+      ;;
+    # 其他不支持的系统
+    *)
+      if [[ -z "$UNSUPPORTED_OS_ERROR_SHOWN" ]]; then
+        echo "nvim-wrapper: 警告 - 不支持的操作系统 '$os_type'，无法从安全存储中获取密钥。" >&2
+        export UNSUPPORTED_OS_ERROR_SHOWN=1
+      fi
+      return 1 # 返回失败
+      ;;
+  esac
+}
+
 
 echo "正在为 Neovim 准备安全环境..."
 
 # 读取配置区的每一行并处理
 echo "$KEYS_TO_FETCH" | while read -r env_var service account; do
-  # 跳过空行和以'#'开头的注释行
-  if [[ -z "$env_var" || "$env_var" == \#* ]]; then
-    continue
-  fi
+  # 跳过空行和注释行
+  if [[ -z "$env_var" || "$env_var" == \#* ]]; then continue; fi
 
-  # 从钥匙串获取秘密值，并将任何错误输出重定向到/dev/null
-  value=$(security find-generic-password -s "$service" -a "$account" -w 2>/dev/null)
+  # 调用函数获取秘密值
+  value=$(get_key_from_secure_storage "$service" "$account")
+  exit_code=$?
 
-  # 检查命令是否成功执行并且返回值不为空
-  if [[ $? -eq 0 && -n "$value" ]]; then
-    # 如果成功找到，则导出为环境变量
+  # 检查函数是否成功执行并且返回值不为空
+  if [[ $exit_code -eq 0 && -n "$value" ]]; then
     export "$env_var"="$value"
-    echo "  -> 成功注入 $env_var"
   else
-    # --- 这是修改的关键部分 ---
-    # 如果找不到Key (命令失败或值为空)
-
-    # 1. 打印清晰的警告信息到标准错误输出
-    echo "  -> 警告: 未能从钥匙串找到 '$env_var'。该环境变量将设置为空值。" >&2
-
-    # 2. 将环境变量的值显式设置为空字符串
+    # 对于找不到的Key，打印警告并设置为空值（保持防御性编程）
+    if [[ -z "$SECRET_TOOL_MISSING_ERROR_SHOWN" && -z "$UNSUPPORTED_OS_ERROR_SHOWN" ]]; then
+      echo "nvim-wrapper: 警告 - 未能从安全存储中找到 '$env_var'。将设置为空值。" >&2
+    fi
     export "$env_var"=""
   fi
 done
@@ -61,5 +94,6 @@ done
 echo "环境设置完毕，正在启动 Neovim..."
 echo "-------------------------------------"
 
-# 执行真正的 nvim 命令，并将所有命令行参数原封不动地传递给它
+# --- 执行区 ---
+# 使用 command which 确保找到的是真实的可执行文件，而不是别名
 exec "$(command which nvim)" "$@"
