@@ -13,11 +13,15 @@
 # - 服务名: `security` 命令中的 -s 参数
 # - 账户名: `security` 命令中的 -a 参数
 # eg:
+# for macOS
 # security add-generic-password \
 # -s 'com.avante-nvim.api' \
 # -a 'GEMINI_API_KEY' \
 # -w '<你的GEMINI_API_KEY>' \
 # -T "$(which nvim)"
+#
+# for Linux
+# echo '<你的GEMINI_API_KEY>' | secret-tool store --label='Gemini API Key for nvim' service 'com.avante-nvim.api' account 'GEMINI_API_KEY'
 #
 # 你可以随意添加、删除或注释掉行。
 # -----------------------------------------------------------------------------
