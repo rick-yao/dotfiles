@@ -1,7 +1,5 @@
 {
-  config,
   lib,
-  pkgs,
   ...
 }: {
   # `programs.git` will generate the config file: ~/.config/git/config

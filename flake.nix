@@ -2,10 +2,7 @@
   description = "Nix for Rick's Personal Machines";
 
   outputs = inputs @ {
-    self,
     nixpkgs,
-    darwin,
-    home-manager,
     systems,
     yazi,
     ...
