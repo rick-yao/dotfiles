@@ -53,5 +53,8 @@
     yt-dlp
     ouch
     asciinema_3
+    nixd
+    deadnix
+    statix
   ];
 }
