@@ -61,8 +61,11 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    alejandra = { url = "github:kamadorueda/alejandra";inputs.nixpkgs.follows = "nixpkgs";
 
-    yazi.url = "github:sxyazi/yazi";
+} ;
+      yazi.url = "github:sxyazi/yazi";
 
     systems.url = "github:nix-systems/default";
   };

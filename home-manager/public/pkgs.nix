@@ -56,5 +56,6 @@
     nixd
     deadnix
     statix
+    alejandra
   ];
 }
