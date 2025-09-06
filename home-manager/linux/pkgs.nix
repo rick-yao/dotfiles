@@ -7,8 +7,7 @@
     pnpm
     pandoc
     cmake
-    python312Full
-    python312Packages.pip
+    python3Full
     # for ffmpeg hw accel
     intel-media-driver  # for iHD
     intel-vaapi-driver # for i965
