@@ -9,13 +9,11 @@
 #    https://github.com/rgcr/m-cli
 #
 ###################################################################################
-let 
+let
   mkMeta = import ../lib/mkmeta.nix {};
   username = mkMeta.username;
-in 
-{
+in {
   system = {
-
     primaryUser = username;
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     # NOTE: not working on macOS 14
@@ -125,7 +123,7 @@ in
       swapLeftCommandAndLeftAlt = false;
     };
   };
-  
+
   security.pam.services.sudo_local.touchIdAuth = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.

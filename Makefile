@@ -64,7 +64,7 @@ gc-linux:
 	nix-store --gc --option keep-outputs false --option keep-derivations false
 
 fmt:
-	nix fmt
+	nix fmt .
 
 .PHONY: clean  
 clean:  

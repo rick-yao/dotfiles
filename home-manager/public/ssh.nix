@@ -4,7 +4,7 @@
     enableDefaultConfig = false;
     matchBlocks = {
       "*" = {
-          serverAliveInterval = 15;
+        serverAliveInterval = 15;
       };
     };
     extraConfig = ''

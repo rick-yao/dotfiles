@@ -9,7 +9,7 @@
     cmake
     python3Full
     # for ffmpeg hw accel
-    intel-media-driver  # for iHD
+    intel-media-driver # for iHD
     intel-vaapi-driver # for i965
     libva
     libva-utils

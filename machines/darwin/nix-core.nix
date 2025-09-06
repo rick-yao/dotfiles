@@ -14,7 +14,7 @@
   programs.nix-index.enable = true;
 
   system.stateVersion = 5;
-  
+
   ids.gids.nixbld = 101;
 
   # do garbage collection weekly to keep disk usage low
