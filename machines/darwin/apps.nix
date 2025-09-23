@@ -72,6 +72,7 @@
       "python"
       "uv"
       "cloudflared"
+      "tailscale"
     ];
 
     # `brew install --cask`
