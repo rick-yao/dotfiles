@@ -1,0 +1,172 @@
+#!/usr/bin/env python3
+
+# ==============================================================================
+# fast_delete.py
+#
+# A Python script to rapidly clear the contents of one or more directories
+# using the `rsync` method. It features colored output and robust safety checks.
+#
+# Usage: ./fast_delete.py /path/to/dir1 /path/to/dir2 ...
+# ==============================================================================
+
+import argparse
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+
+
+# --- 1. ANSI Color Codes for beautiful output ---
+class Colors:
+    """A class to hold ANSI color codes for terminal output."""
+
+    RESET = "\033[0m"
+    RED = "\033[0;31m"
+    GREEN = "\033[0;32m"
+    YELLOW = "\033[0;33m"
+    BLUE = "\033[0;34m"
+    BOLD = "\033[1m"
+
+
+def print_error(message):
+    """Prints a message in red."""
+    print(f"{Colors.RED}{Colors.BOLD}Error: {message}{Colors.RESET}", file=sys.stderr)
+
+
+def print_success(message):
+    """Prints a message in green."""
+    print(f"{Colors.GREEN}{message}{Colors.RESET}")
+
+
+def print_warning(message):
+    """Prints a message in yellow."""
+    print(f"{Colors.YELLOW}{message}{Colors.RESET}")
+
+
+def print_info(message):
+    """Prints a message in blue."""
+    print(f"{Colors.BLUE}{message}{Colors.RESET}")
+
+
+def clear_directory(target_dir: str, empty_dir: str):
+    """
+    Uses rsync to clear the contents of a single directory.
+    """
+    print_info(f"\nProcessing directory: {Colors.BOLD}{target_dir}{Colors.RESET}")
+
+    # Ensure both source and destination have trailing slashes for rsync
+    source = f"{empty_dir}/"
+    destination = f"{target_dir}/"
+
+    command = ["rsync", "-av", "--delete", "--stats", source, destination]
+
+    try:
+        # Execute the rsync command
+        result = subprocess.run(
+            command,
+            check=True,  # Raise an exception if rsync returns a non-zero exit code
+            capture_output=True,  # Capture stdout and stderr
+            text=True,  # Decode stdout/stderr as text
+        )
+        # Print rsync's own statistics output
+        print(result.stdout)
+        print_success(f"✓ Successfully cleared: {target_dir}")
+        return True
+    except FileNotFoundError:
+        print_error("The 'rsync' command was not found. Please ensure it's installed.")
+        # This error is critical, so we exit the whole script
+        sys.exit(1)
+    except subprocess.CalledProcessError as e:
+        print_error(f"An error occurred while clearing '{target_dir}':")
+        # Print the standard error from rsync for detailed diagnostics
+        print(e.stderr, file=sys.stderr)
+        return False
+
+
+def main():
+    """Main function to parse arguments and orchestrate the deletion process."""
+
+    # --- 2. Check for rsync availability first ---
+    if not shutil.which("rsync"):
+        print_error("The 'rsync' command is not installed or not in your PATH.")
+        print_info("Please install rsync to use this script.")
+        sys.exit(1)
+
+    # --- 3. Argument Parsing ---
+    parser = argparse.ArgumentParser(
+        description="A script to rapidly clear contents of large directories using rsync.",
+        formatter_class=argparse.RawTextHelpFormatter,  # For better help text formatting
+    )
+    parser.add_argument(
+        "directories",
+        metavar="DIRECTORY",
+        nargs="+",  # Accept one or more directory arguments
+        help="One or more directories to clear.",
+    )
+    args = parser.parse_args()
+
+    # --- 4. Validation and Safety Checks ---
+    # A set provides faster lookups than a list
+    PROTECTED_PATHS = {"/", "/etc", "/usr", "/var", "/home", "/root", "/boot"}
+
+    validated_dirs = []
+    for d in args.directories:
+        if not os.path.isdir(d):
+            print_warning(f"Skipping: '{d}' is not a valid directory.")
+            continue
+
+        # Resolve to an absolute path for a reliable safety check
+        abs_path = os.path.realpath(d)
+
+        if abs_path in PROTECTED_PATHS:
+            print_error(
+                f"CRITICAL: '{abs_path}' is a protected system directory. Skipping for safety."
+            )
+            continue
+
+        validated_dirs.append(abs_path)
+
+    if not validated_dirs:
+        print_warning("No valid directories left to process. Exiting.")
+        sys.exit(0)
+
+    # --- 5. Final User Confirmation ---
+    print_info("The following directories will be COMPLETELY EMPTIED:")
+    for d in validated_dirs:
+        print(f"  - {Colors.BOLD}{d}{Colors.RESET}")
+
+    try:
+        confirm = input(
+            f"\n{Colors.YELLOW}This action is IRREVERSIBLE. Type 'yes' to proceed: {Colors.RESET}"
+        )
+    except KeyboardInterrupt:
+        print("\nOperation cancelled by user.")
+        sys.exit(1)
+
+    if confirm.lower() != "yes":
+        print_info("Operation cancelled.")
+        sys.exit(0)
+
+    # --- 6. Execution ---
+    # Use a context manager for the temporary directory. It's automatically
+    # created and cleaned up, even if errors occur.
+    successful_count = 0
+    failed_count = 0
+    with tempfile.TemporaryDirectory() as empty_dir:
+        for directory in validated_dirs:
+            if clear_directory(directory, empty_dir):
+                successful_count += 1
+            else:
+                failed_count += 1
+
+    # --- 7. Final Summary ---
+    print("\n" + "=" * 20 + " Summary " + "=" * 20)
+    print_success(f"Successfully cleared: {successful_count} director(y/ies)")
+    if failed_count > 0:
+        print_error(f"Failed to clear: {failed_count} director(y/ies)")
+        sys.exit(1)  # Exit with an error code if any operation failed
+
+
+if __name__ == "__main__":
+    main()
