@@ -10,3 +10,5 @@ config/yazi/flavors/
 config/zsh/nvim-secrets.env
 
 .vscode/
+
+__pycache__

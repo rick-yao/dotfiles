@@ -1,6 +1,7 @@
 import os
 import shutil
 import stat
+from logger import log_message
 from pathlib import Path
 
 # Define the path to the .config directory
@@ -30,14 +31,15 @@ def link_file(target_file, link_name):
         target_file
     ):
         # The symbolic link exists and points to the correct target file
-        print(f"The symbolic link {link_name} already points to {target_file}.")
+        log_message(f"The symbolic link {link_name} already points to {target_file}.")
         return  # Exit the function
 
     # If the symlink exists but doesn't point to the correct target,
     # or if it doesn't exist but the name is taken by a file or directory, report and remove
     if link_name.exists():
-        print(
-            f"Target is not a symbolic link or already exists. Deleting the folder or file: {link_name}"
+        log_message(
+            f"Target is not a symbolic link or already exists. Deleting the folder or file: {link_name}",
+            "warning",
         )
         if link_name.is_symlink():
             link_name.unlink()
@@ -47,28 +49,28 @@ def link_file(target_file, link_name):
     # Create or update the symbolic link
     link_name.parent.mkdir(parents=True, exist_ok=True)
     link_name.symlink_to(target_file)
-    print(f"Symbolic link created or updated: {link_name} -> {target_file}")
+    log_message(f"Symbolic link created or updated: {link_name} -> {target_file}")
 
 
 def check_or_create_folder(folder_path):
     folder_path = Path(folder_path)
     if folder_path.exists():
-        print(f"Folder {folder_path} exists")
+        log_message(f"Folder {folder_path} exists")
     else:
         folder_path.mkdir(parents=True)
-        print(f"Folder {folder_path} created")
+        log_message(f"Folder {folder_path} created")
 
 
 # Check if the .config directory exists
 config_dir_path = Path(config_dir)
 if not config_dir_path.exists():
     # Directory does not exist, so create it
-    print("The .config directory does not exist. Creating it now...")
+    log_message("The .config directory does not exist. Creating it now...")
     config_dir_path.mkdir(parents=True)
-    print(".config directory created successfully.")
+    log_message(".config directory created successfully.")
 else:
     # Directory exists
-    print("The .config directory already exists.")
+    log_message("The .config directory already exists.")
 
 # link astro user and nvim config
 link_file(f"{Path.home()}/dotfiles/config/nvim", f"{config_dir}/nvim")
