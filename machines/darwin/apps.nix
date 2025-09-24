@@ -72,7 +72,6 @@
       "python"
       "uv"
       "cloudflared"
-      "tailscale"
     ];
 
     # `brew install --cask`
@@ -119,6 +118,7 @@
       "loop"
       "proxy-audio-device"
       "ghostty"
+      "tailscale-app"
     ];
   };
 }
