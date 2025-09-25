@@ -18,12 +18,13 @@
   ids.gids.nixbld = 101;
 
   # do garbage collection weekly to keep disk usage low
-  nix.gc = {
-    automatic = lib.mkDefault true;
-    options = lib.mkDefault "--delete-older-than 1w";
-  };
+  # nix.gc = {
+  #automatic = lib.mkDefault true;
+  #options = lib.mkDefault "--delete-older-than 1w";
+  #};
+  nix.enable = false;
 
   # Manual optimise storage: nix-store --optimise
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
-  nix.optimise.automatic = true;
+  # nix.optimise.automatic = true;
 }

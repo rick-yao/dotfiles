@@ -49,7 +49,7 @@
     # };
 
     taps = [
-      "homebrew/services"
+      #  "homebrew/services"
       "1password/tap"
       "koekeishiya/formulae"
       "oven-sh/bun"
@@ -81,7 +81,7 @@
       "google-chrome"
       "google-chrome@dev"
       "visual-studio-code"
-      "iina"
+      #"iina"
       "kitty"
       "amethyst"
       "syntax-highlight"
