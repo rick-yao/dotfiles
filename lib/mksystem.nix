@@ -4,6 +4,7 @@
   inputs,
 }: name: {
   system,
+  nix-homebrew,
   user,
   darwin ? false,
   linux ? false,
@@ -18,6 +19,7 @@
     then inputs.darwin.lib.darwinSystem
     else inputs.home-manager.lib.homeManagerConfiguration;
   # HM , if linux , should be empty
+
   home-manager =
     if darwin
     then inputs.home-manager.darwinModules
@@ -54,6 +56,19 @@ in
         ../machines/darwin
 
         machineConfig
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            # Install Homebrew under the default prefix
+            enable = true;
+
+            # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
+            enableRosetta = false;
+
+            # User owning the Homebrew prefix
+            user = user;
+          };
+        }
 
         home-manager.home-manager
         {

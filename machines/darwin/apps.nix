@@ -32,20 +32,20 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas
     # masApps = {
-    #   # NOTE: use https://github.com/mas-cli/mas to check the app id.
-      Wechat = 836500024;
-      Mindnode = 1289197285;
-      # CommandX = 2141473041;
-      Amphetamine = 937984704;
-      QQ = 451108668;
-      Telegram = 747648890;
-      Copyless = 993841014;
-    #   RDP = 1295203466;
-      Xcode-Cleaner = 1296084683;
-      Tick-Tick = 966085870;
-      Run-Cat = 1429033973;
-      Server-Cat = 1501532023;
-    #   # Wecom = 1189898970;
+    # #   # NOTE: use https://github.com/mas-cli/mas to check the app id.
+    #   Wechat = 836500024;
+    #   Mindnode = 1289197285;
+    #   # CommandX = 2141473041;
+    #   Amphetamine = 937984704;
+    #   QQ = 451108668;
+    #   Telegram = 747648890;
+    #   Copyless = 993841014;
+    # #   RDP = 1295203466;
+    #   Xcode-Cleaner = 1296084683;
+    #   Tick-Tick = 966085870;
+    #   Run-Cat = 1429033973;
+    #   Server-Cat = 1501532023;
+    # #   # Wecom = 1189898970;
     # };
 
     taps = [

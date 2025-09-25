@@ -5,6 +5,7 @@
     nixpkgs,
     systems,
     yazi,
+    nix-homebrew,
     ...
   }: let
     overlays = [
@@ -23,12 +24,14 @@
       system = "aarch64-darwin";
       user = mkMeta.username;
       darwin = true;
+      nix-homebrew = nix-homebrew;
     };
 
     homeConfigurations."${mkMeta.username}" = mkSystem "build" {
       system = "x86_64-linux";
       user = mkMeta.username;
       linux = true;
+      nix-homebrew = nix-homebrew;
     };
 
     formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.alejandra);
@@ -69,5 +72,7 @@
     yazi.url = "github:sxyazi/yazi";
 
     systems.url = "github:nix-systems/default";
+
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 }
