@@ -23,7 +23,6 @@
     smartmontools
     gnused
     lsd
-    gitui
     jq
     lua54Packages.lua
     unzip
