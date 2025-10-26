@@ -1,6 +1,6 @@
 {...}: {
   programs.git = {
-    extraConfig = {
+    settings = {
       gpg.format = "ssh";
     };
 

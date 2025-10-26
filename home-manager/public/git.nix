@@ -9,23 +9,11 @@
 
   programs.git = {
     enable = true;
-
-    userName = "Rick Yao";
-    userEmail = "abneryaoo@gmail.com";
-
-    ignores = [
-      ".DS_Store"
-    ];
-
-    includes = [
-      {
-        # use diffrent email & name for work
-        path = "~/work/.gitconfig";
-        condition = "gitdir:~/work/";
-      }
-    ];
-
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Rick Yao";
+        email = "abneryaoo@gmail.com";
+      };
       core = {
         editor = "nvim";
       };
@@ -40,6 +28,18 @@
       };
       init.defaultBranch = "main";
     };
+
+    ignores = [
+      ".DS_Store"
+    ];
+
+    includes = [
+      {
+        # use diffrent email & name for work
+        path = "~/work/.gitconfig";
+        condition = "gitdir:~/work/";
+      }
+    ];
 
     # delta = {
     #   enable = true;
