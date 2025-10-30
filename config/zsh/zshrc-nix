@@ -6,10 +6,12 @@ ZSHAREDIR=$HOME/.local/share/zsh-nix
 git_current_branch() {
 	git -C "$1" branch | sed  '/^\*/!d;s/\* //'
 }
-
 # git alias
 alias ga='git add'
-alias gck='git checkout'
+alias gck='git switch'
+alias gwa='git worktree add'
+alias gwr='git worktree remove'
+alias gwl='git worktree list'
 alias gcl='git clone --recurse-submodules'
 alias gc='git commit --verbose'
 alias gc!='git commit --verbose --amend'
