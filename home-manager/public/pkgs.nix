@@ -8,7 +8,7 @@
     fastfetch
     tailspin
     wget
-    du-dust
+    dust
     protobuf
     btop
     gnupg
