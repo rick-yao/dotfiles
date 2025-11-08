@@ -109,6 +109,7 @@
       "proxy-audio-device"
       "ghostty"
       "tailscale-app"
+      "cursor"
     ];
   };
 }
