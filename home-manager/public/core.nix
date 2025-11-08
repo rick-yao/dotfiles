@@ -11,11 +11,6 @@
       enableZshIntegration = false;
     };
 
-    # skim = {
-    #   enable = true;
-    #   enableZshIntegration = true;
-    # };
-
     yazi = {
       enable = true;
     };

@@ -102,3 +102,45 @@ function f() {
 	fi
 	rm -f -- "$tmp"
 }
+
+gw() {
+    if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        echo "Error: Not inside a git repository." >&2
+        return 1
+    fi
+
+    if [ -z "$1" ]; then
+        echo "Usage: gw <worktree-branch-name>"
+        echo "Type 'gw [TAB]' for a list of worktrees." >&2
+        return 1
+    fi
+
+    local target_branch="[$1]"
+    local target_dir
+
+    target_dir=$(git worktree list | awk -v branch="$target_branch" '$NF == branch {print $1}')
+
+    if [ -z "$target_dir" ]; then
+        echo "Error: Worktree for branch '$1' not found." >&2
+        echo "Available worktrees:"
+        git worktree list >&2
+        return 1
+    fi
+
+    echo "Jumping to $target_dir"
+    cd "$target_dir"
+}
+
+_gw() {
+    local -a branches
+    
+    if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        return 1
+    fi
+    
+    branches=($(git worktree list | awk '{gsub(/[\[\]]/, "", $NF); print $NF}'))
+    
+    _describe 'worktree branches' branches
+}
+
+compdef _gw gw

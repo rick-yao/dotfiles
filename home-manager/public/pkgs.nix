@@ -56,5 +56,6 @@
     deadnix
     statix
     alejandra
+    zsh-fzf-tab
   ];
 }

@@ -32,16 +32,13 @@
         else ""
       }
     '';
-    # oh-my-zsh = {
-    #   enable = true;
-    #   custom = "$XDG_CONFIG_HOME/omz";
-    #   plugins = [
-    #     "zoxide"
-    #   ];
-    #   extraConfig = "
-    #      eval \"$(fnm env --use-on-cd)\"
-    #   ";
-    # };
+
+    plugins = [
+      {
+        name = "fzf-tab";
+        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+      }
+    ];
   };
 
   programs.atuin = {
