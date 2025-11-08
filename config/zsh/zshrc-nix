@@ -144,3 +144,22 @@ _gw() {
 }
 
 compdef _gw gw
+_gwr() {
+    local -a branches
+    local main_worktree_path
+    
+    if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        return 1
+    fi
+
+    main_worktree_path=$(git rev-parse --show-toplevel)
+
+    branches=($(git worktree list | \
+        awk -v main_path="$main_worktree_path" \
+            '$1 != main_path {gsub(/[\[\]]/, "", $NF); print $NF}'))
+    
+    _describe 'removable worktree branches' branches
+}
+
+compdef _gwr gwr
+
