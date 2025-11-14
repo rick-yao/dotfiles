@@ -37,21 +37,6 @@
     formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.alejandra);
   };
 
-  nixConfig = {
-    experimental-features = ["nix-command" "flakes"];
-
-    substituters = [
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
-      "https://yazi.cachix.org"
-      "https://cache.nixos.org"
-    ];
-
-    extra-trusted-public-keys = ["yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k="];
-
-    auto-optimise-store = true;
-  };
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
