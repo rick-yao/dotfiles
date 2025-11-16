@@ -52,6 +52,7 @@
       "koekeishiya/formulae"
       "oven-sh/bun"
       "buo/cask-upgrade"
+      "tw93/tap"
     ];
 
     # `brew install`
@@ -68,6 +69,7 @@
       "python"
       "uv"
       "cloudflared"
+      "mole"
     ];
 
     # `brew install --cask`
