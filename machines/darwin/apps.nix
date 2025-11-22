@@ -70,6 +70,7 @@
       "uv"
       "cloudflared"
       "mole"
+      "gemini-cli"
     ];
 
     # `brew install --cask`
