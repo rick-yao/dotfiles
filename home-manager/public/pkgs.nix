@@ -57,6 +57,5 @@
     statix
     alejandra
     zsh-fzf-tab
-    github-copilot-cli
   ];
 }
