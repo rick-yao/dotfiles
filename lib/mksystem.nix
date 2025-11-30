@@ -11,14 +11,12 @@
 }: let
   pkgs = nixpkgs.legacyPackages.${system};
   userHMConfig = ../home-manager;
-
   machineConfig = ../machines/${name}.nix;
-  # NixOS vs nix-darwin functionst , if darwin , should be darwinSystem, if linux , should be homeManagerConfiguration because i use hm standalone version in linux
+
   systemFunc =
     if darwin
     then inputs.darwin.lib.darwinSystem
     else inputs.home-manager.lib.homeManagerConfiguration;
-  # HM , if linux , should be empty
 
   home-manager =
     if darwin
@@ -31,11 +29,13 @@ in
     {
       pkgs = import nixpkgs {
         inherit system;
-        # allow unfree pkgs, for example, 1password
         config.allowUnfree = true;
+        inherit overlays;
       };
 
       modules = [
+        ./configuration.nix
+
         (import userHMConfig {
           inputs = inputs;
           isLinux = true;
@@ -44,7 +44,7 @@ in
         })
       ];
 
-      extraSpecialArgs = {inherit overlays;};
+      extraSpecialArgs = {inherit inputs;};
     }
   else if darwin
   then
@@ -52,20 +52,19 @@ in
     {
       inherit system;
 
-      modules = [
-        ../machines/darwin
+      specialArgs = {inherit inputs;};
 
+      modules = [
+        ./configuration.nix
+
+        ../machines/darwin
         machineConfig
         nix-homebrew.darwinModules.nix-homebrew
         {
+          nixpkgs.overlays = overlays;
           nix-homebrew = {
-            # Install Homebrew under the default prefix
             enable = true;
-
-            # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
             enableRosetta = false;
-
-            # User owning the Homebrew prefix
             user = user;
           };
         }
@@ -74,6 +73,7 @@ in
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {inherit inputs;};
 
           home-manager.users.${user} = import userHMConfig {
             inputs = inputs;
