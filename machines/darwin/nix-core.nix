@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   ...
 }: {
   # enable flakes globally
@@ -9,7 +8,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.package = pkgs.nixVersions.latest;
+  nix.package = pkgs.lixPackageSets.stable.lix;
 
   programs.nix-index.enable = true;
 
@@ -22,7 +21,6 @@
   #automatic = lib.mkDefault true;
   #options = lib.mkDefault "--delete-older-than 1w";
   #};
-  nix.enable = false;
 
   # Manual optimise storage: nix-store --optimise
   # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
