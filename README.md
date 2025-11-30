@@ -20,7 +20,7 @@ Currently this setup is written by nix flake.
 
 ### Platform Prerequisite
 
-- nix -- recommend [nix-installer](https://github.com/DeterminateSystems/nix-installer)
+- nix -- recommend lix-installer `curl -sSf -L https://install.lix.systems/lix | sh -s -- install`
 
 #### For MacOS
 
@@ -33,11 +33,6 @@ Optional:
 
 - [Standalone Home manager](https://nix-community.github.io/home-manager/index.xhtml#sec-flakes-standalone)
 - make --- install via sudo apt-get install make
-- add trusted user to /etc/nix/nix.conf
-
-```
-trusted-users = your-user-name
-```
 
 ### Deploy
 
