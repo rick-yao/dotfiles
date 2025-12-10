@@ -3,7 +3,7 @@ show_hidden = true
 
 [preview]
 wrap = "yes"
-max_width = 99999999
+max_width = 65535
 
 [plugin]
 prepend_previewers = [
