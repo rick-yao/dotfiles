@@ -6,31 +6,6 @@ darwin-set-proxy:
 set-up-config:
 	python3 machines/scripts/set_up_config.py
 
-deploy-linux: set-up-config
-	home-manager switch --flake ~/dotfiles/
-	
-# deploy-mac: set-up-config
-# 	# NOTE: update hostname here!
-# 	nix build .#darwinConfigurations.Ricks-MacBook-Air.system \
-# 		--extra-experimental-features 'nix-command flakes'
-
-# 	sudo ./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air
-	
-# 	rm ./result
-
-# darwin-debug: set-up-config
-# 	# NOTE: update hostname here!
-# 	nix build .#darwinConfigurations.Ricks-MacBook-Air.system --show-trace --verbose \
-# 		--extra-experimental-features 'nix-command flakes'
-
-# 	./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air --show-trace --verbose
-
-############################################################################
-#
-#  nix related commands
-#
-############################################################################
-
 # Hostname and User detection
 HOST ?= $(shell hostname -s)
 USER ?= $(shell whoami)
