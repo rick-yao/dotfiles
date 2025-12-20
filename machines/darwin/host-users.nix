@@ -4,6 +4,7 @@
 #  Host & Users configuration
 #
 #############################################################
+let
   # usage: import from flake in the future?
   mkMeta = import ../../lib/mkmeta.nix {};
   hostname = mkMeta.hostname;
