@@ -38,21 +38,31 @@ Optional:
 
 #### MacOS
 
-1. Update the hostname of your mac
-2. execute command
+The `Makefile` will automatically detect your current username and hostname.
+
+**Standard Deployment:**
 
 ```bash
 make deploy-mac
 ```
 
-3. Logout and login to make setting take effect
+**Custom Deployment:**
+You can override the target user or host if needed:
+
+```bash
+# Deploy for a different user
+make deploy-mac USER=alice
+
+# Deploy for a specific host (requires machines/<Host>.nix)
+make deploy-mac HOST=OfficeMac
+```
+
+**Note:** You may need to logout and login for some settings to take full effect.
 
 #### Linux
 
-1. execute command
-
 ```bash
-home-manager switch --flake /your/dotfiles/path
+make deploy-linux
 ```
 
 ## Inspired By
