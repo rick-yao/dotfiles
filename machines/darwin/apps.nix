@@ -71,6 +71,7 @@
       "cloudflared"
       "mole"
       "gemini-cli"
+      "copilot-cli"
     ];
 
     # `brew install --cask`
