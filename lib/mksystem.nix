@@ -4,84 +4,77 @@
   inputs,
 }: name: {
   system,
-  nix-homebrew,
   user,
   darwin ? false,
   linux ? false,
+  nix-homebrew ? null,
 }: let
-  pkgs = nixpkgs.legacyPackages.${system};
-  userHMConfig = ../home-manager;
-  machineConfig = ../machines/${name}.nix;
+  # Common configuration for nixpkgs
+  nixpkgsConfig = {
+    inherit system overlays;
+    config.allowUnfree = true;
+  };
 
-  systemFunc =
-    if darwin
-    then inputs.darwin.lib.darwinSystem
-    else inputs.home-manager.lib.homeManagerConfiguration;
+  # Linux / Home Manager Configuration
+  linuxSystem = inputs.home-manager.lib.homeManagerConfiguration {
+    pkgs = import nixpkgs nixpkgsConfig;
+    extraSpecialArgs = {inherit inputs;};
+    modules = [
+      ./configuration.nix
+      (import ../home-manager {
+        inherit inputs;
+        isLinux = true;
+        name = user;
+        lib = nixpkgs.lib;
+      })
+    ];
+  };
 
-  home-manager =
-    if darwin
-    then inputs.home-manager.darwinModules
-    else {};
+  # Darwin Configuration
+  darwinSystem = inputs.darwin.lib.darwinSystem {
+    inherit system;
+    specialArgs = {inherit inputs;};
+    modules = [
+      ./configuration.nix
+      ../machines/darwin
+      ../machines/${name}.nix
+
+      # Nixpkgs configuration for Darwin
+      {
+        nixpkgs = {
+          inherit overlays;
+          config.allowUnfree = true;
+        };
+      }
+
+      # Nix-Homebrew configuration
+      nix-homebrew.darwinModules.nix-homebrew
+      {
+        nix-homebrew = {
+          enable = true;
+          enableRosetta = false;
+          user = user;
+        };
+      }
+
+      # Home Manager configuration for Darwin
+      inputs.home-manager.darwinModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = {inherit inputs;};
+        home-manager.users.${user} = import ../home-manager {
+          inherit inputs;
+          isDarwin = true;
+          name = user;
+          lib = nixpkgs.lib;
+        };
+      }
+    ];
+  };
 in
   if linux
-  then
-    systemFunc
-    {
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        inherit overlays;
-      };
-
-      modules = [
-        ./configuration.nix
-
-        (import userHMConfig {
-          inputs = inputs;
-          isLinux = true;
-          name = user;
-          lib = pkgs.lib;
-        })
-      ];
-
-      extraSpecialArgs = {inherit inputs;};
-    }
+  then linuxSystem
   else if darwin
-  then
-    systemFunc
-    {
-      inherit system;
-
-      specialArgs = {inherit inputs;};
-
-      modules = [
-        ./configuration.nix
-
-        ../machines/darwin
-        machineConfig
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nixpkgs.overlays = overlays;
-          nix-homebrew = {
-            enable = true;
-            enableRosetta = false;
-            user = user;
-          };
-        }
-
-        home-manager.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit inputs;};
-
-          home-manager.users.${user} = import userHMConfig {
-            inputs = inputs;
-            isDarwin = true;
-            name = user;
-            lib = pkgs.lib;
-          };
-        }
-      ];
-    }
-  else {}
+  then darwinSystem
+  else throw "System must be strictly either 'linux' or 'darwin'"
