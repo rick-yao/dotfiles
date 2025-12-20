@@ -20,7 +20,7 @@
 
     eachSystem = nixpkgs.lib.genAttrs (import systems);
   in {
-    darwinConfigurations."Ricks-MacBook-Air" = mkSystem "Ricks-MacBook-Air" {
+    darwinConfigurations."${mkMeta.hostname}" = mkSystem mkMeta.hostname {
       system = "aarch64-darwin";
       user = mkMeta.username;
       darwin = true;

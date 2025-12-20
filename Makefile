@@ -9,21 +9,21 @@ set-up-config:
 deploy-linux: set-up-config
 	home-manager switch --flake ~/dotfiles/
 	
-deploy-mac: set-up-config
-	# NOTE: update hostname here!
-	nix build .#darwinConfigurations.Ricks-MacBook-Air.system \
-		--extra-experimental-features 'nix-command flakes'
+# deploy-mac: set-up-config
+# 	# NOTE: update hostname here!
+# 	nix build .#darwinConfigurations.Ricks-MacBook-Air.system \
+# 		--extra-experimental-features 'nix-command flakes'
 
-	sudo ./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air
+# 	sudo ./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air
 	
-	rm ./result
+# 	rm ./result
 
-darwin-debug: set-up-config
-	# NOTE: update hostname here!
-	nix build .#darwinConfigurations.Ricks-MacBook-Air.system --show-trace --verbose \
-		--extra-experimental-features 'nix-command flakes'
+# darwin-debug: set-up-config
+# 	# NOTE: update hostname here!
+# 	nix build .#darwinConfigurations.Ricks-MacBook-Air.system --show-trace --verbose \
+# 		--extra-experimental-features 'nix-command flakes'
 
-	./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air --show-trace --verbose
+# 	./result/sw/bin/darwin-rebuild switch --flake .#Ricks-MacBook-Air --show-trace --verbose
 
 ############################################################################
 #
@@ -31,6 +31,33 @@ darwin-debug: set-up-config
 #
 ############################################################################
 
+# Hostname and User detection
+HOST ?= $(shell hostname -s)
+USER ?= $(shell whoami)
+
+# Export as env vars for NIX
+export NIX_HOSTNAME = $(HOST)
+export NIX_USERNAME = $(USER)
+
+deploy-mac: set-up-config
+	@echo "Deploying for $(USER) @ $(HOST)"
+	# Build the system configuration
+	nix build .#darwinConfigurations."$(HOST)".system \
+		--extra-experimental-features 'nix-command flakes' \
+		--impure
+
+	# Apply the configuration
+	sudo ./result/sw/bin/darwin-rebuild switch --flake .#"$(HOST)" --impure
+	
+	rm ./result
+
+darwin-debug: set-up-config
+	@echo "Debugging for $(USER) @ $(HOST)"
+	nix build .#darwinConfigurations."$(HOST)".system --show-trace --verbose \
+		--extra-experimental-features 'nix-command flakes' \
+		--impure
+
+	./result/sw/bin/darwin-rebuild switch --flake .#"$(HOST)" --show-trace --verbose --impure
 
 update:
 	nix flake update
@@ -40,6 +67,9 @@ update-mac: update
 	
 update-linux: update
 	make deploy-linux
+
+deploy-linux: set-up-config
+	home-manager switch --flake ~/dotfiles/ --impure
 
 history:
 	nix profile history --profile /nix/var/nix/profiles/system

@@ -4,10 +4,9 @@
 #  Host & Users configuration
 #
 #############################################################
-let
-  # NOTE: change this to your hostname
-  hostname = "Ricks-MacBook-Air";
+  # usage: import from flake in the future?
   mkMeta = import ../../lib/mkmeta.nix {};
+  hostname = mkMeta.hostname;
   username = mkMeta.username;
 in {
   networking.hostName = hostname;
