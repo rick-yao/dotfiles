@@ -53,6 +53,7 @@
       "oven-sh/bun"
       "buo/cask-upgrade"
       "tw93/tap"
+      "farion1231/ccswitch"
     ];
 
     # `brew install`
@@ -114,6 +115,8 @@
       "tailscale-app"
       "cursor"
       "copilot-cli"
+      "claude-code"
+      "cc-switch"
     ];
   };
 }
