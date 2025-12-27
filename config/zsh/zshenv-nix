@@ -2,7 +2,7 @@
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export PNPM_HOME="$HOME/.cache"
-export PATH="/Library/Developer/CommandLineTools/usr/bin:$PATH"
+export PATH="/Users/rick/.bun/bin:/Library/Developer/CommandLineTools/usr/bin:$PATH"
 
 # macOS-specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
