@@ -27,7 +27,6 @@
     lua54Packages.lua
     unzip
     deno
-    helix
     tmux
     fnm
     onefetch
@@ -49,7 +48,6 @@
     imagemagick
     axel
     exiftool
-    yt-dlp
     ouch
     asciinema_3
     nixd

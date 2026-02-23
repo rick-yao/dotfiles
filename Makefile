@@ -26,6 +26,19 @@ deploy-mac: set-up-config
 	
 	rm ./result
 
+deploy-mac-dry: set-up-config
+	@echo "Deploying for $(USER) @ $(HOST)"
+	# Build the system configuration
+	nix build .#darwinConfigurations."$(HOST)".system \
+		--extra-experimental-features 'nix-command flakes' \
+		--impure \
+		--dry-run
+
+	# Apply the configuration
+	sudo ./result/sw/bin/darwin-rebuild switch --flake .#"$(HOST)" --impure --dry-run
+	
+	rm ./result
+
 darwin-debug: set-up-config
 	@echo "Debugging for $(USER) @ $(HOST)"
 	nix build .#darwinConfigurations."$(HOST)".system --show-trace --verbose \
