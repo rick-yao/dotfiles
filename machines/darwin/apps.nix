@@ -72,6 +72,7 @@
       "cloudflared"
       "mole"
       "gemini-cli"
+      "swiftformat"
     ];
 
     # `brew install --cask`
