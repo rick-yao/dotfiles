@@ -39,7 +39,6 @@
     doggo
     duf
     curlie
-    rust-analyzer
     gh
     hyfetch
     zellij
