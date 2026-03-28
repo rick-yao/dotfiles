@@ -117,6 +117,7 @@
       "copilot-cli"
       "claude-code"
       "cc-switch"
+      "codex"
     ];
   };
 }
