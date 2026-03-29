@@ -2,52 +2,52 @@
   nixpkgs,
   overlays,
   inputs,
-}: name: {
+}: hostName: {
   system,
   user,
-  darwin ? false,
-  linux ? false,
+  platform,
   nix-homebrew ? null,
 }: let
-  # Common configuration for nixpkgs
-  nixpkgsConfig = {
+  isLinux = platform == "linux";
+  isDarwin = platform == "darwin";
+
+  pkgsConfig = {
     inherit system overlays;
     config.allowUnfree = true;
   };
 
-  # Linux / Home Manager Configuration
-  linuxSystem = inputs.home-manager.lib.homeManagerConfiguration {
-    pkgs = import nixpkgs nixpkgsConfig;
-    extraSpecialArgs = {inherit inputs;};
+  pkgs = import nixpkgs pkgsConfig;
+
+  homeManagerConfig = import ../home-manager {
+    name = user;
+    lib = nixpkgs.lib;
+    inherit isLinux isDarwin;
+  };
+
+  commonSpecialArgs = {inherit inputs;};
+
+  mkLinuxSystem = inputs.home-manager.lib.homeManagerConfiguration {
+    inherit pkgs;
+    extraSpecialArgs = commonSpecialArgs;
     modules = [
       ./configuration.nix
-      (import ../home-manager {
-        inherit inputs;
-        isLinux = true;
-        name = user;
-        lib = nixpkgs.lib;
-      })
+      homeManagerConfig
     ];
   };
 
-  # Darwin Configuration
-  darwinSystem = inputs.darwin.lib.darwinSystem {
+  mkDarwinSystem = inputs.darwin.lib.darwinSystem {
     inherit system;
-    specialArgs = {inherit inputs;};
+    specialArgs = commonSpecialArgs;
     modules = [
       ./configuration.nix
       ../machines/darwin
-      ../machines/${name}.nix
-
-      # Nixpkgs configuration for Darwin
+      ../machines/${hostName}.nix
       {
         nixpkgs = {
           inherit overlays;
           config.allowUnfree = true;
         };
       }
-
-      # Nix-Homebrew configuration
       nix-homebrew.darwinModules.nix-homebrew
       {
         nix-homebrew = {
@@ -56,25 +56,18 @@
           user = user;
         };
       }
-
-      # Home Manager configuration for Darwin
       inputs.home-manager.darwinModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = {inherit inputs;};
-        home-manager.users.${user} = import ../home-manager {
-          inherit inputs;
-          isDarwin = true;
-          name = user;
-          lib = nixpkgs.lib;
-        };
+        home-manager.extraSpecialArgs = commonSpecialArgs;
+        home-manager.users.${user} = homeManagerConfig;
       }
     ];
   };
 in
-  if linux
-  then linuxSystem
-  else if darwin
-  then darwinSystem
-  else throw "System must be strictly either 'linux' or 'darwin'"
+  if isLinux
+  then mkLinuxSystem
+  else if isDarwin
+  then mkDarwinSystem
+  else throw "lib/mksystem.nix expects platform to be either \"linux\" or \"darwin\""

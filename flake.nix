@@ -23,15 +23,14 @@
     darwinConfigurations."${mkMeta.hostname}" = mkSystem mkMeta.hostname {
       system = "aarch64-darwin";
       user = mkMeta.username;
-      darwin = true;
+      platform = "darwin";
       nix-homebrew = nix-homebrew;
     };
 
     homeConfigurations."${mkMeta.username}" = mkSystem "build" {
       system = "x86_64-linux";
       user = mkMeta.username;
-      linux = true;
-      nix-homebrew = nix-homebrew;
+      platform = "linux";
     };
 
     formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.alejandra);
