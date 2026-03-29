@@ -1,8 +1,0 @@
-[user]
-    name = rick
-    email = abneryaoo@gmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDcijLLEuNPXo3ETb+euCqmvzBlgFOmA092igevTSICB
-[gpg]
-	format = ssh
-[commit]
-	gpgsign = true

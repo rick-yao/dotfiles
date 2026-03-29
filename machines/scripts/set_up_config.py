@@ -91,9 +91,6 @@ link_file(
 # dust
 link_file(f"{Path.home()}/dotfiles/config/dust", f"{config_dir}/dust")
 
-# lsd
-link_file(f"{Path.home()}/dotfiles/config/lsd", f"{config_dir}/lsd")
-
 # atuin
 atuin_config_dir = config_dir_path / "atuin"
 link_file(

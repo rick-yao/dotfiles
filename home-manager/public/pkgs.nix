@@ -22,7 +22,6 @@
     fd
     smartmontools
     gnused
-    lsd
     jq
     lua54Packages.lua
     unzip
