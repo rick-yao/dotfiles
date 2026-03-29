@@ -20,7 +20,6 @@ alias gstp='git stash pop'
 alias gst='git status'
 alias gpr='git pull --rebase'
 alias gsi='git submodule init'
-alias gck="git checkout";
 alias gsu="git submodule update --remote";
 alias gft="git difftool --no-symlinks --dir-diff";
 alias glg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all";
@@ -162,4 +161,3 @@ _gwr() {
 }
 
 compdef _gwr gwr
-

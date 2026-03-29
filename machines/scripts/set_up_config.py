@@ -43,23 +43,15 @@ def link_file(target_file, link_name):
         )
         if link_name.is_symlink():
             link_name.unlink()
-        else:
+        elif link_name.is_dir():
             shutil.rmtree(link_name)
+        else:
+            link_name.unlink()
 
     # Create or update the symbolic link
     link_name.parent.mkdir(parents=True, exist_ok=True)
     link_name.symlink_to(target_file)
     log_message(f"Symbolic link created or updated: {link_name} -> {target_file}")
-
-
-def check_or_create_folder(folder_path):
-    folder_path = Path(folder_path)
-    if folder_path.exists():
-        log_message(f"Folder {folder_path} exists")
-    else:
-        folder_path.mkdir(parents=True)
-        log_message(f"Folder {folder_path} created")
-
 
 # Check if the .config directory exists
 config_dir_path = Path(config_dir)
@@ -104,7 +96,6 @@ link_file(f"{Path.home()}/dotfiles/config/lsd", f"{config_dir}/lsd")
 
 # atuin
 atuin_config_dir = config_dir_path / "atuin"
-check_or_create_folder(atuin_config_dir)
 link_file(
     f"{Path.home()}/dotfiles/config/atuin",
     f"{atuin_config_dir}",

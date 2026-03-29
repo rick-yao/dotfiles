@@ -31,11 +31,9 @@
     fnm
     onefetch
     cowsay
-    deno
     go
     hyperfine
     gping
-    procs
     doggo
     duf
     curlie
