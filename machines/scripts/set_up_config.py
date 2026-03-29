@@ -79,6 +79,9 @@ link_file(f"{Path.home()}/dotfiles/config/ssh", f"{config_dir}/ssh")
 # zsh
 link_file(f"{Path.home()}/dotfiles/config/zsh", f"{config_dir}/zsh")
 
+# vim
+link_file(f"{Path.home()}/dotfiles/config/vim", f"{config_dir}/vim")
+
 # npmrc
 link_file(f"{Path.home()}/dotfiles/config/npm/.npmrc", f"{Path.home()}/.npmrc")
 

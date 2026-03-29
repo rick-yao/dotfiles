@@ -27,7 +27,7 @@ export ZSH_COMPDUMP="$HOME/.cache/.zcompdump-$HOST"
 # export PATH=/Users/rick/.cargo/bin:$PATH
 
 #vim
-export MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc"
+export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
 if [[ -f $XDG_CONFIG_HOME/zsh/API_KEYS ]]; then
     source $XDG_CONFIG_HOME/zsh/API_KEYS
