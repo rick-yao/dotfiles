@@ -1,4 +1,8 @@
-{pkgs, ...}:
+{
+  pkgs,
+  user,
+  ...
+}:
 ###################################################################################
 #
 #  macOS's System configuration
@@ -9,12 +13,9 @@
 #    https://github.com/rgcr/m-cli
 #
 ###################################################################################
-let
-  mkMeta = import ../lib/mkmeta.nix {};
-  username = mkMeta.username;
-in {
+{
   system = {
-    primaryUser = username;
+    primaryUser = user;
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     # NOTE: not working on macOS 14
     # activationScripts.postUserActivation.text = ''

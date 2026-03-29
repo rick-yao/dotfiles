@@ -52,7 +52,7 @@ update-linux: update
 	make deploy-linux
 
 deploy-linux: set-up-config
-	home-manager switch --flake ~/dotfiles/ --impure
+	home-manager switch --flake . --impure
 
 history:
 	nix profile history --profile /nix/var/nix/profiles/system

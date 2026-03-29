@@ -1,10 +1,12 @@
 {
   name,
-  isLinux ? false,
-  isDarwin ? false,
+  platform,
   lib,
   ...
 }: let
+  isLinux = platform == "linux";
+  isDarwin = platform == "darwin";
+
   # Return every .nix file in a directory in a stable order.
   nixFilesIn = dir:
     lib.sort builtins.lessThan (
@@ -29,14 +31,14 @@
     then linuxModules
     else if isDarwin
     then darwinModules
-    else throw "home-manager/default.nix expects either isLinux or isDarwin to be true";
+    else throw "home-manager/default.nix expects platform to be either \"linux\" or \"darwin\"";
 
   homeDirectory =
     if isLinux
     then "/home/${name}"
     else if isDarwin
     then "/Users/${name}"
-    else throw "home-manager/default.nix expects either isLinux or isDarwin to be true";
+    else throw "home-manager/default.nix expects platform to be either \"linux\" or \"darwin\"";
 in {
   # Basic Home Manager identity for the current user.
   home = {

@@ -21,10 +21,12 @@
   homeManagerConfig = import ../home-manager {
     name = user;
     lib = nixpkgs.lib;
-    inherit isLinux isDarwin;
+    inherit platform;
   };
 
-  commonSpecialArgs = {inherit inputs;};
+  commonSpecialArgs = {
+    inherit inputs user;
+  };
 
   mkLinuxSystem = inputs.home-manager.lib.homeManagerConfiguration {
     inherit pkgs;
