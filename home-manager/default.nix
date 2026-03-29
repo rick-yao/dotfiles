@@ -1,36 +1,52 @@
-# home manager conf, shared between all platforms
-# parameters:
-#   - name: the user name
-#   - lib: the nixpkgs lib
-#   - isLinux: true if the system is linux
-#   - isDarwin: true if the system is darwin
-# this will load the configuration from the public folder and the platform specific folder
 {
-  isLinux ? false,
   name,
-  lib,
+  isLinux ? false,
   isDarwin ? false,
+  lib,
   ...
 }: let
-  nixFilesInFolder = folder:
-    lib.filter (fileName: lib.hasSuffix ".nix" fileName) (builtins.attrNames (builtins.readDir folder));
+  # Return every .nix file in a directory in a stable order.
+  nixFilesIn = dir:
+    lib.sort builtins.lessThan (
+      lib.filter (fileName: lib.hasSuffix ".nix" fileName)
+      (builtins.attrNames (builtins.readDir dir))
+    );
 
-  importsFromFolder = folder:
-    map (fileName: import (folder + "/${fileName}")) (nixFilesInFolder folder);
+  # Convert ./folder + ["a.nix" "b.nix"] into importable paths.
+  modulesFrom = dir: map (fileName: dir + "/${fileName}") (nixFilesIn dir);
+
+  # Shared Home Manager modules loaded on every platform.
+  publicModules = modulesFrom ./public;
+
+  # Platform-specific modules are kept separate so it is obvious
+  # which files are only meant for Linux or macOS.
+  linuxModules = modulesFrom ./linux;
+
+  darwinModules = modulesFrom ./darwin;
+
+  platformModules =
+    if isLinux
+    then linuxModules
+    else if isDarwin
+    then darwinModules
+    else throw "home-manager/default.nix expects either isLinux or isDarwin to be true";
+
+  homeDirectory =
+    if isLinux
+    then "/home/${name}"
+    else if isDarwin
+    then "/Users/${name}"
+    else throw "home-manager/default.nix expects either isLinux or isDarwin to be true";
 in {
+  # Basic Home Manager identity for the current user.
   home = {
     username = name;
-    homeDirectory =
-      if isLinux
-      then "/home/${name}"
-      else "/Users/${name}";
+    inherit homeDirectory;
     stateVersion = "26.05";
   };
 
   programs.home-manager.enable = true;
 
-  imports =
-    (importsFromFolder ./public)
-    ++ lib.optionals isLinux (importsFromFolder ./linux)
-    ++ lib.optionals isDarwin (importsFromFolder ./darwin);
+  # Import shared modules first, then the platform-specific overrides.
+  imports = publicModules ++ platformModules;
 }
