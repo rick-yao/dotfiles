@@ -51,5 +51,6 @@
     statix
     alejandra
     zsh-fzf-tab
+    tspin
   ];
 }
