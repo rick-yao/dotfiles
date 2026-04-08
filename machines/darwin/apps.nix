@@ -73,6 +73,7 @@
       "mole"
       "gemini-cli"
       "swiftformat"
+      "xcodegen"
     ];
 
     # `brew install --cask`
