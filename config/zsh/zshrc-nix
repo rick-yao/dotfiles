@@ -3,6 +3,8 @@
 # Zsh root
 ZSHAREDIR=$HOME/.local/share/zsh-nix
 
+SDKROOT=$(xcrun --show-sdk-path --sdk macosx)
+
 git_current_branch() {
 	git -C "$1" branch | sed  '/^\*/!d;s/\* //'
 }
