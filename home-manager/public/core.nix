@@ -1,11 +1,5 @@
 {...}: {
   programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
-    };
-
     eza = {
       enable = true;
       enableZshIntegration = false;
