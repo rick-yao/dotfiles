@@ -22,13 +22,13 @@ prepend_previewers = [
 ]
 
 [[plugin.prepend_fetchers]]
-url   = "*"
-run   = "git"
+url = "*"
+run = "git"
 group = "git"
 
 [[plugin.prepend_fetchers]]
-url   = "*/"
-run   = "git"
+url = "*/"
+run = "git"
 group = "git"
 
 [opener]
