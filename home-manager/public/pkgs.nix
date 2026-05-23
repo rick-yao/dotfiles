@@ -46,7 +46,7 @@
     axel
     exiftool
     ouch
-    asciinema_3
+    asciinema
     nixd
     deadnix
     statix
