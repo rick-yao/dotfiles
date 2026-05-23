@@ -8,6 +8,9 @@ th.git.ignored_sign = "I"
 th.git.added_sign = "A"
 th.git.updated_sign = "U"
 th.git.untracked_sign = "??"
-require("git"):setup()
+require("git"):setup({
+  -- Order of status signs showing in the linemode
+  order = 1500,
+})
 
 require("starship"):setup()
