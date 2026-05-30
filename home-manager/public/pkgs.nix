@@ -53,5 +53,6 @@
     alejandra
     zsh-fzf-tab
     tailspin
+    glow
   ];
 }
