@@ -117,6 +117,7 @@
       "cursor"
       "copilot-cli"
       "claude-code"
+      "claude"
       "cc-switch"
       "codex"
     ];
