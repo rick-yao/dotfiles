@@ -89,7 +89,6 @@
       "syntax-highlight"
       "alacritty"
       "font-symbols-only-nerd-font"
-      "alt-tab"
       "appcleaner"
       "coteditor"
       "cyberduck"
