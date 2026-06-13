@@ -1,0 +1,60 @@
+# --- 字体配置 ---
+font-family = "JetBrains Mono"
+font-style = "Regular"
+font-style-italic = "Light Italic"
+font-style-bold = "Bold"
+font-style-bold-italic = "Bold Italic"
+font-size = 21
+
+# 注：Ghostty 默认会自动加载系统中的 Nerd Fonts 图标，
+# 绝大多数情况下无需像 Kitty 那样配置符号映射。
+
+# --- 光标与滚动 ---
+cursor-style = block
+# cursor-style-blink = true
+scrollback-limit = 100000
+
+# --- 窗口与外观 ---
+# Ghostty 使用像素大小，这里按你的 Kitty 配置比例（20000x14000）转换为合理的初始尺寸
+# window-width = 2000
+# window-height = 2000
+window-save-state = never
+confirm-close-surface = false
+macos-titlebar-style = native
+macos-option-as-alt = true
+maximize = true
+
+# --- Tab 标签页设置 ---
+# Ghostty 默认会显示索引，以下配置能最大程度贴近你的自定义 Tab 样式
+window-padding-color = extend
+window-theme = system
+theme = Kanagawabones
+
+# --- 快捷键映射 (Keybinds) ---
+keybind = cmd+t=new_tab
+keybind = cmd+shift+w=close_tab
+# 注：Ghostty 目前没有原生的 "重命名当前 Tab" 的快捷键功能
+
+keybind = cmd+shift+comma=move_tab:-1
+keybind = cmd+shift+period=move_tab:+1
+
+keybind = cmd+one=goto_tab:1
+keybind = cmd+two=goto_tab:2
+keybind = cmd+three=goto_tab:3
+keybind = cmd+four=goto_tab:4
+keybind = cmd+five=goto_tab:5
+keybind = cmd+six=goto_tab:6
+
+# 发送特殊字符 (Shift+Enter 发送 \e\r)
+keybind = shift+enter=text:\x1b\r
+
+# 开启 SSH 自动集成（自动转发环境变量和自动同步 terminfo）
+shell-integration-features = ssh-env,ssh-terminfo,no-cursor,sudo,title
+
+clipboard-write = allow
+clipboard-read = allow
+
+# --- 启动会话 ---
+# Ghostty 没有完全等价于 Kitty 的 startup_session 脚本功能，
+# 但你可以通过指定初始执行的命令来达到类似效果：
+# command = zsh -c "你的启动脚本"

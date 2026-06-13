@@ -53,6 +53,7 @@ def link_file(target_file, link_name):
     link_name.symlink_to(target_file)
     log_message(f"Symbolic link created or updated: {link_name} -> {target_file}")
 
+
 # Check if the .config directory exists
 config_dir_path = Path(config_dir)
 if not config_dir_path.exists():
@@ -121,3 +122,6 @@ link_file(f"{Path.home()}/dotfiles/config/yazi", f"{config_dir}/yazi")
 
 # pip
 link_file(f"{Path.home()}/dotfiles/config/pip", f"{config_dir}/pip")
+
+# ghostty
+link_file(f"{Path.home()}/dotfiles/config/ghostty", f"{config_dir}/ghostty")
