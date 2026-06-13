@@ -5,6 +5,7 @@ ZSHAREDIR=$HOME/.local/share/zsh-nix
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     SDKROOT=$(xcrun --show-sdk-path --sdk macosx)
+    export XCODE_DEVELOPMENT_TEAM="8ZJBHVV6S7"
 fi
 
 git_current_branch() {
