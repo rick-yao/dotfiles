@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# Case-insensitive tab completion (e.g. cd XXX matches "xxx")
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 # Zsh root
 ZSHAREDIR=$HOME/.local/share/zsh-nix
 
