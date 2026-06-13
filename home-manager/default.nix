@@ -15,7 +15,8 @@
     );
 
   # Convert ./folder + ["a.nix" "b.nix"] into importable paths.
-  modulesFrom = dir: map (fileName: dir + "/${fileName}") (nixFilesIn dir);
+  # Use builtins.pathExists because Nix does not copy empty directories to the store.
+  modulesFrom = dir: if builtins.pathExists dir then map (fileName: dir + "/${fileName}") (nixFilesIn dir) else [];
 
   # Shared Home Manager modules loaded on every platform.
   publicModules = modulesFrom ./public;
