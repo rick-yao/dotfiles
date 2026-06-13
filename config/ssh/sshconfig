@@ -11,6 +11,3 @@ Host bg
 Host rn
 	HostName 107.175.140.182
 	User rick
-	
-Host *
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
