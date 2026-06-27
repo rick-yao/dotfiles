@@ -78,7 +78,7 @@
 
     # `brew install --cask`
     casks = [
-      "jordanbaird-ice"
+      # "jordanbaird-ice"
       "firefox"
       "1password-cli"
       "google-chrome"
