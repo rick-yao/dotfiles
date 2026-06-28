@@ -4,7 +4,7 @@
     ffmpeg
     xh
     htop
-    procs
+    # procs
     lazydocker
     fastfetch
     tailspin
@@ -34,7 +34,7 @@
     go
     hyperfine
     gping
-    doggo
+    # doggo
     duf
     curlie
     gh
@@ -49,7 +49,7 @@
     asciinema
     nixd
     deadnix
-    statix
+    # statix
     alejandra
     zsh-fzf-tab
     tailspin
