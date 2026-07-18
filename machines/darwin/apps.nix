@@ -71,7 +71,6 @@
       "uv"
       "cloudflared"
       "mole"
-      "gemini-cli"
       "swiftformat"
       "xcodegen"
     ];
@@ -119,6 +118,7 @@
       "claude"
       "cc-switch"
       "codex"
+      "antigravity-cli"
     ];
   };
 }
