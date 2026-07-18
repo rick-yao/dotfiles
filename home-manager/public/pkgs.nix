@@ -13,7 +13,7 @@
     protobuf
     btop
     gnupg
-    unar
+    # unar
     poppler
     iperf3
     zoxide
