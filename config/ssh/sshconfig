@@ -11,3 +11,11 @@ Host bg
 Host rn
 	HostName 107.175.140.182
 	User rick
+	
+Host storage-pve
+	HostName 192.168.31.211
+	User rick
+	
+Host debian-home
+	HostName 192.168.31.250
+	User rick
