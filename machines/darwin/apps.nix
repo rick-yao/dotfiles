@@ -73,6 +73,8 @@
       "mole"
       "swiftformat"
       "xcodegen"
+      "herdr"
+      "docker/tap/sbx"
     ];
 
     # `brew install --cask`
