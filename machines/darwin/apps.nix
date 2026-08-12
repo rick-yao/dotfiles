@@ -54,6 +54,7 @@
       "buo/cask-upgrade"
       "tw93/tap"
       "farion1231/ccswitch"
+      "docker/tap"
     ];
 
     # `brew install`
@@ -74,7 +75,6 @@
       "swiftformat"
       "xcodegen"
       "herdr"
-      "docker/tap/sbx"
     ];
 
     # `brew install --cask`
@@ -121,6 +121,7 @@
       "cc-switch"
       "codex"
       "antigravity-cli"
+      "docker/tap/sbx"
     ];
   };
 }
