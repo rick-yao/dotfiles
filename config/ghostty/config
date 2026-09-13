@@ -24,6 +24,11 @@ macos-titlebar-style = native
 macos-option-as-alt = true
 maximize = true
 
+# 去掉额外边距，将不足一个字符单元的剩余空间均分到两侧，避免底部状态栏被拉高。
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = true
+
 # --- Tab 标签页设置 ---
 # Ghostty 默认会显示索引，以下配置能最大程度贴近你的自定义 Tab 样式
 window-padding-color = extend
