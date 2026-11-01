@@ -120,8 +120,6 @@
       "claude"
       "cc-switch"
       "codex"
-      "antigravity-cli"
-      "docker/tap/sbx"
     ];
   };
 }
