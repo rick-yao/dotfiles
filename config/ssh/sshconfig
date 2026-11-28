@@ -19,3 +19,7 @@ Host storage-pve
 Host debian-home
 	HostName 192.168.31.250
 	User rick
+	
+Host pve-home
+	HostName 192.168.31.210
+	User root
